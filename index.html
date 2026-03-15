@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mush Design Studio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Degular:wght@300;400;500&family=Acumin+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Studio</a></li>
+        <li class="logo">
+          <img src="images/mush-logo.svg" alt="mush creative" />
+        </li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li>
+          <button id="theme-toggle" type="button">
+            <img src="images/theme.svg" alt="theme" />
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Sections -->
+    <main>
+      <!-- Left Section -->
+      <div class="container">
+        <div class="grid">
+          <section class="left">
+            <img
+              class="cover-img"
+              src="images/1-small.png"
+              alt="Green booklet"
+            />
+            <div>
+
+              <h1>
+                We build brands that become an inspiration to your competitors.
+              </h1>
+              <p>
+                We are a design studio comprised of diverse minds turning complex
+                problems into powerful digital experiences.
+              </p>
+            </div>
+            <a href="#" class="link"
+              >Our Services
+              <img src="images/arrow-right-white.svg" height="20" alt=""
+            /></a>
+          </section>
+
+          <!-- Middle Section -->
+          <section class="middle">
+            <img
+              class="cover-img"
+              src="images/booklet-small.jpg"
+              alt="Green booklet"
+            />
+            <p class="subtitle">Transforming a 30 years old legacy brand.</p>
+            <a href="#" class="btn pill">VIEW CASE STUDY</a>
+          </section>
+
+          <!-- Right Section -->
+          <section class="right">
+            <div class="founders">
+              <img
+                class="cover-img"
+                src="images/founders-small.jpg"
+                alt="Founders photo"
+              />
+              <p>Founded out of passion not entrepreneurship.</p>
+              <a href="#" class="btn pill">About Us <img src="images/arrow-right-black.svg" alt=""></a>
+            </div>
+            <div class="clients">
+              <p>Clients we've empowered.</p>
+              <div class="logos">
+                <img src="images/rustomjee.svg" data-theme="images/rustomjee-w.svg" alt="Rustomjee" />
+                <img src="images/dupont.svg" data-theme="images/dupont-w.svg" alt="Dupont" />
+                <img src="images/dabur.svg" data-theme="images/dabur-w.svg" alt="Dabur" />
+                <img src="images/dlf.svg" data-theme="images/dlf-w.svg" alt="DLF" />
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+   
+    <script>
+      document
+        .getElementById("theme-toggle")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("dark-theme");
+          // Toggle image sources for theme
+          const imgs = document.querySelectorAll('img[data-theme]');
+          imgs.forEach(img => {
+            const temp = img.src;
+            img.src = img.dataset.theme;
+            img.dataset.theme = temp;
+          });
+        });
+    </script>
+  </body>
+</html>

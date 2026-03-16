@@ -20,7 +20,14 @@ body {
   padding: 0;
   background: var(--background-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  overflow-x: hidden;
+}
+.flex {
+  display: flex;
+  gap: 1rem;
 }
 
 .navbar {
@@ -46,9 +53,9 @@ body {
   margin: 0 1.25rem;
   font-family: "Degular", Arial, Helvetica, sans-serif;
   font-size: 1rem;
-font-weight: 400;
-line-height: 100%;
-letter-spacing: -3%;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -3%;
 }
 .navbar a {
   text-decoration: none;
@@ -163,12 +170,12 @@ main section.right {
 }
 .founders p {
   font-family: "Acumin Pro", Arial, Helvetica, sans-serif;
-font-weight: 700;
-font-size: 24px;
-line-height: 28px;
-letter-spacing: -7%;
-margin: 0;
-max-width: 55%;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -7%;
+  margin: 0;
+  max-width: 55%;
 }
 .right .clients {
   display: flex;
@@ -182,7 +189,9 @@ max-width: 55%;
   background: var(--clients-bg);
   color: var(--text-color);
   border-radius: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 .clients p {
   font-family: "Acumin Pro", Arial, Helvetica, sans-serif;
@@ -229,5 +238,61 @@ main section .right p {
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   background: white;
-  color:black;
+  color: black;
+}
+
+.projects-page {
+  padding-block: 4rem;
+  max-width: max-content;
+}
+.projects-page .container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow: hidden;
+}
+.horiz-gallery-strip,
+.horiz-gallery-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+  position: relative;
+}
+.horiz-gallery-strip{
+  /* gap: 2rem; */
+}
+
+/* .projects-page .flex {
+  gap: 2rem;
+  width: fit-content;
+} */
+.projects-page article {
+  width: 550px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  padding: 1rem;
+}
+.projects-page article figure {
+  margin: 0;
+  padding: 0;
+}
+.projects-page article h4 {
+  font-family: "Acumin Pro", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -7%;
+  margin: 0;
+}
+.projects-page article p {
+  margin: 0;
+  padding: 0;
+}
+.projects-page article img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  aspect-ratio: 0.735;
 }

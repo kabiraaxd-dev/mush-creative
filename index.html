@@ -44,13 +44,12 @@
               alt="Green booklet"
             />
             <div>
-
               <h1>
                 We build brands that become an inspiration to your competitors.
               </h1>
               <p>
-                We are a design studio comprised of diverse minds turning complex
-                problems into powerful digital experiences.
+                We are a design studio comprised of diverse minds turning
+                complex problems into powerful digital experiences.
               </p>
             </div>
             <a href="#" class="link"
@@ -79,31 +78,121 @@
                 alt="Founders photo"
               />
               <p>Founded out of passion not entrepreneurship.</p>
-              <a href="#" class="btn pill">About Us <img src="images/arrow-right-black.svg" alt=""></a>
+              <a href="#" class="btn pill"
+                >About Us <img src="images/arrow-right-black.svg" alt=""
+              /></a>
             </div>
             <div class="clients">
               <p>Clients we've empowered.</p>
               <div class="logos">
-                <img src="images/rustomjee.svg" data-theme="images/rustomjee-w.svg" alt="Rustomjee" />
-                <img src="images/dupont.svg" data-theme="images/dupont-w.svg" alt="Dupont" />
-                <img src="images/dabur.svg" data-theme="images/dabur-w.svg" alt="Dabur" />
-                <img src="images/dlf.svg" data-theme="images/dlf-w.svg" alt="DLF" />
+                <img
+                  src="images/rustomjee.svg"
+                  data-theme="images/rustomjee-w.svg"
+                  alt="Rustomjee"
+                />
+                <img
+                  src="images/dupont.svg"
+                  data-theme="images/dupont-w.svg"
+                  alt="Dupont"
+                />
+                <img
+                  src="images/dabur.svg"
+                  data-theme="images/dabur-w.svg"
+                  alt="Dabur"
+                />
+                <img
+                  src="images/dlf.svg"
+                  data-theme="images/dlf-w.svg"
+                  alt="DLF"
+                />
               </div>
             </div>
           </section>
         </div>
       </div>
     </main>
+    <footer>
+      <div class="container">
+        <div class="border">
+          <figure class="desktop-logo">
+            <img
+              src="images/logo-white.svg"
+              data-theme="images/logo-black.svg"
+              alt="mush creative"
+            />
+          </figure>
+          <p class="slogan">
+            We create digital experiences that make an impact. Let’s Talk.
+          </p>
+        </div>
 
-   
+        <dl>
+          <dt>New Business</dt>
+          <dd>
+            <a href="mailto:ut@mushcreative.in">ut@mushcreative.in</a><br />
+            <a href="tel:+91-97167-17879">+91-97167-17879</a>
+          </dd>
+          <dt>General Enquiries</dt>
+          <dd>
+            <a href="mailto:hey@mushcreative.in">hey@mushcreative.in</a>
+          </dd>
+          <dt>Find us</dt>
+          <dd>
+            Suit No B-10, Procapitus Business Park, D-247/4A, D Block, Sector
+            63, Noida, UP- 201309
+          </dd>
+          <dt>Follow us</dt>
+          <dd>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/mushcreative/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+              <a
+                href="https://www.linkedin.com/company/mush-creative"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+              <a
+                href="https://www.pinterest.com/mushcreative/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Pinterest</a
+              >
+              <a
+                href="https://www.behance.net/mushcreative"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Behance</a
+              >
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <p class="copyright">
+        © 2026 Studio Mush. All rights reserved. Privacy Policy | PosterHook
+        Creative and Branding Solutions
+      </p>
+      <figure class="mobile-logo">
+        <img
+          src="images/logo-white.svg"
+          data-theme="images/logo-black.svg"
+          alt="mush creative"
+        />
+      </figure>
+    </footer>
+
     <script>
       document
         .getElementById("theme-toggle")
         .addEventListener("click", function () {
           document.body.classList.toggle("dark-theme");
           // Toggle image sources for theme
-          const imgs = document.querySelectorAll('img[data-theme]');
-          imgs.forEach(img => {
+          const imgs = document.querySelectorAll("img[data-theme]");
+          imgs.forEach((img) => {
             const temp = img.src;
             img.src = img.dataset.theme;
             img.dataset.theme = temp;

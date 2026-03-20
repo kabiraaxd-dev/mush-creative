@@ -1,0 +1,132 @@
+:root {
+  --primary-color: #ff6600;
+  --secondary-color: #000;
+  --background-color: #fff;
+  --text-color: #333;
+  --navbar-bg: linear-gradient(90deg, #f0f0f0 0%, #e4e4e4 57.21%, #f4f4f4 100%);
+  --clients-bg: #dfdfdf;
+  --footer-text: #fff;
+  --footer-text-secondary: #a2a2a2;
+  --mobile-menu-bg: linear-gradient(90deg, #f0f0f0 0%, #e4e4e4 57.21%, #f4f4f4 100%);
+}
+
+.dark-theme {
+  --primary-color: #ff8533;
+  --secondary-color: #fff;
+  --background-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --navbar-bg: rgba(53, 53, 53, 0.32);
+  --clients-bg: #2a2a2a;
+  --footer-text: #000;
+  --footer-text-secondary: #a2a2a2;
+  --mobile-menu-bg: rgba(14, 14, 14, 0.93);
+}
+body {
+  font-family: "Degular", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  overflow-x: hidden;
+}
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar {
+  background: var(--navbar-bg);
+  max-width: 626px;
+  max-height: 65px;
+  padding: 1rem;
+  border-radius: 11px;
+  opacity: 1;
+  margin: 2rem auto;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar li {
+  margin: 0 1.25rem;
+  font-family: "Degular", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -3%;
+}
+.navbar a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+.navbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.logo img {
+  height: 2rem;
+  width: auto;
+}
+
+/* media queries  */
+@media screen and (max-width: 768px) {
+  .navbar {
+    background: var(--mobile-menu-bg);
+    max-height: fit-content;
+    margin: 0 auto;
+    border-radius: 0;
+    padding: 0;
+    backdrop-filter: blur(6px);
+  }
+  .navbar ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+  }
+  .navbar li {
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 70px;
+    letter-spacing: -2px;
+  }
+  .navbar .logo {
+    order: -5;
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar .socials {
+    padding: 1rem 2.25rem;
+  }
+  .navbar .legal {
+    padding: 1rem 2.25rem;
+    justify-content: space-between;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px; /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+  .navbar .legal a {
+    color: var(--footer-text-secondary);
+}

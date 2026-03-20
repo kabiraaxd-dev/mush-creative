@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Degular:wght@300;400;500&family=Acumin+Pro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="project-1.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="studio.html">Studio</a></li>
+        <li class="logo">
+          <a href="index.html">
+            <img
+              src="images/logo-black.svg"
+              data-theme="images/logo-white.svg"
+              alt="mush creative"
+            />
+          </a>
+          <button class="close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M14.1523 3.4365e-05L15.8589 1.70663L2.20611 15.3594L0.499512 13.6528L14.1523 3.4365e-05Z"
+                fill="#0D0D0D"
+              />
+              <path
+                d="M15.3593 14.0312L13.6527 15.7378L-5.67395e-05 2.08502L1.70654 0.378418L15.3593 14.0312Z"
+                fill="#0D0D0D"
+              />
+            </svg>
+          </button>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button id="theme-toggle" type="button">
+            <img
+              src="images/theme.svg"
+              data-theme="images/theme-white.svg"
+              alt="theme"
+            />
+          </button>
+        </li>
+      </ul>
+      <div class="socials">
+        <span
+          ><a href="https://www.instagram.com/mush.creative/" target="_blank"
+            ><img
+              src="images/instagram.svg"
+              data-theme="images/instagram-white.svg"
+              alt="instagram" /></a
+        ></span>
+        <span
+          ><a href="https://www.behance.net/mushcreative" target="_blank"
+            ><img
+              src="images/behance.svg"
+              data-theme="images/behance-white.svg"
+              alt="behance" /></a
+        ></span>
+        <span
+          ><a
+            href="https://www.linkedin.com/company/mush-creative"
+            target="_blank"
+            ><img
+              src="images/linkedin.svg"
+              data-theme="images/linkedin-white.svg"
+              alt="linkedin" /></a
+        ></span>
+      </div>
+      <div class="flex legal">
+        <span>© 2026 Studio Mush</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a></span>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="product-image">
+        <img src="images/4-small.jpg" alt="Product Image" />
+      </div>
+      <div class="product-details">
+        <h1>Ashbee Energy</h1>
+        <!-- <div class="rating">⭐⭐⭐⭐⭐ (128 reviews)</div> -->
+        <!-- <div class="price">$299.99</div> -->
+        <p class="description">
+          A bold custom typeface system for Snickers, built from the iconic
+          wordmark and inspired by the unapologetic attitude of American Gothic.
+        </p>
+        <div class="specs">
+          <h4>Challenge</h4>
+          <p>
+            Ashbee Systems has long been respected in industrial weighing
+            technology, but as they entered the BESS and lithium-ion battery
+            sector, they needed a fresh identity for this new vertical. The
+            challenge was to create a modern, future-facing brand that signals
+            energy innovation, while still retaining the legacy strength and
+            recognition of the Ashbee name.
+          </p>
+        </div>
+        <div class="specs">
+          <h4>Services</h4>
+          <div class="services-list">
+            Brand Foundations <br />
+            Brand strategy <br />
+            Brand Guidelines <br />
+            Logo Design <br />
+            Moodboards & Art Direction
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("theme-toggle")
+        .addEventListener("click", function () {
+          document.body.classList.toggle("dark-theme");
+          // Toggle image sources for theme
+          const imgs = document.querySelectorAll("img[data-theme]");
+          imgs.forEach((img) => {
+            const temp = img.src;
+            img.src = img.dataset.theme;
+            img.dataset.theme = temp;
+          });
+        });
+    </script>
+  </body>
+</html>

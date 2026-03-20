@@ -11,15 +11,6 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    max-height: fit-content;
-    margin: 0 auto;
-    border-radius: 0;
-  }
-  .navbar ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
 
   .grid {
     grid-template-columns: 1fr; /* Single column on mobile */

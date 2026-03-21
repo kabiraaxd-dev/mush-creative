@@ -12,6 +12,54 @@
     <link rel="stylesheet" href="project-1.css" />
   </head>
   <body>
+    <div>
+      <div class="flex mobile-logo">
+        <button id="open-menu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="9"
+            viewBox="0 0 16 9"
+            fill="none"
+          >
+            <path d="M16 0V2H0V0H16Z" fill="currentColor" />
+            <path d="M16 7V9H0V7H16Z" fill="currentColor" />
+          </svg>
+        </button>
+        <a href="index.html">
+          <img
+            src="images/logo-black.svg"
+            data-theme="images/logo-white.svg"
+            alt="mush creative"
+            class="logo"
+          />
+        </a>
+        <button id="theme-toggle" type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="14"
+            viewBox="0 0 15 14"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_553_1062)">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.45189 14C11.3504 14 14.5107 10.866 14.5107 7C14.5107 3.13402 11.3504 0 7.45189 0C3.55342 0 0.393066 3.13402 0.393066 7C0.393066 10.866 3.55342 14 7.45189 14ZM13.0621 7C13.0621 10.0726 10.5503 12.5635 7.45189 12.5635V1.43649C10.5503 1.43649 13.0621 3.92733 13.0621 7Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_553_1062">
+                <rect width="15" height="14" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        
+      </div>
+    </div>
     <nav class="navbar">
       <ul>
         <li><a href="projects.html">Projects</a></li>
@@ -34,18 +82,18 @@
             >
               <path
                 d="M14.1523 3.4365e-05L15.8589 1.70663L2.20611 15.3594L0.499512 13.6528L14.1523 3.4365e-05Z"
-                fill="#0D0D0D"
+                fill="currentColor"
               />
               <path
                 d="M15.3593 14.0312L13.6527 15.7378L-5.67395e-05 2.08502L1.70654 0.378418L15.3593 14.0312Z"
-                fill="#0D0D0D"
+                fill="currentColor"
               />
             </svg>
           </button>
         </li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li>
+        <li class="theme">
           <button id="theme-toggle" type="button">
             <img
               src="images/theme.svg"
@@ -55,7 +103,7 @@
           </button>
         </li>
       </ul>
-      <div class="socials">
+      <div class="flex socials">
         <span
           ><a href="https://www.instagram.com/mush.creative/" target="_blank"
             ><img
@@ -120,6 +168,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script>
       document
         .getElementById("theme-toggle")
@@ -133,6 +182,84 @@
             img.dataset.theme = temp;
           });
         });
+
+      // Mobile menu toggle
+
+      const menu = document.querySelector(".navbar");
+      const openBtn = document.getElementById("open-menu");
+      const closeBtn = document.querySelector(".close");
+
+      const menuItems = document.querySelectorAll(".navbar li");
+      // const logo = document.querySelectorAll(".navbar .logo");
+      const socials = document.querySelectorAll(".socials span");
+      const legal = document.querySelectorAll(".legal span");
+
+      gsap.set(menu, { y: "-100%" });
+      // gsap.set(logo, { opacity: 1 });
+
+      const tl = gsap.timeline({ paused: true });
+
+      // menu slide down
+      tl.to(menu, {
+        y: "0%",
+        zIndex: 51,
+        duration: 0.6,
+        ease: "power3.inOut",
+      });
+
+      // stagger menu items
+      tl.from(
+        menuItems,
+        {
+          y: 40,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.3",
+      );
+
+      // socials
+      tl.from(
+        socials,
+        {
+          y: 20,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.4,
+        },
+        "-=0.3",
+      );
+
+      // legal
+      tl.from(
+        legal,
+        {
+          opacity: 0,
+          duration: 0.4,
+        },
+        "-=0.3",
+      );
+
+      // OPEN
+      openBtn.addEventListener("click", () => {
+        document.body.classList.add("menu-open");
+        tl.play();
+      });
+
+      // CLOSE
+      function closeMenu() {
+        tl.reverse();
+        document.body.classList.remove("menu-open");
+      }
+
+      closeBtn.addEventListener("click", closeMenu);
+
+      // close on link click
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
     </script>
   </body>
 </html>

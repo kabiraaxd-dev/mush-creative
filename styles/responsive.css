@@ -16,6 +16,10 @@
     grid-template-columns: 1fr; /* Single column on mobile */
   }
 
+  main .container {
+    padding: 0 1rem; /* Add horizontal padding on mobile */
+  }
+
   main section.left h1 {
     font-size: 2.5rem; /* Adjust heading size for smaller screens */
   }
@@ -29,6 +33,16 @@
   .founders p {
     line-height: normal; /* Adjust line height for better readability on smaller screens */
     max-width: 90%; /* Ensure text doesn't stretch too wide on mobile */
+  }
+  .right .clients {
+    gap: 2rem;
+  }
+  .clients .logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for logos on mobile */
+    gap: 1rem; /* Reduce gap between logos on mobile */
+    justify-items: center;
+    /* flex-direction: column; */
   }
 
   .projects-page .container {
@@ -62,6 +76,7 @@
     margin: 6.25rem 1rem 0;
   }
   .mobile-logo img {
+    /* max-width: calc(100vw - 2rem); */
     width: 100%;
     height: auto;
     display: block;

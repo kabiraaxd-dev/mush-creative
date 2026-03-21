@@ -7,7 +7,7 @@
   --clients-bg: #dfdfdf;
   --footer-text: #fff;
   --footer-text-secondary: #a2a2a2;
-  --mobile-menu-bg: linear-gradient(90deg, #f0f0f0 0%, #e4e4e4 57.21%, #f4f4f4 100%);
+  --mobile-menu-bg: linear-gradient(90deg, rgba(240, 240, 240, 0.90) 0%, rgba(228, 228, 228, 0.90) 57.21%, rgba(244, 244, 244, 0.90) 100%);
 }
 
 .dark-theme {
@@ -42,12 +42,23 @@ body {
   max-width: 626px;
   max-height: 65px;
   padding: 1rem;
-  border-radius: 11px;
+  border-radius: 12px;
   opacity: 1;
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 41;
+
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+}
+
+.navbar {
+  visibility: hidden;
 }
 
 .navbar ul {
@@ -78,30 +89,72 @@ body {
   cursor: pointer;
   outline: none;
 }
+.navbar .close,
+.navbar .socials,
+.navbar .legal {
+  display: none;
+}
 .logo {
   font-weight: bold;
   font-size: 1.5rem;
 }
+.mobile-logo img,
 .logo img {
   height: 2rem;
   width: auto;
 }
 
+.close {
+  color: var(--secondary-color);
+}
+
+.mobile-menu {
+  display: none;
+}
+
 /* media queries  */
 @media screen and (max-width: 768px) {
-  .navbar {
+  .mobile-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 26px;
     background: var(--mobile-menu-bg);
-    max-height: fit-content;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 49;
+    border-radius: 8px;
+  }
+  .mobile-menu button {
+    background: transparent none;
+    color: var(--secondary-color);
+    border: 0 none;
+    padding: 0;
+    cursor: pointer;
+    width: 1rem;
+  }
+  .mobile-menu .logo {
+    max-height: 25px;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    background: var(--mobile-menu-bg);
+    max-height: none;
+    inset: 0;
     margin: 0 auto;
     border-radius: 0;
     padding: 0;
     backdrop-filter: blur(6px);
+    transform: none;
   }
   .navbar ul {
     flex-direction: column;
     align-items: stretch;
     gap: 0.5rem;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
+    margin-bottom: auto;
   }
   .navbar li {
     font-size: 50px;
@@ -114,12 +167,22 @@ body {
     order: -5;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5.878vh;
+  }
+  .navbar .theme {
+    display: none;
+  }
+  .navbar .close {
+    display: block;
   }
   .navbar .socials {
     padding: 1rem 2.25rem;
+    gap: 2rem;
+    display: flex;
   }
   .navbar .legal {
-    padding: 1rem 2.25rem;
+    padding: 2rem 2.25rem;
+    display: flex;
     justify-content: space-between;
     font-size: 12px;
     font-style: normal;

@@ -1,10 +1,10 @@
-.navbar {
+/* .navbar {
   position: fixed;
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
-}
+  z-index: 41;
+} */
 .container {
   display: grid;
   grid-template-columns: 56% 1fr;
@@ -91,14 +91,12 @@
 
 @media screen and (max-width: 768px) {
     .navbar {
-        top: 0;
-        left: 0;
-        right: 0;
+      inset: 0;
         transform: none;
     }
     .container {
         grid-template-columns: 1fr;
-        padding-top: 5rem;
+        padding-top: 6rem;
     }
     .product-details {
         padding: 2rem;

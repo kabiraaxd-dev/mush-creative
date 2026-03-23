@@ -115,7 +115,7 @@ window.addEventListener("load", () => {
     console.log("desktop");
 
     gsap.from(".navbar", {
-      y: -40,
+      y: -100,
       opacity: 0,
       duration: 0.8,
       ease: "power2.out",

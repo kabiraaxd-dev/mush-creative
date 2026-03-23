@@ -4,35 +4,135 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mush Design Studio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Degular:wght@300;400;500&family=Acumin+Pro:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="responsive.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css">
+    
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/project-1.css" />
   </head>
   <body>
     <div id="smooth-wrapper">
       <div id="smooth-content">
+        <div class="flex mobile-menu">
+          <button id="open-menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="9"
+              viewBox="0 0 16 9"
+              fill="none"
+            >
+              <path d="M16 0V2H0V0H16Z" fill="currentColor" />
+              <path d="M16 7V9H0V7H16Z" fill="currentColor" />
+            </svg>
+          </button>
+          <a href="index.html">
+            <img
+              src="images/logo-black.svg"
+              data-theme="images/logo-white.svg"
+              alt="mush creative"
+              class="logo"
+            />
+          </a>
+          <button class="theme-toggle" type="button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="14"
+              viewBox="0 0 15 14"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_553_1062)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7.45189 14C11.3504 14 14.5107 10.866 14.5107 7C14.5107 3.13402 11.3504 0 7.45189 0C3.55342 0 0.393066 3.13402 0.393066 7C0.393066 10.866 3.55342 14 7.45189 14ZM13.0621 7C13.0621 10.0726 10.5503 12.5635 7.45189 12.5635V1.43649C10.5503 1.43649 13.0621 3.92733 13.0621 7Z"
+                  fill="currentColor"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_553_1062">
+                  <rect width="15" height="14" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+        </div>
         <!-- Navigation -->
         <nav class="navbar">
           <ul>
-            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="studio.html">Studio</a></li>
             <li class="logo">
               <a href="index.html">
-                <img src="images/mush-logo.svg" alt="mush creative" />
+                <img
+                  src="images/logo-black.svg"
+                  data-theme="images/logo-white.svg"
+                  alt="mush creative"
+                />
               </a>
+              <button class="close">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M14.1523 3.4365e-05L15.8589 1.70663L2.20611 15.3594L0.499512 13.6528L14.1523 3.4365e-05Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M15.3593 14.0312L13.6527 15.7378L-5.67395e-05 2.08502L1.70654 0.378418L15.3593 14.0312Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
             </li>
             <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li>
-              <button id="theme-toggle" type="button">
-                <img src="images/theme.svg" alt="theme" />
+            <li class="theme">
+              <button class="theme-toggle" type="button">
+                <img
+                  src="images/theme.svg"
+                  data-theme="images/theme-white.svg"
+                  alt="theme"
+                />
               </button>
             </li>
           </ul>
+          <div class="flex socials">
+            <span
+              ><a
+                href="https://www.instagram.com/mush.creative/"
+                target="_blank"
+                ><img
+                  src="images/instagram.svg"
+                  data-theme="images/instagram-white.svg"
+                  alt="instagram" /></a
+            ></span>
+            <span
+              ><a href="https://www.behance.net/mushcreative" target="_blank"
+                ><img
+                  src="images/behance.svg"
+                  data-theme="images/behance-white.svg"
+                  alt="behance" /></a
+            ></span>
+            <span
+              ><a
+                href="https://www.linkedin.com/company/mush-creative"
+                target="_blank"
+                ><img
+                  src="images/linkedin.svg"
+                  data-theme="images/linkedin-white.svg"
+                  alt="linkedin" /></a
+            ></span>
+          </div>
+          <div class="flex legal">
+            <span>© 2026 Studio Mush</span>
+            <span><a href="privacy-policy.html">Privacy Policy</a></span>
+          </div>
         </nav>
         <!-- Main Sections -->
         <main class="projects-page">
@@ -40,13 +140,7 @@
           <div id="scrollId" class="container">
             <div class="horiz-gallery-wrapper">
               <div class="horiz-gallery-strip">
-                <!-- <article>
-            <figure>
-              <img src="images/1-small.png" alt="Project 1">
-            </figure>
-            <h4>Project 1</h4>
-            <p>Brand Identity & Website</p>
-          </article> -->
+                
                 <article>
                   <figure>
                     <img src="images/booklet-small.jpg" alt="Project 2" />
@@ -78,74 +172,87 @@
               </div>
             </div>
           </div>
+          <div class="filter">
+            <button class="active">All</button>
+            <button>Branding</button>
+            <button>Web </button>
+            <button>Social</button>
+          </div>
+          
         </main>
         <footer>
-          <div class="container">
-            <div class="border">
-              <figure class="desktop-logo">
-                <img src="images/logo-white.svg" data-theme="images/logo-black.svg" alt="mush creative" />
-
-              </figure>
-              <p class="slogan">
-                We create digital experiences that make an impact. Let’s Talk.
-              </p>
-            </div>
-
-            <dl>
-              <dt>New Business</dt>
-              <dd>
-                <a href="mailto:ut@mushcreative.in">ut@mushcreative.in</a><br />
-                <a href="tel:+91-97167-17879">+91-97167-17879</a>
-              </dd>
-              <dt>General Enquiries</dt>
-              <dd>
-                <a href="mailto:hey@mushcreative.in">hey@mushcreative.in</a>
-              </dd>
-              <dt>Find us</dt>
-              <dd>
-                Suit No B-10, Procapitus Business Park, D-247/4A, D Block,
-                Sector 63, Noida, UP- 201309
-              </dd>
-              <dt>Follow us</dt>
-              <dd>
-                <div class="social-links">
-                  <a
-                    href="https://www.instagram.com/mushcreative/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Instagram</a
-                  >
-                  <a
-                    href="https://www.linkedin.com/company/mush-creative"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >LinkedIn</a
-                  >
-                  <a
-                    href="https://www.pinterest.com/mushcreative/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Pinterest</a
-                  >
-                  <a
-                    href="https://www.behance.net/mushcreative"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Behance</a
-                  >
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <p class="copyright">
-            © 2026 Studio Mush. All rights reserved. Privacy Policy | PosterHook
-            Creative and Branding Solutions
-          </p>
-          <figure class="mobile-logo">
-            
-            <img src="images/logo-white.svg" data-theme="images/logo-black.svg" alt="mush creative" />
+      <div class="container">
+        <div class="border">
+          <figure class="desktop-logo">
+            <img
+            src="images/logo-white.svg"
+            data-theme="images/logo-black.svg"
+            alt="mush creative"
+            />
           </figure>
-        </footer>
+          <p class="slogan">
+            We create digital experiences that make an impact. Let’s Talk.
+          </p>
+        </div>
+        
+        <dl>
+          <dt>New Business</dt>
+          <dd>
+            <a href="mailto:ut@mushcreative.in">ut@mushcreative.in</a><br />
+            <a href="tel:+91-97167-17879">+91-97167-17879</a>
+          </dd>
+          <dt>General Enquiries</dt>
+          <dd>
+            <a href="mailto:hey@mushcreative.in">hey@mushcreative.in</a>
+          </dd>
+          <dt>Find us</dt>
+          <dd>
+            Suit No B-10, Procapitus Business Park, D-247/4A, D Block, Sector
+            63, Noida, UP- 201309
+          </dd>
+          <dt>Follow us</dt>
+          <dd>
+            <div class="social-links">
+              <a
+              href="https://www.instagram.com/mushcreative/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram</a
+              >
+              <a
+              href="https://www.linkedin.com/company/mush-creative"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+              >
+              <a
+              href="https://www.pinterest.com/mushcreative/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Pinterest</a
+              >
+              <a
+              href="https://www.behance.net/mushcreative"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Behance</a
+              >
+            </div>
+          </dd>
+        </dl>
+      </div>
+      <p class="copyright">
+        © 2026 Studio Mush. All rights reserved. Privacy Policy | PosterHook
+        Creative and Branding Solutions
+      </p>
+      <figure class="mobile-logo">
+        <img
+        src="images/logo-white.svg"
+        data-theme="images/logo-black.svg"
+        alt="mush creative"
+        />
+      </figure>
+    </footer>
       </div>
     </div>
 
@@ -157,32 +264,10 @@
     <!-- ScrollSmoother requires ScrollTrigger -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js"></script> -->
-
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
     <script>
-      document
-        .getElementById("theme-toggle")
-        .addEventListener("click", function () {
-          document.body.classList.toggle("dark-theme");
-          // Toggle image sources for theme
-          const imgs = document.querySelectorAll('img[data-theme]');
-          imgs.forEach(img => {
-            const temp = img.src;
-            img.src = img.dataset.theme;
-            img.dataset.theme = temp;
-          });
-        });
-
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-      const smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 2,
-        normalizeScroll: true,
-        ignoreMobileResize: true,
-        preventDefault: true,
-      });
-
+      gsap.from("article", { y: -40, opacity: 0, duration: 1, ease: "power2.out", stagger: 0.2 });
       //Horizontal Scroll Galleries
       if (document.getElementById("scrollId")) {
         const horizontalSections = gsap.utils.toArray(".horiz-gallery-wrapper");
@@ -196,11 +281,10 @@
           function refresh() {
             pinWrapWidth = pinWrap.scrollWidth;
             horizontalScrollLength = pinWrapWidth - window.innerWidth;
-            // console.log("pinWrapWidth:", pinWrapWidth);
-            // console.log("horizontalScrollLength:", horizontalScrollLength);
           }
 
           refresh();
+
           // Pinning and horizontal scrolling
           gsap.to(pinWrap, {
             scrollTrigger: {

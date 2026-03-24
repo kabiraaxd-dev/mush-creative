@@ -4,304 +4,306 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mush Design Studio</title>
-    <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css">
-    
+    <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css" />
+
     <link rel="stylesheet" href="styles/common.css" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="styles/project-1.css" />
+    <link rel="stylesheet" href="styles/project.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-y: hidden; /* Disable vertical scroll */
+        /* background: #f4f4f4; */
+        /* font-family: Arial, sans-serif; */
+      }
+    </style>
   </head>
   <body>
-    <div id="smooth-wrapper">
-      <div id="smooth-content">
-        <div class="flex mobile-menu">
-          <button id="open-menu">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="9"
-              viewBox="0 0 16 9"
-              fill="none"
-            >
-              <path d="M16 0V2H0V0H16Z" fill="currentColor" />
-              <path d="M16 7V9H0V7H16Z" fill="currentColor" />
-            </svg>
-          </button>
+    <!-- mobile menu -->
+    <div class="flex mobile-menu">
+      <button id="open-menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="9"
+          viewBox="0 0 16 9"
+          fill="none"
+        >
+          <path d="M16 0V2H0V0H16Z" fill="currentColor" />
+          <path d="M16 7V9H0V7H16Z" fill="currentColor" />
+        </svg>
+      </button>
+      <a href="index.html">
+        <img
+          src="images/logo-black.svg"
+          data-theme="images/logo-white.svg"
+          alt="mush creative"
+          class="logo"
+        />
+      </a>
+      <button class="theme-toggle" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="14"
+          viewBox="0 0 15 14"
+          fill="none"
+        >
+          <g clip-path="url(#clip0_553_1062)">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.45189 14C11.3504 14 14.5107 10.866 14.5107 7C14.5107 3.13402 11.3504 0 7.45189 0C3.55342 0 0.393066 3.13402 0.393066 7C0.393066 10.866 3.55342 14 7.45189 14ZM13.0621 7C13.0621 10.0726 10.5503 12.5635 7.45189 12.5635V1.43649C10.5503 1.43649 13.0621 3.92733 13.0621 7Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_553_1062">
+              <rect width="15" height="14" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="studio.html">Studio</a></li>
+        <li class="logo">
           <a href="index.html">
             <img
               src="images/logo-black.svg"
               data-theme="images/logo-white.svg"
               alt="mush creative"
-              class="logo"
             />
           </a>
-          <button class="theme-toggle" type="button">
+          <button class="close">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="14"
-              viewBox="0 0 15 14"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
               fill="none"
             >
-              <g clip-path="url(#clip0_553_1062)">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M7.45189 14C11.3504 14 14.5107 10.866 14.5107 7C14.5107 3.13402 11.3504 0 7.45189 0C3.55342 0 0.393066 3.13402 0.393066 7C0.393066 10.866 3.55342 14 7.45189 14ZM13.0621 7C13.0621 10.0726 10.5503 12.5635 7.45189 12.5635V1.43649C10.5503 1.43649 13.0621 3.92733 13.0621 7Z"
-                  fill="currentColor"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_553_1062">
-                  <rect width="15" height="14" fill="white" />
-                </clipPath>
-              </defs>
+              <path
+                d="M14.1523 3.4365e-05L15.8589 1.70663L2.20611 15.3594L0.499512 13.6528L14.1523 3.4365e-05Z"
+                fill="currentColor"
+              />
+              <path
+                d="M15.3593 14.0312L13.6527 15.7378L-5.67395e-05 2.08502L1.70654 0.378418L15.3593 14.0312Z"
+                fill="currentColor"
+              />
             </svg>
           </button>
-        </div>
-        <!-- Navigation -->
-        <nav class="navbar">
-          <ul>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="studio.html">Studio</a></li>
-            <li class="logo">
-              <a href="index.html">
-                <img
-                  src="images/logo-black.svg"
-                  data-theme="images/logo-white.svg"
-                  alt="mush creative"
-                />
-              </a>
-              <button class="close">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M14.1523 3.4365e-05L15.8589 1.70663L2.20611 15.3594L0.499512 13.6528L14.1523 3.4365e-05Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M15.3593 14.0312L13.6527 15.7378L-5.67395e-05 2.08502L1.70654 0.378418L15.3593 14.0312Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-            </li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="theme">
-              <button class="theme-toggle" type="button">
-                <img
-                  src="images/theme.svg"
-                  data-theme="images/theme-white.svg"
-                  alt="theme"
-                />
-              </button>
-            </li>
-          </ul>
-          <div class="flex socials">
-            <span
-              ><a
-                href="https://www.instagram.com/mush.creative/"
-                target="_blank"
-                ><img
-                  src="images/instagram.svg"
-                  data-theme="images/instagram-white.svg"
-                  alt="instagram" /></a
-            ></span>
-            <span
-              ><a href="https://www.behance.net/mushcreative" target="_blank"
-                ><img
-                  src="images/behance.svg"
-                  data-theme="images/behance-white.svg"
-                  alt="behance" /></a
-            ></span>
-            <span
-              ><a
-                href="https://www.linkedin.com/company/mush-creative"
-                target="_blank"
-                ><img
-                  src="images/linkedin.svg"
-                  data-theme="images/linkedin-white.svg"
-                  alt="linkedin" /></a
-            ></span>
-          </div>
-          <div class="flex legal">
-            <span>© 2026 Studio Mush</span>
-            <span><a href="privacy-policy.html">Privacy Policy</a></span>
-          </div>
-        </nav>
-        <!-- Main Sections -->
-        <main class="projects-page">
-          <!-- Left Section -->
-          <div id="scrollId" class="container">
-            <div class="horiz-gallery-wrapper">
-              <div class="horiz-gallery-strip">
-                
-                <article>
-                  <figure>
-                    <img src="images/booklet-small.jpg" alt="Project 2" />
-                  </figure>
-                  <h4>Gulf Pack</h4>
-                  <p>Brand Identity & Website</p>
-                </article>
-                <article>
-                  <figure>
-                    <img src="images/3-small.png" alt="Project 3" />
-                  </figure>
-                  <h4>Oryggi Technologies</h4>
-                  <p>Brand Identity & Website</p>
-                </article>
-                <article>
-                  <figure>
-                    <img src="images/4-small.jpg" alt="Project 4" />
-                  </figure>
-                  <h4>Ashbee Energy</h4>
-                  <p>Brand Identity & Website</p>
-                </article>
-                <article>
-                  <figure>
-                    <img src="images/5.jpg" alt="Project 5" />
-                  </figure>
-                  <h4>Soyi</h4>
-                  <p>Brand Identity & Website</p>
-                </article>
-              </div>
-            </div>
-          </div>
-          <div class="filter">
-            <button class="active">All</button>
-            <button>Branding</button>
-            <button>Web </button>
-            <button>Social</button>
-          </div>
-          
-        </main>
-        <footer>
-      <div class="container">
-        <div class="border">
-          <figure class="desktop-logo">
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="theme">
+          <button class="theme-toggle" type="button">
             <img
-            src="images/logo-white.svg"
-            data-theme="images/logo-black.svg"
-            alt="mush creative"
+              src="images/theme.svg"
+              data-theme="images/theme-white.svg"
+              alt="theme"
             />
-          </figure>
-          <p class="slogan">
-            We create digital experiences that make an impact. Let’s Talk.
-          </p>
-        </div>
-        
-        <dl>
-          <dt>New Business</dt>
-          <dd>
-            <a href="mailto:ut@mushcreative.in">ut@mushcreative.in</a><br />
-            <a href="tel:+91-97167-17879">+91-97167-17879</a>
-          </dd>
-          <dt>General Enquiries</dt>
-          <dd>
-            <a href="mailto:hey@mushcreative.in">hey@mushcreative.in</a>
-          </dd>
-          <dt>Find us</dt>
-          <dd>
-            Suit No B-10, Procapitus Business Park, D-247/4A, D Block, Sector
-            63, Noida, UP- 201309
-          </dd>
-          <dt>Follow us</dt>
-          <dd>
-            <div class="social-links">
-              <a
-              href="https://www.instagram.com/mushcreative/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Instagram</a
-              >
-              <a
-              href="https://www.linkedin.com/company/mush-creative"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-              >
-              <a
-              href="https://www.pinterest.com/mushcreative/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Pinterest</a
-              >
-              <a
-              href="https://www.behance.net/mushcreative"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Behance</a
-              >
-            </div>
-          </dd>
-        </dl>
+          </button>
+        </li>
+      </ul>
+      <div class="flex socials">
+        <span
+          ><a href="https://www.instagram.com/mush.creative/" target="_blank"
+            ><img
+              src="images/instagram.svg"
+              data-theme="images/instagram-white.svg"
+              alt="instagram" /></a
+        ></span>
+        <span
+          ><a href="https://www.behance.net/mushcreative" target="_blank"
+            ><img
+              src="images/behance.svg"
+              data-theme="images/behance-white.svg"
+              alt="behance" /></a
+        ></span>
+        <span
+          ><a
+            href="https://www.linkedin.com/company/mush-creative"
+            target="_blank"
+            ><img
+              src="images/linkedin.svg"
+              data-theme="images/linkedin-white.svg"
+              alt="linkedin" /></a
+        ></span>
       </div>
-      <p class="copyright">
-        © 2026 Studio Mush. All rights reserved. Privacy Policy | PosterHook
-        Creative and Branding Solutions
-      </p>
-      <figure class="mobile-logo">
-        <img
-        src="images/logo-white.svg"
-        data-theme="images/logo-black.svg"
-        alt="mush creative"
-        />
-      </figure>
-    </footer>
+      <div class="flex legal">
+        <span>© 2026 Studio Mush</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a></span>
+      </div>
+    </nav>
+    <!-- gallery -->
+    <div class="gallery-wrapper">
+      <div class="gallery" id="gallery">
+        <article data-category="branding web">
+          <figure>
+            <img src="images/booklet-small.jpg" alt="Project 2" />
+          </figure>
+          <h4>Gulf Pack</h4>
+          <p>Brand Identity & Website</p>
+        </article>
+        <article data-category="branding">
+          <figure>
+            <img src="images/3-small.png" alt="Project 3" />
+          </figure>
+          <h4>Oryggi Technologies</h4>
+          <p>Brand Identity & Website</p>
+        </article>
+        <article data-category="web social">
+          <figure>
+            <img src="images/4-small.jpg" alt="Project 4" />
+          </figure>
+          <h4>Ashbee Energy</h4>
+          <p>Brand Identity & Website</p>
+        </article>
+        <article data-category="branding">
+          <figure>
+            <img src="images/5.jpg" alt="Project 5" />
+          </figure>
+          <h4>Soyi</h4>
+          <p>Branding, Logo Design</p>
+        </article>
+        <article data-category="branding web">
+          <figure>
+            <img src="images/booklet-small.jpg" alt="Project 2" />
+          </figure>
+          <h4>Gulf Pack</h4>
+          <p>Brand Identity & Website</p>
+        </article>
+        <article data-category="branding">
+          <figure>
+            <img src="images/3-small.png" alt="Project 3" />
+          </figure>
+          <h4>Oryggi Technologies</h4>
+          <p>Brand Identity & Website</p>
+        </article>
+        <article data-category="web social">
+          <figure>
+            <img src="images/4-small.jpg" alt="Project 4" />
+          </figure>
+          <h4>Ashbee Energy</h4>
+          <p>Brand Identity & Website</p>
+        </article>
+        <article data-category="branding">
+          <figure>
+            <img src="images/5.jpg" alt="Project 5" />
+          </figure>
+          <h4>Soyi</h4>
+          <p>Branding, Logo Design</p>
+        </article>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/InertiaPlugin.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-    <!-- ScrollSmoother requires ScrollTrigger -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js"></script> -->
+    <div class="filters">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="branding">Branding</button>
+      <button data-filter="web">Web</button>
+      <button data-filter="social">Social</button>
+    </div>
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
     <script src="js/menu.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+
     <script>
-      gsap.from("article", { y: -40, opacity: 0, duration: 1, ease: "power2.out", stagger: 0.2 });
-      //Horizontal Scroll Galleries
-      if (document.getElementById("scrollId")) {
-        const horizontalSections = gsap.utils.toArray(".horiz-gallery-wrapper");
+      const gallery = document.querySelector(".gallery");
+      const galleryItems = document.querySelectorAll(".gallery article");
+      const filterButtons = document.querySelectorAll(".filters button");
 
-        horizontalSections.forEach(function (sec, i) {
-          const pinWrap = sec.querySelector(".horiz-gallery-strip");
+      let xPos = 0; // Current scroll position
+      let maxScroll = 0;
 
-          let pinWrapWidth;
-          let horizontalScrollLength;
+      function updateMaxScroll() {
+        maxScroll = Math.max(
+          0,
+          gallery.scrollWidth -
+            document.querySelector(".gallery-wrapper").clientWidth,
+        );
+      }
 
-          function refresh() {
-            pinWrapWidth = pinWrap.scrollWidth;
-            horizontalScrollLength = pinWrapWidth - window.innerWidth;
+      function scrollGallery(delta) {
+        xPos += delta;
+        xPos = Math.max(-maxScroll, Math.min(0, xPos)); // Clamp position
+        gsap.to(gallery, { x: xPos, duration: 0.5, ease: "power2.out" });
+      }
+
+      // Mouse wheel horizontal scroll
+      window.addEventListener(
+        "wheel",
+        (e) => {
+          if (e.deltaY !== 0) {
+            scrollGallery(-e.deltaY); // Invert for natural feel
+            e.preventDefault();
           }
+        },
+        { passive: false },
+      );
 
-          refresh();
+      // Touch swipe support
+      let touchStartX = 0;
+      window.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+      window.addEventListener("touchmove", (e) => {
+        let touchDelta = e.touches[0].clientX - touchStartX;
+        scrollGallery(touchDelta);
+        touchStartX = e.touches[0].clientX;
+      });
 
-          // Pinning and horizontal scrolling
-          gsap.to(pinWrap, {
-            scrollTrigger: {
-              scrub: true,
-              trigger: sec,
-              pin: sec,
-              start: "center center",
-              end: () => `+=${pinWrapWidth}`,
-              invalidateOnRefresh: true,
-            },
-            x: () => -horizontalScrollLength,
-            ease: "none",
+      // Filter with smooth transition
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          const filter = button.getAttribute("data-filter");
+
+          // Animate hiding
+          galleryItems.forEach((item) => {
+            if (filter === "all" || item.dataset.category.includes(filter)) {
+              gsap.to(item, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.4,
+                onStart: () => (item.style.display = "block"),
+              });
+            } else {
+              gsap.to(item, {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.4,
+                onComplete: () => (item.style.display = "none"),
+              });
+            }
           });
 
-          ScrollTrigger.addEventListener("refreshInit", refresh);
+          // Reset scroll
+          setTimeout( () => {
+            updateMaxScroll();
+            xPos = 0;
+            gsap.set(gallery, { x: 0 });
+          }, 500);
         });
-      }
+      });
+
+      // Init
+      updateMaxScroll();
+      window.addEventListener("resize", updateMaxScroll);
     </script>
   </body>
 </html>

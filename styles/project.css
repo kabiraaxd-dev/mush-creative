@@ -140,6 +140,7 @@
 .product-image {
   background: #fff;
   min-height: 0;
+  position: relative;
 }
 
 .product-image figure {
@@ -161,7 +162,7 @@
 .product-details {
   background: var(--background-color);
   color: var(--secondary-color);
-  padding: 60px 7.25rem;
+  padding: clamp(8rem, 16.5vh, 9.5rem) clamp(40px, 6.25vw, 120px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -170,10 +171,11 @@
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+  position: relative;
 }
 
 article.no-detail .product-details {
-  padding: 4rem 3rem;
+  /* padding: 4rem 3rem; */
   justify-content: flex-end;
 }
 article.last .product-image {
@@ -198,12 +200,15 @@ article.last .product-details {
   margin: 1rem 0 1rem;
 }
 .product-details span {
-  color: var(--page-no);
-  /* font-family: "Neue Haas Grotesk Display Pro"; */
+  color: var(--secondary-color);
+
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.75rem;
+  position: absolute;
+  bottom: 4rem;
+  left: 3rem;
 }
 
 .description {
@@ -216,7 +221,7 @@ article.last .product-details {
 }
 
 .specs {
-  margin-top: 5rem;
+  margin-top: clamp(3rem, 8.75vh, 5rem);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
@@ -234,6 +239,81 @@ article.last .product-details {
 }
 .specs p {
   margin: 12px 0;
+}
+
+.product-details .discuss {
+  max-width: 15.75rem;
+  color: var(--footer-text-secondary);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.045rem;
+}
+
+.product-details .discuss h4 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem; /* 116.667% */
+  letter-spacing: -0.03rem;
+  margin: 0;
+}
+
+.product-details .discuss p {
+  margin-block: 0.625rem;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.045rem;
+}
+
+.product-details button {
+  display: flex;
+  padding: 1rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem;
+  border-radius: 5rem;
+  background: var(--secondary-color);
+  color: var(--background-color);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.02625rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+.product-details button img {
+  height: 16px;
+  flex-shrink: 0;
+}
+.product-details button:hover {
+  opacity: 0.9;
+}
+
+.product-image .hover {
+  position: absolute;
+  inset: 0;
+  top: calc(50% - 80px);
+  left: calc(50% - 80px);
+  width: 190px;
+  height: 190px;
+  background: transparent url("../images/circle.svg") no-repeat center;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5625rem;
+  letter-spacing: -0.06rem;
+  text-transform: uppercase;
 }
 
 .services-list {

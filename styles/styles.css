@@ -14,21 +14,25 @@ main {
 main .container {
   /* overflow-x: auto; */
   padding-inline: 2rem;
+  width: clamp(48rem, 90vw, 96rem);
+  margin-inline: auto;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(320px, 435px));
-  justify-items: center;
+  /* grid-template-columns: repeat(3, minmax(320px, 435px)); */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* justify-items: center; */
   gap: 2rem;
   margin: auto;
-  width: fit-content;
+  /* width: fit-content; */
 }
 
 main section {
   /* padding: 1rem; */
   position: relative;
+  width: 100%;
+  height: 75vh;
   aspect-ratio: 0.66;
-  max-height: 72vh;
   color: white;
 }
 main section.left {
@@ -42,7 +46,7 @@ main section.left h1 {
   font-family: "acumin-pro", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 3.75rem;
+  font-size: clamp(2.125rem, 3.5vw, 3.75rem);
   font-weight: 700;
   line-height: 100%;
   padding: 0;
@@ -50,11 +54,11 @@ main section.left h1 {
   letter-spacing: -4.55px;
 }
 main section.left p {
-  font-size: 18px;
+  font-size: clamp(14px, 1.25vw, 18px);
   font-weight: 400;
   line-height: normal;
   /* letter-spacing: -0.045rem; */
-  max-width: 55%;
+  max-width: 15rem;
   margin: 0;
 }
 

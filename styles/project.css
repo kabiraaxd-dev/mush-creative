@@ -36,6 +36,7 @@
 }
 
 .gallery article {
+  position: relative;
   flex: 0 0 auto;
   /* width: 34rem; */
   height: calc(100vh - 16rem);
@@ -69,6 +70,11 @@
 .gallery article p {
   margin: 0;
   padding: 0;
+}
+.gallery article .cover-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .filters {
@@ -138,7 +144,7 @@
 }
 
 .product-image {
-  background: #fff;
+  /* background: #fff; */
   min-height: 0;
   position: relative;
 }
@@ -187,6 +193,9 @@ article.last .product-details {
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 0;
+}
+article.last a {
+  color: var(--secondary-color);
 }
 
 .product-details h1 {
@@ -305,6 +314,7 @@ article.last .product-details {
   height: 190px;
   background: transparent url("../images/circle.svg") no-repeat center;
   background-size: contain;
+  color: #0d0d0d;
   display: flex;
   align-items: center;
   justify-content: center;

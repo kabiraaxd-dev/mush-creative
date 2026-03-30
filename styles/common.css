@@ -47,6 +47,28 @@ body {
   gap: 1rem;
 }
 
+.btn {
+  font-family: "degular", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -4%;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn.pill {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: white;
+  color: black;
+}
+
 .navbar {
   background: var(--navbar-bg);
   max-width: 626px;

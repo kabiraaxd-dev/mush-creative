@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mush Design Studio</title>
-
+    <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css" />
     <link
       rel="stylesheet"
@@ -55,16 +55,26 @@
       .marquee {
         overflow: hidden;
         width: 100%;
+        margin-top: 2.8rem;
       }
 
       .marquee-track {
         display: flex;
         gap: 40px;
+        align-items: center;
       }
 
-      .marquee img {
-        width: 120px;
-        opacity: 0.8;
+      .marquee6k__copy {
+        padding-right: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .marquee-track img {
+        height: 32px;
+        width: auto;
+        opacity: 0.75;
+        padding-right: 75px;
       }
     </style>
   </head>
@@ -223,7 +233,7 @@
               </section>
 
               <!-- Middle Section -->
-              <section class="middle ">
+              <section class="middle">
                 <div class="swiper mySwiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -247,7 +257,9 @@
                           alt="Ashbee project"
                         />
                         <p class="subtitle">Brand Identity, Website</p>
-                        <a href="project/ashbee.html" class="btn pill">VIEW CASE STUDY</a>
+                        <a href="project/ashbee.html" class="btn pill"
+                          >VIEW CASE STUDY</a
+                        >
                       </div>
                     </div>
                     <div class="swiper-slide">
@@ -292,63 +304,60 @@
                 </div>
                 <div class="clients">
                   <p>Clients we've empowered.</p>
-                  <div class="marquee">
+                  <div class="marquee marquee6k" data-speed="0.4">
                     <div class="marquee-track">
                       <img
-                        src="images/logos/rustomjee.svg"
-                        data-theme="images/rustomjee-w.svg"
+                        src="images/logos/rustomjee-black.svg"
+                        data-theme="images/logos/rustomjee-white.svg"
                         alt="Rustomjee"
                       />
                       <img
-                        src="images/logos/dupont.svg"
-                        data-theme="images/dupont-w.svg"
+                        src="images/logos/dupont-black.svg"
+                        data-theme="images/logos/dupont-white.svg"
                         alt="Dupont"
                       />
                       <img
-                        src="images/logos/dabur.svg"
-                        data-theme="images/dabur-w.svg"
+                        src="images/logos/dabur-black.svg"
+                        data-theme="images/logos/dabur-white.svg"
                         alt="Dabur"
                       />
                       <img
-                        src="images/logos/wave.svg"
-                        data-theme="images/wave-w.svg"
+                        src="images/logos/wave-black.svg"
+                        data-theme="images/logos/wave-white.svg"
                         alt="Wave"
                       />
-                     <img
-                        src="images/logos/lt-realty.svg"
-                        data-theme="images/lt-realty-w.svg"
+                      <img
+                        src="images/logos/lt-realty-black.svg"
+                        data-theme="images/logos/lt-realty-white.svg"
                         alt="LT Realty"
                       />
-                       <img
-                        src="images/logos/amazfit.svg"
-                        data-theme="images/amazfit-w.svg"
+                      <img
+                        src="images/logos/amazfit-black.svg"
+                        data-theme="images/logos/amazfit-white.svg"
                         alt="Amazfit"
                       />
                       <img
-                        src="images/logos/bptp.svg"
-                        data-theme="images/bptp-w.svg"
+                        src="images/logos/bptp-black.svg"
+                        data-theme="images/logos/bptp-white.svg"
                         alt="BPTP"
                       />
                       <img
-                        src="images/logos/eyeq.svg"
-                        data-theme="images/eyeq-w.svg"
+                        src="images/logos/eyeq-black.svg"
+                        data-theme="images/logos/eyeq-white.svg"
                         alt="EYEQ"
                       />
-                      <img src="images/logos/knma.svg" data-theme="images/knma-w.svg" alt="KNMA" />
-                       <img
-                        src="images/logos/max.svg"
-                        data-theme="images/max-w.svg"
+                      <img
+                        src="images/logos/knma-black.svg"
+                        data-theme="images/logos/knma-white.svg"
+                        alt="KNMA"
+                      />
+                      <img
+                        src="images/logos/max-black.svg"
+                        data-theme="images/logos/max-white.svg"
                         alt="Max"
+                      />
                     </div>
                   </div>
-
-                  <!-- <div class="logos">
-                    <img
-                      src="images/dlf.svg"
-                      data-theme="images/dlf-w.svg"
-                      alt="DLF"
-                    />
-                  </div> -->
                 </div>
               </section>
             </div>
@@ -435,9 +444,12 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="js/marquee6k.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script>
     <script>
+      marquee6k.init();
+
       gsap.from("section", {
         y: -40,
         opacity: 0,
@@ -446,12 +458,12 @@
         stagger: 0.2,
       });
       // logo marquee
-      gsap.to(".marquee-track", {
+      /* gsap.to(".marquee-track", {
         xPercent: -60,
         ease: "linear",
         duration: 10,
         repeat: -1,
-      });
+      }); */
     </script>
     <script>
       const swiper = new Swiper(".mySwiper", {
@@ -474,7 +486,6 @@
                       1024: { slidesPerView: 3 },
                     }, */
       });
-
     </script>
   </body>
 </html>

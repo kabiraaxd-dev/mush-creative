@@ -287,11 +287,13 @@
       });
 
       // ================= GSAP ANIMATIONS =================
-      gsap.from(".navbar", {
+      /* gsap.from(".navbar", {
         y: -60,
         opacity: 0,
         duration: 1,
-      });
+      }); */
+      const socials = document.querySelectorAll(".social-info span");
+
 
       gsap.from(".info-section", {
         x: -40,
@@ -307,6 +309,16 @@
         duration: 1,
         delay: 0.3,
       });
+
+      gsap.from(
+      socials,
+      {
+        y: 20,
+        opacity: 0,
+        stagger: 0.1,
+      },
+      "-=0.3",
+    );
 
       // SUBMIT BUTTON
       gsap.from(".submit-btn", {

@@ -1,10 +1,11 @@
 body, html {
   height: 100vh;
+  overflow: hidden;
 }
 .container {
-  max-width: 1660px;
+  max-width: 1692px;
   margin: 8rem auto 2rem;
-  padding: 0;
+  padding-inline: clamp(1rem, 2vw, 2rem);
 }
 
 .grid {
@@ -44,14 +45,15 @@ body, html {
   letter-spacing: -0.72px;
   text-transform: capitalize;
 }
-.socials {
+.social-info .socials {
   display: flex;
-  gap: 16px;
+  gap: 1.25rem;
   margin-top: 10px;
 }
 .form {
   border-left: 1px solid var(--clients-bg);
-  padding-left: 5.75rem;
+  /* padding-left: 5.75rem; */
+  padding-left: clamp(2rem, 5vw, 5.75rem);
 }
 .form .title {
   margin-bottom: 2rem;
@@ -60,18 +62,19 @@ body, html {
 }
 .form h1 {
   font-family: "Acumin Pro", Arial, Helvetica, sans-serif;
-  font-size: 65px;
+  font-size: clamp(48px, 5vw, 65px);
   font-style: normal;
   font-weight: 700;
-  line-height: 65px;
+  line-height: clamp(48px, 5vw, 65px);
   letter-spacing: -4.55px;
   text-wrap: pretty;
-  max-width: 56%;
+  max-width: 21.5rem;
   margin: 0;
 }
 
 .form-group {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  margin-bottom: clamp(1rem, 2.5vh, 2rem);
   position: relative;
 }
 
@@ -89,7 +92,8 @@ textarea {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 3.75rem; /* 250% */
+  /* line-height: 3.75rem; */
+  line-height: clamp(2.25rem, 3.5vh, 3.75rem);
   letter-spacing: -0.045rem;
   transition: border-color 0.3s ease;
 }
@@ -115,7 +119,7 @@ textarea {
 }
 
 .submit-btn {
-  margin-top: 30px;
+  margin-top: 1rem;
   border: 1px solid var(--secondary-color);
   color: var(--secondary-color);
   border-radius: 70px;
@@ -139,10 +143,24 @@ textarea {
 } */
 
 @media (max-width: 768px) {
+  body, html {
+    height: auto;
+    overflow: auto;
+  }
   .grid {
     grid-template-columns: 1fr;
   }
+  .info-section {
+    padding-right: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .form {
+    border-left: none;
+    padding-left: 0;
+  }
   .form h1 {
-    font-size: 32px;
+    /* font-size: 32px; */
+    /* line-height: normal; */
+    letter-spacing: -2.25px;
   }
 }

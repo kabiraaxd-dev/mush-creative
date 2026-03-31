@@ -1,0 +1,7 @@
+# Ignore the generated server markdown file
+/project/server.md
+
+# Add other common ignores as needed
+node_modules/
+.DS_Store
+*.log

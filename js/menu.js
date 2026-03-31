@@ -20,20 +20,6 @@ window.addEventListener("load", () => {
       });
     });
   }
-  /* document.querySelectorAll("#theme-toggle").forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      // console.log("Theme toggle clicked", event.target);
-
-      document.body.classList.toggle("dark-theme");
-
-      const imgs = document.querySelectorAll("img[data-theme]");
-      imgs.forEach((img) => {
-        const temp = img.src;
-        img.src = img.dataset.theme;
-        img.dataset.theme = temp;
-      });
-    });
-  }); */
 
   console.log("Page fully loaded");
   console.log("gsap.version:", gsap.version);
@@ -50,7 +36,7 @@ window.addEventListener("load", () => {
     const closeBtn = document.querySelector(".close");
 
     const menuItems = document.querySelectorAll(".navbar li");
-    const socials = document.querySelectorAll(".socials span");
+    const socials = document.querySelectorAll(".navbar .socials span");
     const legal = document.querySelectorAll(".legal span");
 
     gsap.set(menu, { y: "-100%" });

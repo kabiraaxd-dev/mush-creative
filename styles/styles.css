@@ -139,7 +139,7 @@ main section.right {
   margin: 0;
 }
 
-.clients .logos {
+/* .clients .logos {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -150,7 +150,7 @@ main section.right {
 .clients .marquee img {
   max-height: 32px;
   max-width: 100px;
-}
+} */
 main section .right p {
   font-weight: 300;
   font-size: 18px;

@@ -312,6 +312,17 @@
       // Init
       updateMaxScroll();
       window.addEventListener("resize", updateMaxScroll);
+
+      // Initial animation for gallery items
+      gsap.set(galleryItems, { opacity: 0, y: 32 });
+      gsap.to(galleryItems, {
+        opacity: 1,
+        y: 0,
+        duration: 3,
+        stagger: 0.25,
+        ease: "power2.out",
+        delay: 0.5
+      });
     </script>
   </body>
 </html>

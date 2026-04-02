@@ -107,8 +107,10 @@
   cursor: pointer;
 }
 
-.filters button.active,
 .filters button:hover {
+  color: var(--text-color);
+}
+.filters button.active {
   font-weight: 700;
 }
 

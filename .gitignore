@@ -1,5 +1,5 @@
 # Ignore the generated server markdown file
-/project/server.md
+server.md
 
 # Add other common ignores as needed
 node_modules/

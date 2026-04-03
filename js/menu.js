@@ -1,5 +1,5 @@
 function preloadImages() {
-  const images = document.querySelectorAll(".gallery img");
+  const images = document.querySelectorAll("img");
   const imagePromises = Array.from(images).map((img) => {
     return new Promise((resolve, reject) => {
       if (img.complete) {
@@ -15,7 +15,7 @@ function preloadImages() {
 
 // Intersection Observer for lazy loading
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".gallery img[data-src]");
+  const images = document.querySelectorAll("img[data-src]");
   const options = {
     root: null,
     rootMargin: "200px", // preload before visible

@@ -139,18 +139,6 @@ main section.right {
   margin: 0;
 }
 
-/* .clients .logos {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 1rem;
-}
-
-.clients .logos img,
-.clients .marquee img {
-  max-height: 32px;
-  max-width: 100px;
-} */
 main section .right p {
   font-weight: 300;
   font-size: 18px;

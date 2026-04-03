@@ -2,6 +2,8 @@ body, html {
   height: 100vh;
   overflow: hidden;
 }
+
+
 .container {
   max-width: 1692px;
   margin: 8rem auto 2rem;

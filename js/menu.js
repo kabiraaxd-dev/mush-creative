@@ -1,9 +1,59 @@
+function preloadImages() {
+  const images = document.querySelectorAll(".gallery img");
+  const imagePromises = Array.from(images).map((img) => {
+    return new Promise((resolve, reject) => {
+      if (img.complete) {
+        resolve();
+      } else {
+        img.onload = resolve;
+        img.onerror = reject;
+      }
+    });
+  });
+  return Promise.allSettled(imagePromises);
+}
+
+// Intersection Observer for lazy loading
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".gallery img[data-src]");
+  const options = {
+    root: null,
+    rootMargin: "200px", // preload before visible
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, self) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+        self.unobserve(img);
+      }
+    });
+  }, options);
+
+  images.forEach((img) => observer.observe(img));
+
+  // Preloader waits for all images (including those loaded via observer)
+  preloadImages().then(() => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.classList.add("hide");
+    }
+  });
+});
+
+// Fallback: hide preloader after 5 seconds if images take too long or fail
+setTimeout(() => {
+  const preloader = document.getElementById("preloader");
+  if (preloader && !preloader.classList.contains("hide")) {
+    preloader.classList.add("hide");
+  }
+}, 5000);
+
 // Wait for FULL page load (not just DOM)
 window.addEventListener("load", () => {
-  if (!window.gsap) {
-    console.error("GSAP not loaded");
-    return;
-  }
   // theme toggle
   const toggles = document.querySelectorAll(".theme-toggle");
 

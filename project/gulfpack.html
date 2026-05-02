@@ -150,7 +150,7 @@
 
         <article>
           <div class="product-image">
-            <img src="../images/project/Gulf.jpg" alt="gulf pack" />
+            <img src="../images/gulfpack/GP_1.webp" alt="gulf pack" />
           </div>
           <div class="product-details">
             <h1>GulfPack</h1>
@@ -221,7 +221,7 @@
           </article> -->
           <article>
             <div class="product-image">
-              <img src="../images/project/Gulf.jpg" alt="gulf pack" />
+              <img src="../images/gulfpack/GP_2.webp" alt="gulf pack" />
             </div>
             <div class="product-details">
               <h1>Outcome</h1>
@@ -231,13 +231,13 @@
                 <p>We'd love to hear about your work  and how we can help.</p>
                 <a href="../contact.html" class="btn">Let’s Talk <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" alt=""></a>
               </div>
-              <span>06</span>
+              <span>02</span>
             </div>
           </article>
           <article class="last">
             <div></div>
             <div class="product-image">
-              <img src="../images/project/Gulf.jpg" alt="gulf pack" />
+              <img src="../images/gulfpack/GP_3.webp" alt="gulf pack" />
               <figure class="hover">Discover</figure>
             </div>
             <div class="product-details">
@@ -253,103 +253,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script>
       <script src="../js/menu.js"></script>
       <script src="../js/main.js"></script>
-      <script>
-        const gallery = document.querySelector(".showcase");
-        const galleryItems = document.querySelectorAll(".showcase article");
-      // const filterButtons = document.querySelectorAll(".filters button");
-
-      let xPos = 0; // Current scroll position
-      let maxScroll = 0;
-
-      function updateMaxScroll() {
-        maxScroll = Math.max(0, gallery.scrollWidth - wrapper.clientWidth);
-      }
-
-      function clampPosition() {
-        xPos = Math.max(-maxScroll, Math.min(0, xPos));
-      }
-
-      function scrollGallery(delta) {
-        xPos += delta;
-        clampPosition();
-        gsap.to(gallery, { x: xPos, duration: 0.5, ease: "power2.out" });
-      }
-
-      // Mouse wheel horizontal scroll
-      window.addEventListener(
-        "wheel",
-        (e) => {
-          if (e.deltaY !== 0) {
-            scrollGallery(-e.deltaY); // Invert for natural feel
-            e.preventDefault();
-          }
-        },
-        { passive: false },
-      );
-
-      // Touch swipe support
-      let touchStartX = 0;
-      window.addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-      window.addEventListener("touchmove", (e) => {
-        let touchDelta = e.touches[0].clientX - touchStartX;
-        scrollGallery(touchDelta);
-        touchStartX = e.touches[0].clientX;
-      });
-
-      const wrapper = document.querySelector(".showcase-wrapper");
-      const galleryImages = document.querySelectorAll(".showcase img");
-
-      const imageLoadHandler = () => {
-        updateMaxScroll();
-        clampPosition();
-        gsap.set(gallery, { x: xPos });
-      };
-
-      galleryImages.forEach((img) => {
-        if (!img.complete) {
-          img.addEventListener("load", imageLoadHandler);
-        }
-      });
-
-      const resizeObserver = new ResizeObserver(() => {
-        updateMaxScroll();
-        clampPosition();
-        gsap.set(gallery, { x: xPos });
-      });
-
-      resizeObserver.observe(gallery);
-      resizeObserver.observe(wrapper);
-
-      function initGallery() {
-        updateMaxScroll();
-        clampPosition();
-        gsap.set(gallery, { x: xPos });
-      }
-
-      function waitForImagesToLoad() {
-        return new Promise((resolve) => {
-          const checkImages = () => {
-            const lazyImages = document.querySelectorAll(".showcase img[data-src]");
-            if (lazyImages.length === 0) {
-              resolve();
-            } else {
-              requestAnimationFrame(checkImages);
-            }
-          };
-          checkImages();
-        });
-      }
-
-      // Init
-      initGallery();
-      window.addEventListener("load", async () => {
-        await waitForImagesToLoad();
-        requestAnimationFrame(() => requestAnimationFrame(initGallery));
-        setTimeout(initGallery, 500);
-      });
-      window.addEventListener("resize", initGallery);
-    </script>
+      <script src="../js/project.js"></script>
   </body>
 </html>

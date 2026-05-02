@@ -128,7 +128,7 @@
 .showcase article.last {
   flex: 0 0 auto;
   grid-template-columns: 1fr;
-  grid-template-rows: 3rem 1fr 3rem;
+  grid-template-rows: 9rem 1fr 8rem;
   align-content: center;
   padding-inline: 2rem;
 }

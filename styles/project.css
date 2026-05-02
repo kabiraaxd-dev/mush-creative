@@ -128,6 +128,7 @@
 .showcase article.last {
   flex: 0 0 auto;
   grid-template-columns: 1fr;
+  grid-template-rows: 3rem 1fr 3rem;
   align-content: center;
   padding-inline: 2rem;
 }
@@ -174,8 +175,8 @@ article.no-detail .product-details {
   justify-content: flex-end;
 }
 article.last .product-image {
-  width: 42.75rem;
-  height: 48.4375rem;
+  /* width: 42.75rem; */
+  /* height: 48.4375rem; */
   aspect-ratio: 218/247;
 }
 article.last .product-details {

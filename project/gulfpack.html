@@ -150,7 +150,7 @@
 
         <article>
           <div class="product-image">
-            <img data-src="../images/project/Gulf.jpg" alt="gulf pack" />
+            <img src="../images/project/Gulf.jpg" alt="gulf pack" />
           </div>
           <div class="product-details">
             <h1>GulfPack</h1>
@@ -221,7 +221,7 @@
           </article> -->
           <article>
             <div class="product-image">
-              <img data-src="../images/project/Gulf.jpg" alt="gulf pack" />
+              <img src="../images/project/Gulf.jpg" alt="gulf pack" />
             </div>
             <div class="product-details">
               <h1>Outcome</h1>
@@ -235,8 +235,9 @@
             </div>
           </article>
           <article class="last">
+            <div></div>
             <div class="product-image">
-              <img data-src="../images/project/Gulf.jpg" alt="gulf pack" />
+              <img src="../images/project/Gulf.jpg" alt="gulf pack" />
               <figure class="hover">Discover</figure>
             </div>
             <div class="product-details">
@@ -249,6 +250,7 @@
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script>
       <script src="../js/menu.js"></script>
       <script src="../js/main.js"></script>
       <script>
@@ -260,16 +262,16 @@
       let maxScroll = 0;
 
       function updateMaxScroll() {
-        maxScroll = Math.max(
-          0,
-          gallery.scrollWidth -
-            document.querySelector(".showcase-wrapper").clientWidth,
-        );
+        maxScroll = Math.max(0, gallery.scrollWidth - wrapper.clientWidth);
+      }
+
+      function clampPosition() {
+        xPos = Math.max(-maxScroll, Math.min(0, xPos));
       }
 
       function scrollGallery(delta) {
         xPos += delta;
-        xPos = Math.max(-maxScroll, Math.min(0, xPos)); // Clamp position
+        clampPosition();
         gsap.to(gallery, { x: xPos, duration: 0.5, ease: "power2.out" });
       }
 
@@ -296,9 +298,58 @@
         touchStartX = e.touches[0].clientX;
       });
 
+      const wrapper = document.querySelector(".showcase-wrapper");
+      const galleryImages = document.querySelectorAll(".showcase img");
+
+      const imageLoadHandler = () => {
+        updateMaxScroll();
+        clampPosition();
+        gsap.set(gallery, { x: xPos });
+      };
+
+      galleryImages.forEach((img) => {
+        if (!img.complete) {
+          img.addEventListener("load", imageLoadHandler);
+        }
+      });
+
+      const resizeObserver = new ResizeObserver(() => {
+        updateMaxScroll();
+        clampPosition();
+        gsap.set(gallery, { x: xPos });
+      });
+
+      resizeObserver.observe(gallery);
+      resizeObserver.observe(wrapper);
+
+      function initGallery() {
+        updateMaxScroll();
+        clampPosition();
+        gsap.set(gallery, { x: xPos });
+      }
+
+      function waitForImagesToLoad() {
+        return new Promise((resolve) => {
+          const checkImages = () => {
+            const lazyImages = document.querySelectorAll(".showcase img[data-src]");
+            if (lazyImages.length === 0) {
+              resolve();
+            } else {
+              requestAnimationFrame(checkImages);
+            }
+          };
+          checkImages();
+        });
+      }
+
       // Init
-      updateMaxScroll();
-      window.addEventListener("resize", updateMaxScroll);
+      initGallery();
+      window.addEventListener("load", async () => {
+        await waitForImagesToLoad();
+        requestAnimationFrame(() => requestAnimationFrame(initGallery));
+        setTimeout(initGallery, 500);
+      });
+      window.addEventListener("resize", initGallery);
     </script>
   </body>
 </html>

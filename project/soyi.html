@@ -150,7 +150,7 @@
 
         <article>
           <div class="product-image">
-            <img data-src="../images/project/SOYI.jpg" alt="soyi restaurant" />
+            <img src="../images/soyi/Soyi_1.webp" alt="soyi restaurant" />
           </div>
           <div class="product-details">
             <h1>SOYI Restaurant</h1>
@@ -183,7 +183,7 @@
           </article>
           <article class="no-detail">
             <div class="product-image">
-              <img data-src="../images/project/02.jpg" alt="SOYI Restaurant" />
+              <img src="../images/soyi/Soyi_2.webp" alt="SOYI Restaurant" />
             </div>
             <div class="product-details">
               
@@ -193,10 +193,10 @@
           <article class="no-detail">
             <div class="product-image vertical" >
               <figure>
-                <img data-src="../images/project/03.jpg" alt="SOYI Restaurant" />
+                <img src="../images/soyi/Soyi_3.webp" alt="SOYI Restaurant" />
               </figure>
               <figure>
-                <img data-src="../images/project/04.jpg" alt="SOYI Restaurant" />
+                <img src="../images/soyi/Soyi_4.webp" alt="SOYI Restaurant" />
               </figure>
             </div>
             <div class="product-details">
@@ -205,7 +205,7 @@
           </article>
           <article class="no-detail">
             <div class="product-image">
-              <img data-src="../images/project/05.jpg" alt="SOYI Restaurant" />
+              <img src="../images/soyi/Soyi_5.webp" alt="SOYI Restaurant" />
             </div>
             <div class="product-details">
               <span>04</span>
@@ -213,7 +213,7 @@
           </article>
           <article class="no-detail">
             <div class="product-image">
-              <img data-src="../images/project/06.jpg" alt="Oryggi Technologies" />
+              <img src="../images/soyi/Soyi_6.webp" alt="SOYI Restaurant" />
             </div>
             <div class="product-details">
               <span>05</span>
@@ -221,7 +221,7 @@
           </article>
           <article class="no-detail">
             <div class="product-image">
-              <img data-src="../images/project/06.jpg" alt="Oryggi Technologies" />
+              <img src="../images/soyi/Soyi_7.webp" alt="SOYI Restaurant" />
             </div>
             <div class="product-details">
               <span>06</span>
@@ -229,7 +229,7 @@
           </article>
           <article class="no-detail">
             <div class="product-image">
-              <img data-src="../images/project/05.jpg" alt="SOYI Restaurant" />
+              <img src="../images/soyi/Soyi_8.webp" alt="SOYI Restaurant" />
             </div>
             <div class="product-details">
               <span>07</span>
@@ -238,10 +238,10 @@
           <article class="no-detail">
             <div class="product-image vertical" >
               <figure>
-                <img data-src="../images/project/03.jpg" alt="SOYI Restaurant" />
+                <img src="../images/soyi/Soyi_9.webp" alt="SOYI Restaurant" />
               </figure>
               <figure>
-                <img data-src="../images/project/04.jpg" alt="SOYI Restaurant" />
+                <img src="../images/soyi/Soyi_10.webp" alt="SOYI Restaurant" />
               </figure>
             </div>
             <div class="product-details">
@@ -250,7 +250,7 @@
           </article>
           <article>
             <div class="product-image">
-              <img data-src="../images/project/Gulf.jpg" alt="gulf pack" />
+              <img src="../images/soyi/Soyi_11.webp" alt="soyi restaurant" />
             </div>
             <div class="product-details">
               <h1>Outcome</h1>
@@ -263,9 +263,31 @@
               <span>09</span>
             </div>
           </article>
-          <article class="last">
+          <article class="no-detail">
+            <div class="product-image vertical" >
+              <figure>
+                <img src="../images/soyi/Soyi_9.webp" alt="SOYI Restaurant" />
+              </figure>
+              <figure>
+                <img src="../images/soyi/Soyi_10.webp" alt="SOYI Restaurant" />
+              </figure>
+            </div>
+            <div class="product-details">
+              <span>08</span>
+            </div>
+          </article>
+          <article class="no-detail">
             <div class="product-image">
-              <img data-src="../images/project/Gulf.jpg" alt="gulf pack" />
+              <img src="../images/soyi/Soyi_11.webp" alt="SOYI Restaurant" />
+            </div>
+            <div class="product-details">
+              <span>06</span>
+            </div>
+          </article>
+          <article class="last">
+            <div></div>
+            <div class="product-image">
+              <img src="../images/soyi/Soyi_12.webp" alt="soyi restaurant" />
               <figure class="hover">Discover</figure>
             </div>
             <div class="product-details">
@@ -278,27 +300,35 @@
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script>
       <script src="../js/menu.js"></script>
       <script src="../js/main.js"></script>
       <script>
         const gallery = document.querySelector(".showcase");
         const galleryItems = document.querySelectorAll(".showcase article");
+        const wrapper = document.querySelector(".showcase-wrapper");
+        const galleryImages = document.querySelectorAll(".showcase img");
       // const filterButtons = document.querySelectorAll(".filters button");
 
       let xPos = 0; // Current scroll position
       let maxScroll = 0;
 
       function updateMaxScroll() {
-        maxScroll = Math.max(
-          0,
-          gallery.scrollWidth -
-            document.querySelector(".showcase-wrapper").clientWidth,
-        );
+        maxScroll = Math.max(0, gallery.scrollWidth - wrapper.clientWidth);
+      }
+
+      function clampPosition() {
+        xPos = Math.max(-maxScroll, Math.min(0, xPos));
+      }
+
+      function updateGalleryPosition() {
+        clampPosition();
+        gsap.set(gallery, { x: xPos });
       }
 
       function scrollGallery(delta) {
         xPos += delta;
-        xPos = Math.max(-maxScroll, Math.min(0, xPos)); // Clamp position
+        clampPosition();
         gsap.to(gallery, { x: xPos, duration: 0.5, ease: "power2.out" });
       }
 
@@ -325,9 +355,59 @@
         touchStartX = e.touches[0].clientX;
       });
 
+      /* const imageLoadHandler = () => {
+        updateMaxScroll();
+        updateGalleryPosition();
+      };
+
+      galleryImages.forEach((img) => {
+        if (!img.complete) {
+          img.addEventListener("load", imageLoadHandler);
+          img.addEventListener("error", imageLoadHandler);
+        }
+      }); */
+
+      const resizeObserver = new ResizeObserver(() => {
+        updateMaxScroll();
+        updateGalleryPosition();
+      });
+
+      resizeObserver.observe(gallery);
+      resizeObserver.observe(wrapper);
+
+      function initGallery() {
+        updateMaxScroll();
+        updateGalleryPosition();
+      }
+
+      function waitForImagesToLoad() {
+        return new Promise((resolve) => {
+          // Wait for lazy-loaded images (data-src) to be processed
+          const checkImages = () => {
+            const lazyImages = document.querySelectorAll(".showcase img[data-src]");
+            if (lazyImages.length === 0) {
+              // All lazy images have been loaded or processed
+              resolve();
+            } else {
+              // Still waiting, check again
+              requestAnimationFrame(checkImages);
+            }
+          };
+          checkImages();
+        });
+      }
+
       // Init
-      updateMaxScroll();
-      window.addEventListener("resize", updateMaxScroll);
+      initGallery();
+      window.addEventListener("load", async () => {
+        // Wait for lazy-loaded images to start loading
+        await waitForImagesToLoad();
+        // Then give them time to render with 2 more RAF frames
+        requestAnimationFrame(() => requestAnimationFrame(initGallery));
+        // Plus a safety timeout
+        setTimeout(initGallery, 500);
+      });
+      window.addEventListener("resize", initGallery);
     </script>
   </body>
 </html>

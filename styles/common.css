@@ -272,7 +272,8 @@ footer {
 }
 
 /* media queries  */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
+  
   .mobile-menu {
     display: flex;
     justify-content: space-between;

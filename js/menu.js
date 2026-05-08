@@ -78,7 +78,7 @@ window.addEventListener("load", () => {
   const mm = gsap.matchMedia();
 
   // MOBILE
-  mm.add("(max-width: 767px)", () => {
+  mm.add("(max-width: 800px)", () => {
     console.log("mobile");
 
     const menu = document.querySelector(".navbar");
@@ -147,7 +147,7 @@ window.addEventListener("load", () => {
   });
 
   // DESKTOP
-  mm.add("(min-width: 768px)", () => {
+  mm.add("(min-width: 801px)", () => {
     console.log("desktop");
 
     gsap.from(".navbar", {

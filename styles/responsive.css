@@ -1,7 +1,7 @@
 /* Base styles already defined earlier */
 
 /* Responsive adjustments */
-@media (max-width: 1440px) {
+@media (max-width: var(--desktop)) {
   .projects-page .container {
     padding: 0 1rem;
   }
@@ -10,7 +10,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--mobile)) {
   main {
     padding-top: 5rem;
     padding-bottom: 0;
@@ -27,6 +27,7 @@
 
   main .container {
     padding: 0 1rem; /* Add horizontal padding on mobile */
+    width: 100%; /* Make container take full width on mobile */
   }
 
   main section.left h1 {

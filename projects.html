@@ -160,7 +160,10 @@
         </article>
         <article data-category="branding">
           <figure>
-            <img data-src="images/project/Oryggi.jpg" alt="Oryggi Technologies" />
+            <img
+              data-src="images/project/Oryggi.jpg"
+              alt="Oryggi Technologies"
+            />
           </figure>
           <h4>Oryggi Technologies</h4>
           <p>Brand Identity & Website</p>
@@ -208,7 +211,11 @@
         </article>
         <article data-category="branding">
           <figure>
-            <img src="images/circle.svg" data-src="images/project/08.jpg" alt="Soyi" />
+            <img
+              src="images/circle.svg"
+              data-src="images/project/08.jpg"
+              alt="Soyi"
+            />
           </figure>
           <h4>Soyi</h4>
           <p>Branding, Logo Design</p>
@@ -231,100 +238,105 @@
     <!-- <script src="js/main.js"></script> -->
 
     <script>
+      const mm = gsap.matchMedia();
 
-      const gallery = document.querySelector(".gallery");
-      const galleryItems = document.querySelectorAll(".gallery article");
-      const filterButtons = document.querySelectorAll(".filters button");
+      mm.add("(min-width: 801px)", () => {
+        console.log("desktop");
+        // Desktop-specific code here
+        const gallery = document.querySelector(".gallery");
+        const galleryItems = document.querySelectorAll(".gallery article");
+        const filterButtons = document.querySelectorAll(".filters button");
 
-      let xPos = 0; // Current scroll position
-      let maxScroll = 0;
+        let xPos = 0; // Current scroll position
+        let maxScroll = 0;
 
-      function updateMaxScroll() {
-        maxScroll = Math.max(
-          0,
-          gallery.scrollWidth -
-            document.querySelector(".gallery-wrapper").clientWidth,
-        );
-      }
+        function updateMaxScroll() {
+          maxScroll = Math.max(
+            0,
+            gallery.scrollWidth -
+              document.querySelector(".gallery-wrapper").clientWidth,
+          );
+        }
 
-      function scrollGallery(delta) {
-        xPos += delta;
-        xPos = Math.max(-maxScroll, Math.min(0, xPos)); // Clamp position
-        gsap.to(gallery, { x: xPos, duration: 0.5, ease: "power2.out" });
-      }
+        function scrollGallery(delta) {
+          xPos += delta;
+          xPos = Math.max(-maxScroll, Math.min(0, xPos)); // Clamp position
+          gsap.to(gallery, { x: xPos, duration: 0.5, ease: "power2.out" });
+        }
 
-      // Mouse wheel horizontal scroll
-      window.addEventListener(
-        "wheel",
-        (e) => {
-          if (e.deltaY !== 0) {
-            scrollGallery(-e.deltaY); // Invert for natural feel
-            e.preventDefault();
-          }
-        },
-        { passive: false },
-      );
-
-      // Touch swipe support
-      let touchStartX = 0;
-      window.addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-      window.addEventListener("touchmove", (e) => {
-        let touchDelta = e.touches[0].clientX - touchStartX;
-        scrollGallery(touchDelta);
-        touchStartX = e.touches[0].clientX;
-      });
-
-      // Filter with smooth transition
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
-
-          const filter = button.getAttribute("data-filter");
-
-          // Animate hiding
-          galleryItems.forEach((item) => {
-            if (filter === "all" || item.dataset.category.includes(filter)) {
-              gsap.to(item, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.4,
-                onStart: () => (item.style.display = "block"),
-              });
-            } else {
-              gsap.to(item, {
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.4,
-                onComplete: () => (item.style.display = "none"),
-              });
+        // Mouse wheel horizontal scroll
+        window.addEventListener(
+          "wheel",
+          (e) => {
+            if (e.deltaY !== 0) {
+              scrollGallery(-e.deltaY); // Invert for natural feel
+              e.preventDefault();
             }
-          });
+          },
+          { passive: false },
+        );
 
-          // Reset scroll
-          setTimeout( () => {
-            updateMaxScroll();
-            xPos = 0;
-            gsap.set(gallery, { x: 0 });
-          }, 500);
+        // Touch swipe support
+        let touchStartX = 0;
+        window.addEventListener("touchstart", (e) => {
+          touchStartX = e.touches[0].clientX;
         });
-      });
+        window.addEventListener("touchmove", (e) => {
+          let touchDelta = e.touches[0].clientX - touchStartX;
+          scrollGallery(touchDelta);
+          touchStartX = e.touches[0].clientX;
+        });
 
-      // Init
-      updateMaxScroll();
-      window.addEventListener("resize", updateMaxScroll);
+        // Filter with smooth transition
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
 
-      // Initial animation for gallery items
-      gsap.set(galleryItems, { opacity: 0, y: 32 });
-      gsap.to(galleryItems, {
-        opacity: 1,
-        y: 0,
-        duration: 3,
-        stagger: 0.25,
-        ease: "power2.out",
-        delay: 0.5
+            const filter = button.getAttribute("data-filter");
+
+            // Animate hiding
+            galleryItems.forEach((item) => {
+              if (filter === "all" || item.dataset.category.includes(filter)) {
+                gsap.to(item, {
+                  opacity: 1,
+                  scale: 1,
+                  duration: 0.4,
+                  onStart: () => (item.style.display = "block"),
+                });
+              } else {
+                gsap.to(item, {
+                  opacity: 0,
+                  scale: 0.8,
+                  duration: 0.4,
+                  onComplete: () => (item.style.display = "none"),
+                });
+              }
+            });
+
+            // Reset scroll
+            setTimeout(() => {
+              updateMaxScroll();
+              xPos = 0;
+              gsap.set(gallery, { x: 0 });
+            }, 500);
+          });
+        });
+
+        // Init
+        updateMaxScroll();
+        window.addEventListener("resize", updateMaxScroll);
+
+        // Initial animation for gallery items
+        gsap.set(galleryItems, { opacity: 0, y: 32 });
+        gsap.to(galleryItems, {
+          opacity: 1,
+          y: 0,
+          duration: 3,
+          stagger: 0.25,
+          ease: "power2.out",
+          delay: 0.5,
+        });
       });
     </script>
   </body>

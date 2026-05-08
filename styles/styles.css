@@ -146,6 +146,20 @@ main section .right p {
   letter-spacing: -4%;
 }
 
-
-
-
+/* media queries */
+@media screen and (max-width: 800px) {
+  main {
+    padding-block-start: 5.5rem;
+  }
+  main .container {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 1rem;
+  }
+  main .grid {
+    /* display: block; */
+    grid-template-columns: 100%;
+    gap: 1.25rem;
+    width: 100%;
+  }
+}

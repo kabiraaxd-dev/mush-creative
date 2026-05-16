@@ -46,19 +46,19 @@ main section.left h1 {
   font-family: "acumin-pro", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: clamp(2.125rem, 3.5vw, 3.75rem);
+  font-size: clamp(2.125rem, 3.125vw, 3.25rem);
   font-weight: 700;
   line-height: 100%;
   padding: 0;
   margin: 0 0 2rem;
-  letter-spacing: -4.55px;
+  letter-spacing: -3.2px;
 }
 main section.left p {
-  font-size: clamp(14px, 1.25vw, 18px);
-  font-weight: 400;
-  line-height: normal;
+  font-size: clamp(14px, 1.25vw, 16px);
+  font-weight: 200;
+  line-height: 125%;
   /* letter-spacing: -0.045rem; */
-  max-width: 15rem;
+  max-width: 58%;
   margin: 0;
 }
 
@@ -82,7 +82,7 @@ main section.middle p {
   font-weight: 200;
   font-size: 1.5rem;
   line-height: 1.6875rem;
-  letter-spacing: -0.06rem;
+  letter-spacing: -0.025rem;
   max-width: 70%;
 }
 main section.right {
@@ -100,7 +100,7 @@ main section.right {
   align-items: flex-start;
   justify-content: space-between;
   flex-grow: 1;
-  color: black;
+  color: var(--primary-color);
 }
 .founders p {
   font-family: "acumin-pro", sans-serif;
@@ -111,6 +111,13 @@ main section.right {
   letter-spacing: -0.105rem;
   margin: 0;
   max-width: 15rem;
+}
+.founders .btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+.founders .btn img {
+  height: 14px;
 }
 .right .clients {
   display: flex;
@@ -147,6 +154,15 @@ main section .right p {
 }
 
 /* media queries */
+@media screen and (max-width: 1600px) {
+  .right .founders {
+    padding: 1.5rem 1.875rem 1.75rem;
+  }
+  .right .founders p {
+    font-size: 20px;
+    line-height: 125%;
+  }
+}
 @media screen and (max-width: 800px) {
   main {
     padding-block-start: 5.5rem;

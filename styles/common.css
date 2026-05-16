@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #ff6600;
+  --primary-color: #0d0d0d;
   --secondary-color: #000;
   --background-color: #fff;
-  --text-color: #333;
+  --text-color: #0d0d0d;
   --navbar-bg: linear-gradient(90deg, rgba(240, 240, 240, 0.85) 0%, rgba(228, 228, 228, 0.85) 57.21%, rgba(244, 244, 244, 0.85) 100%);
   --clients-bg: #dfdfdf;
   --footer-text: #fff;
@@ -16,7 +16,7 @@
 }
 
 .dark-theme {
-  --primary-color: #ff8533;
+  --primary-color: #0d0d0d;
   --secondary-color: #fff;
   --background-color: #1a1a1a;
   --text-color: #f0f0f0;
@@ -105,10 +105,10 @@ body {
   font-style: normal;
   font-size: 14px;
   line-height: 100%;
-  letter-spacing: -4%;
+  letter-spacing: -3%;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -118,7 +118,7 @@ body {
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   background: white;
-  color: black;
+  color: var(--text-color);
 }
 
 .navbar {

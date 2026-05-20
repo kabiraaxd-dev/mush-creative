@@ -6,7 +6,7 @@ body, html {
 
 .container {
   max-width: 1692px;
-  margin: 8rem auto 2rem;
+  margin: 10rem auto 2rem;
   padding-inline: clamp(1rem, 2vw, 2rem);
 }
 
@@ -20,12 +20,12 @@ body, html {
   font-size: 14px;
 }
 .info-section {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 24px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 28px;
-  letter-spacing: -0.48px;
+  letter-spacing: -2%;
   margin-bottom: 80px;
   padding-right: 5.75rem;
 }
@@ -44,7 +44,7 @@ body, html {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.72px;
+  letter-spacing: -4%;
   text-transform: capitalize;
 }
 .social-info .socials {
@@ -70,7 +70,7 @@ body, html {
   line-height: clamp(48px, 5vw, 65px);
   letter-spacing: -4.55px;
   text-wrap: pretty;
-  max-width: 21.5rem;
+  max-width: 24rem;
   margin: 0;
 }
 
@@ -143,6 +143,12 @@ textarea {
 /* .submit-btn:hover {
   background: var(--secondary-color);
 } */
+
+@media screen and (max-width: 1600px) {
+  .info-section {
+    margin-bottom: 3.25rem;
+  }
+}
 
 @media (max-width: 768px) {
   body, html {

@@ -161,7 +161,7 @@
 
 .product-details {
   background: var(--background-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   padding: clamp(8rem, 16.5vh, 9.5rem) clamp(40px, 6.25vw, 120px);
   display: flex;
   flex-direction: column;
@@ -189,11 +189,12 @@ article.last .product-details {
   padding: 1rem 0;
 }
 article.last a {
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 .product-details h1 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-family: "degular", sans-serif;
   font-size: 3.125rem;
   font-style: normal;
@@ -203,11 +204,10 @@ article.last a {
   margin: 1rem 0 1rem;
 }
 .product-details span {
-  color: var(--secondary-color);
-
+  color: var(--primary-color);
   font-size: 1.25rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1.75rem;
   position: absolute;
   bottom: 4rem;
@@ -217,9 +217,9 @@ article.last a {
 .description {
   font-size: 1.125rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: normal;
-  letter-spacing: -0.045rem;
+  /* letter-spacing: -0.045rem; */
   margin: 1rem 0;
 }
 
@@ -227,9 +227,9 @@ article.last a {
   margin-top: clamp(3rem, 8.75vh, 5rem);
   font-size: 1.125rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: normal;
-  letter-spacing: -0.045rem;
+  /* letter-spacing: -0.045rem; */
 }
 .specs h4 {
   color: var(--footer-text-secondary);
@@ -237,7 +237,7 @@ article.last a {
   font-style: normal;
   font-weight: 400;
   line-height: 1.5625rem; /* 104.167% */
-  letter-spacing: -0.06rem;
+  letter-spacing: -4%;
   margin: 0;
 }
 .specs p {
@@ -245,7 +245,7 @@ article.last a {
 }
 
 .product-details .discuss {
-  max-width: 15.75rem;
+  max-width: clamp(14vw, 16.25rem, 18rem);
   color: var(--footer-text-secondary);
   font-size: 1.125rem;
   font-style: normal;
@@ -259,8 +259,8 @@ article.last a {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.75rem; /* 116.667% */
-  letter-spacing: -0.03rem;
+  line-height: 1.75rem;
+  letter-spacing: -2%;
   margin: 0;
 }
 
@@ -268,9 +268,9 @@ article.last a {
   margin-block: 0.625rem;
   font-size: 1.125rem;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: normal;
-  letter-spacing: -0.045rem;
+  /* letter-spacing: -4%; */
 }
 
 .product-details .btn {
@@ -319,12 +319,13 @@ article.last a {
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
-  letter-spacing: -0.48px;
+  letter-spacing: -2%;
   margin: 12px 0;
 }
 
 @media screen and (max-width: 1600px) {
-  .services-list {
+  .specs {
+    margin-top: 2rem;
     
   }
   

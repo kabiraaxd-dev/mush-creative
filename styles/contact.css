@@ -31,7 +31,7 @@ body, html {
 }
 .info-title {
   color: var(--footer-text-secondary);
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 .info strong {
   display: block;
@@ -147,6 +147,12 @@ textarea {
 @media screen and (max-width: 1600px) {
   .info-section {
     margin-bottom: 3.25rem;
+  }
+  .form .title {
+    margin-bottom: 1.25rem;
+  }
+  .form textarea {
+    height: 100px;
   }
 }
 

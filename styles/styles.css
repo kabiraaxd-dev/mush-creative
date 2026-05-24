@@ -127,7 +127,7 @@ main section.right {
 }
 
 .clients {
-  text-align: center;
+  /* text-align: center; */
   padding: 2.25rem 1.875rem;
   background: var(--clients-bg);
   color: var(--text-color);

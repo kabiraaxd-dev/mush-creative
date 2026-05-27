@@ -114,3 +114,46 @@ gsap.utils.toArray("article").forEach((el, i) => {
     duration: 1.2,
   });
 });
+
+// custom cursor figure inside product-image
+const productImages = document.querySelectorAll(".cursor-hover");
+productImages.forEach((container) => {
+  const cursor = document.createElement("figure");
+  cursor.textContent = "Discover";
+  cursor.className = "cursor-figure";
+  container.appendChild(cursor);
+
+  container.addEventListener("mouseenter", (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    gsap.set(cursor, { x, y, scale: 1 });
+    gsap.to(cursor, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
+
+  container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    gsap.to(cursor, {
+      x,
+      y,
+      duration: 0.75,
+      ease: "back.out(3)",
+    });
+  });
+
+  container.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      opacity: 0,
+      scale: 0.85,
+      duration: 0.25,
+      ease: "power2.out",
+    });
+  });
+});

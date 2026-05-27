@@ -29,13 +29,13 @@
   /* height: calc(100vh - 16rem); */
   /* aspect-ratio: 547/590; */
   padding-right: 30px;
-  font-size: 24px;
+  font-size: 18px;
   color: var(--primary-color);
   overflow: hidden;
   transition: transform 0.3s;
 }
 .gallery article figure {
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   padding: 0;
   height: 82%;
   aspect-ratio: 0.73;
@@ -51,16 +51,16 @@
   /* font-family: "acumin-pro", sans-serif; */
   font-weight: normal;
   font-style: normal;
-  /* font-size: 20px; */
-  line-height: 28px;
+  font-size: 18px;
+  line-height: 24px;
   letter-spacing: -2%;
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.125rem;
 }
 .gallery article p {
   margin: 0;
   padding: 0;
   color: var(--footer-text-secondary);
-  letter-spacing: -4%;
+  letter-spacing: -2%;
 }
 .gallery article .cover-link {
   position: absolute;
@@ -143,6 +143,39 @@
   position: relative;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .product-image {
+    cursor: none;
+  }
+}
+
+.cursor-hover {
+  overflow: clip;
+}
+.cursor-hover .cursor-figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 2px 2px 0 -2px rgba(255, 255, 255, 0.5) inset;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  font-size: 1.5rem;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
 .product-image figure {
   padding: 0;
   margin: 0;
@@ -196,12 +229,22 @@ article.last a {
 .product-details h1 {
   color: var(--primary-color);
   font-family: "degular", sans-serif;
-  font-size: 3.125rem;
+  font-size: 2.125rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.75rem;
   letter-spacing: -1px;
-  margin: 1rem 0 1rem;
+  margin: 0 0 0.5rem;
+}
+.product-details h3 {
+  color: var(--primary-color);
+  font-family: "degular", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: -1px;
+  margin: 0 0;
 }
 .product-details span {
   color: var(--primary-color);
@@ -215,12 +258,12 @@ article.last a {
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 200;
-  line-height: normal;
+  line-height: 22px;
   /* letter-spacing: -0.045rem; */
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .specs {
@@ -241,7 +284,7 @@ article.last a {
   margin: 0;
 }
 .specs p {
-  margin: 12px 0;
+  margin: 6px 0;
 }
 
 .product-details .discuss {
@@ -265,7 +308,7 @@ article.last a {
 }
 
 .product-details .discuss p {
-  margin-block: 0.625rem;
+  margin-block: 0.5rem 1.5rem;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 200;
@@ -315,12 +358,12 @@ article.last a {
 }
 
 .services-list {
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: -2%;
-  margin: 12px 0;
+  margin: 6px 0;
 }
 
 @media screen and (max-width: 1600px) {

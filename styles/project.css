@@ -159,7 +159,7 @@
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255,255,255,0.35);
   box-shadow: 2px 2px 0 -2px rgba(255, 255, 255, 0.5) inset;
   pointer-events: none;
@@ -263,15 +263,15 @@ article.last a {
   font-weight: 200;
   line-height: 22px;
   /* letter-spacing: -0.045rem; */
-  margin: 0.5rem 0;
+  margin: 6px 0;
 }
 
 .specs {
   margin-top: clamp(3rem, 8.75vh, 5rem);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 200;
-  line-height: normal;
+  line-height: 22px;
   /* letter-spacing: -0.045rem; */
 }
 .specs h4 {
@@ -299,10 +299,10 @@ article.last a {
 
 .product-details .discuss h4 {
   color: var(--secondary-color);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.75rem;
+  line-height: 1.5rem;
   letter-spacing: -2%;
   margin: 0;
 }

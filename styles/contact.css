@@ -148,8 +148,18 @@ textarea {
   .info-section {
     margin-bottom: 3.25rem;
   }
+  .form h1 {
+    font-size: 48px;
+    line-height: 90%;
+    letter-spacing: -2.25px;
+  }
   .form .title {
     margin-bottom: 1.25rem;
+  }
+  .form input,
+  .form textarea {
+    font-size: 1.25rem;
+    line-height: 2.25rem;
   }
   .form textarea {
     height: 100px;

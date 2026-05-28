@@ -2,7 +2,11 @@ window.addEventListener("load", function () {
   // Preloader
   const preloader = document.getElementById("preloader");
   if (preloader) {
-    preloader.style.display = "none";
+    // fade out using CSS transition, then remove from flow
+    preloader.classList.add("hide");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 700);
   }
 
   gsap.registerPlugin(ScrollTrigger);

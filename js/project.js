@@ -103,15 +103,15 @@ gsap.utils.toArray("article").forEach((el, i) => {
   let img = el.querySelector(".product-image img");
   let details = el.querySelector(".product-details");
   tl.from(img, {
-    x: -60,
+    x: 60,
     opacity: 0,
     skewX: 2,
-    duration: 1.5,
+    duration: 1,
   });
   tl.from(details, {
     x: 60,
     opacity: 0,
-    duration: 1.2,
+    duration: 1,
   });
 });
 

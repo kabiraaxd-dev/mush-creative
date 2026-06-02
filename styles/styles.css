@@ -85,6 +85,10 @@ main section.middle p {
   letter-spacing: -0.025rem;
   max-width: 70%;
 }
+.middle .btn {
+  background-color: #f0f0f0;
+  color: #0d0d0d;
+}
 main section.right {
   padding: 0;
   display: flex;
@@ -113,8 +117,8 @@ main section.right {
   max-width: 15rem;
 }
 .founders .btn {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--background-color);
+  color: var(--btn-text);
 }
 .founders .btn img {
   height: 14px;

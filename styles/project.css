@@ -454,12 +454,27 @@ article.last a {
   .showcase article.no-detail .product-image {
     padding:0 2rem;
   }
+  .showcase article.last {
+    display: flex;
+    gap: 0;
+    flex-direction: column-reverse;
+    padding: 1rem;
+  }
   .product-details.mobile-only {
     padding: 1rem;
   }
   
   .product-details span {
-    bottom: calc(100% - 1rem);
-    left: calc(100% - 2rem);
+    bottom: calc(100% - 1.125rem);
+    left: calc(100% - 2.125rem);
+  }
+  .product-image.vertical {
+    gap: 1rem;
+  }
+  article.outcome .description {
+    max-width: 312px;
+  }
+  article.outcome .product-details .discuss {
+    margin-top: 3.75rem !important;
   }
 }

@@ -166,13 +166,17 @@ textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   body, html {
     height: auto;
     overflow: auto;
   }
+  .container {
+    margin: 8rem auto 2rem;
+  }
   .grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .info-section {
     padding-right: 2.5rem;

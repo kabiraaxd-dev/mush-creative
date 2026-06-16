@@ -145,24 +145,38 @@ textarea {
 } */
 
 @media screen and (max-width: 1600px) {
+  .container {
+    max-width: 92%;
+  }
   .info-section {
-    margin-bottom: 3.25rem;
+    margin-bottom: 7.5dvh;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .info-section strong {
+    font-weight: 200;
   }
   .form h1 {
-    font-size: 48px;
+    font-size: 42px;
     line-height: 90%;
     letter-spacing: -2.25px;
+    max-width: none;
   }
   .form .title {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+    border-bottom: none transparent;
+  }
+  .form-group {
+    margin-bottom: 1.5dvh;
   }
   .form input,
   .form textarea {
-    font-size: 1.25rem;
-    line-height: 2.25rem;
+    font-size: 1.125rem;
+    line-height: 2rem;
   }
   .form textarea {
-    height: 100px;
+    height: 15vh;
   }
 }
 

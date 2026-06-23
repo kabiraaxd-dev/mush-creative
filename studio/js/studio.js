@@ -191,18 +191,7 @@ if (gallery && wrapper) {
     );
   }
 
-  // window.addEventListener(
-  //   "wheel",
-  //   (event) => {
-  //     if (!motion.isDesktop || motion.max <= 0) {
-  //       return;
-  //     }
-
-  //     event.preventDefault();
-  //     setTarget(motion.target - normalizeWheelDelta(event));
-  //   },
-  //   { passive: false },
-  // );
+  
   let isScrolling = false;
   window.addEventListener(
   "wheel",
@@ -288,6 +277,16 @@ if (gallery && wrapper) {
     }
   });
 
+  function nextSlide(slideNumber) {
+    const targetArticle = document.querySelector(`.showcase article:nth-child(${slideNumber})`);
+    if (targetArticle) {
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const targetRect = targetArticle.getBoundingClientRect();
+      const offset = targetRect.left - wrapperRect.left;
+      setTarget(motion.target + offset);
+    }
+  }
+  
   const resizeObserver = new ResizeObserver(() => {
     measure();
   });
@@ -324,48 +323,3 @@ if (gallery && wrapper) {
   });
 }
 
-// custom cursor figure inside product-image
-const productImages = document.querySelectorAll(".cursor-hover");
-
-productImages.forEach((container) => {
-  const cursor = document.createElement("figure");
-  cursor.textContent = "Discover";
-  cursor.className = "cursor-figure";
-  container.appendChild(cursor);
-
-  container.addEventListener("mouseenter", (event) => {
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    gsap.set(cursor, { x, y, scale: 1 });
-    gsap.to(cursor, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.3,
-      ease: "power3.out",
-    });
-  });
-
-  container.addEventListener("mousemove", (event) => {
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    gsap.to(cursor, {
-      x,
-      y,
-      duration: 1,
-      ease: "back.out(3)",
-    });
-  });
-
-  container.addEventListener("mouseleave", () => {
-    gsap.to(cursor, {
-      opacity: 0,
-      scale: 0.85,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  });
-});

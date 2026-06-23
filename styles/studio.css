@@ -689,7 +689,7 @@ article.glob-section {
     width: 100%;
   }
   article.wall-of-fame {
-    padding: 130px 10px 60px 50px;
+    padding: 130px 1rem 60px 1rem;
   }
   .cta-content h2 {
     font-size: 140px;

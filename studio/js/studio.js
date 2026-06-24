@@ -6,7 +6,7 @@ if (gallery && wrapper) {
     current: 0,
     target: 0,
     max: 0,
-    ease: 0.075,
+    ease: 0.125,
     raf: null,
     isDesktop: window.matchMedia("(min-width: 801px)").matches,
   };

@@ -128,8 +128,8 @@ body {
 .navbar {
   background: var(--navbar-bg);
   max-width: 626px;
-  max-height: 65px;
-  padding: 0.6rem;
+  max-height: 50px;
+  padding: 0.575rem;
   border-radius: 12px;
   opacity: 1;
   border-radius: 0.6875rem;
@@ -198,6 +198,27 @@ backdrop-filter: blur(6px);
 
 .close {
   color: var(--secondary-color);
+}
+
+.book-appointment-btn {
+  position: fixed;
+  top: 30px;
+  right: 1rem;
+  z-index: 50;
+}
+.book-appointment-btn .btn {
+  height: 50px;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 1rem;
+  background: var(--secondary-color);
+  color: var(--footer-text);
 }
 
 footer {

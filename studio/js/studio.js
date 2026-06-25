@@ -12,7 +12,7 @@ if (gallery && wrapper) {
   };
 
   const articles = gsap.utils.toArray(".showcase article");
-  const parallaxItems = gsap.utils.toArray("[data-parallax-speed]");
+  // const parallaxItems = gsap.utils.toArray("[data-parallax-speed]");
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   );
@@ -21,7 +21,7 @@ if (gallery && wrapper) {
     return Math.min(Math.max(value, min), max);
   }
 
-  function normalizeWheelDelta(event) {
+  /* function normalizeWheelDelta(event) {
     const axisDelta =
       Math.abs(event.deltaX) > Math.abs(event.deltaY)
         ? event.deltaX
@@ -36,7 +36,7 @@ if (gallery && wrapper) {
     }
 
     return axisDelta;
-  }
+  } */
 
   function setTarget(value) {
     motion.target = clamp(value, -motion.max, 0);
@@ -48,7 +48,7 @@ if (gallery && wrapper) {
     motion.current = clamp(motion.current, -motion.max, 0);
   }
 
-  function updateParallax() {
+  /* function updateParallax() {
     if (!parallaxItems.length) {
       return;
     }
@@ -75,7 +75,7 @@ if (gallery && wrapper) {
 
       gsap.set(item, { x: offset });
     });
-  }
+  } */
 
   function revealVisibleArticles() {
     const wrapperRect = wrapper.getBoundingClientRect();
@@ -95,14 +95,24 @@ if (gallery && wrapper) {
       }
 
       article.dataset.revealed = "true";
-      gsap.to(article.querySelectorAll(".product-image, .product-details"), {
+      // articles.forEach((article) => {
+        gsap.to(article.querySelectorAll(".small-image img, .image-card img, .team-card img"), {
+          x: 0,
+          opacity: 1,
+          skewX: 0,
+          stagger: 0.2,
+          duration: 3.2,
+          ease: "power3.out",
+        });
+      // });
+      /* gsap.to(article.querySelectorAll(".product-image, .product-details"), {
         x: 0,
         opacity: 1,
         skewX: 0,
         duration: 0.9,
         stagger: 0.08,
         ease: "power3.out",
-      });
+      }); */
     });
   }
 
@@ -115,7 +125,7 @@ if (gallery && wrapper) {
     }
 
     gsap.set(gallery, { x: motion.current });
-    updateParallax();
+    /* updateParallax(); */
     revealVisibleArticles();
 
     motion.raf = requestAnimationFrame(render);
@@ -152,10 +162,10 @@ if (gallery && wrapper) {
     motion.current = 0;
     motion.target = 0;
     gsap.set(gallery, { clearProps: "transform" });
-    gsap.set(parallaxItems, { clearProps: "transform" });
-    gsap.set(gallery.querySelectorAll(".product-image, .product-details"), {
+    // gsap.set(parallaxItems, { clearProps: "transform" });
+    /* gsap.set(gallery.querySelectorAll(".product-image, .product-details"), {
       clearProps: "transform,opacity",
-    });
+    }); */
     articles.forEach((article) => {
       article.dataset.revealed = "true";
     });
@@ -165,14 +175,16 @@ if (gallery && wrapper) {
     if (prefersReducedMotion.matches) {
       return;
     }
+    console.log('initRevealState');
+    gsap.set(articles.flatMap((article) => Array.from(article.querySelectorAll(".small-image img, .image-card img, .team-card img"))), { x: -10, opacity: 0, skewX: 1.2 });
 
-    articles.forEach((article) => {
-      gsap.set(article.querySelectorAll(".product-image, .product-details"), {
-        x: 42,
-        opacity: 0,
-        skewX: 1.2,
+    /* articles.forEach((article) => {
+      gsap.to(article.querySelectorAll(".small-image, .image-card"), {
+        x: 0,
+        opacity: 1,
+        // skewX: 1.2,
       });
-    });
+    }); */
   }
 
   async function waitForImages() {
@@ -279,10 +291,12 @@ if (gallery && wrapper) {
 
   function nextSlide(slideNumber) {
     const targetArticle = document.querySelector(`.showcase article:nth-child(${slideNumber})`);
+    // console.log('Next slide:', slideNumber, targetArticle);
     if (targetArticle) {
       const wrapperRect = wrapper.getBoundingClientRect();
       const targetRect = targetArticle.getBoundingClientRect();
       const offset = targetRect.left - wrapperRect.left;
+      console.log('wrapper', wrapperRect.left, 'target', targetRect.left, 'Offset:', offset);
       setTarget(motion.target + offset);
     }
   }

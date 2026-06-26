@@ -481,75 +481,35 @@ article.cta-section {
 .floating-images .img {
   position: absolute;
   z-index: -1;
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
+  width: 150px;
+  height: 200px;
+  object-fit: contain;
   border-radius: 6px;
-  animation: floatUp 8s linear infinite;
-}
-
-/* Left Side */
-.img1 {
-  bottom: 280px;
-  left: 30px;
-  /* transform: rotate(-8deg); */
-}
-
-.img2 {
-  bottom: 100px;
-  left: 200px;
-}
-
-.img3 {
-  bottom: 80px;
-  left: 0px;
-}
-
-.img4 {
-  bottom: 310px;
-  left: 220px;
-  /* transform: rotate(8deg); */
-}
-
-/* Right Side */
-
-.img5 {
-  bottom: 50px;
-  right: 420px;
-}
-
-.img6 {
-  bottom: 90px;
-  right: 240px;
-}
-
-.img7 {
-  bottom: 300px;
-  right: 20px;
-}
-
-.img8 {
-  bottom: 50px;
-  right: 50px;
+  left: var(--float-start-left, 50%);
+  top: 110vh;
+  animation: floatUp 12s linear infinite;
 }
 
 @keyframes floatUp {
   0% {
-    transform: translateY(110vh) rotate(0deg);
-    opacity: 0;
+    left: var(--float-start-left, 50%);
+    transform: translateY(110vh) translateX(-50%);
+    /* opacity: 0.5; */
   }
 
   10% {
-    opacity: 1;
+    /* opacity: 1; */
   }
 
   50% {
-    transform: translateY(0) rotate(5deg);
+    left: var(--float-mid-left, var(--float-start-left, 50%));
+    transform: translateY(0) translateX(-50%);
   }
 
   100% {
-    transform: translateY(-120vh) rotate(10deg);
-    opacity: 0;
+    left: var(--float-end-left, var(--float-start-left, 50%));
+    transform: translateY(-150vh) translateX(-50%);
+    /* opacity: 0.5; */
   }
 }
 
@@ -568,7 +528,7 @@ article.cta-section {
 
 .brand-content {
   max-width: 886px;
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
 }
 
 .brand-content h4 {
@@ -590,12 +550,19 @@ article.cta-section {
   width: 480px;
   /* height: 600px; */
   flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .brand-image img {
   width: 100%;
   aspect-ratio: 0.8;
-  border-radius: 10px;
+  display: block;
+}
+.brand-image video {
+  width: 100%;
+  aspect-ratio: 0.8;
+  object-fit: cover;
   display: block;
 }
 

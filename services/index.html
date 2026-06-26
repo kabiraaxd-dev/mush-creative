@@ -464,39 +464,6 @@
     });
   }
 
-  /* const images = [
-    'images/elem-0.jpg',
-    'images/elem-1.jpg',
-    'images/elem-2.jpg',
-    'images/elem-3.jpg',
-    'images/elem-4.jpg',
-    'images/elem-5.jpg',
-    'images/elem-6.jpg',
-    'images/elem-7.jpg',
-    'images/elem-8.jpg',
-    'images/elem-9.jpg',
-    'images/elem-10.jpg',
-    'images/elem-11.jpg',
-    'images/elem-12.jpg',
-    'images/elem-13.jpg',
-    'images/elem-14.jpg',
-    'images/elem-15.jpg',
-    'images/elem-16.jpg',
-    'images/elem-17.jpg',
-    'images/elem-18.jpg',
-    'images/elem-19.jpg',
-    'images/elem-20.jpg',
-    'images/elem-21.jpg',
-    'images/elem-22.jpg',
-    'images/elem-23.jpg',
-    'images/elem-24.jpg',
-    'images/elem-25.jpg',
-    'images/elem-26.jpg',
-    'images/elem-27.png',
-    'images/elem-28.png',
-    'images/elem-29.png',
-    'images/elem-30.png'
-  ]; */
 const container = document.querySelector('.floating-images');
 
 const isMobile = window.innerWidth <= 800;
@@ -554,8 +521,8 @@ function distributeFloatingImages() {
       img.style.setProperty('--float-end-left', `${startLeft}%`);
       img.style.left = `${startLeft}%`;
       img.style.top = `${(index - centerOffset) * verticalStep}px`;
-      img.style.animationDuration = '12s';
-      img.style.animationDelay = '0s';
+      // img.style.animationDuration = '20s';
+      // img.style.animationDelay = 1 + randomBetween(0, 3) + 's';
     });
   });
 }
@@ -567,29 +534,6 @@ waitforimages().then(() => {
 }).catch((error) => {
   console.error('Error loading images:', error);
 });
-/* 
-for (let i = 0; i < images.length; i++) {
-
-    const img = document.createElement('img');
-
-    img.src = images[Math.floor(Math.random() * images.length)];
-
-    img.classList.add('img');
-
-    // const size = Math.random() * (maxSize - minSize) + minSize;
-
-    img.style.left = Math.random() * 100 + '%';
-    // img.style.width = size + 'px';
-    // img.style.height = size + 'px';
-
-    img.style.animationDuration =
-        (10 + Math.random() * 8) + 's';
-
-    img.style.animationDelay =
-        (-Math.random() * 20) + 's';
-
-    container.appendChild(img);
-} */
 </script>
   
 </body>

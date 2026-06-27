@@ -88,7 +88,7 @@ textarea {
   padding: 10px 0;
   background: transparent none;
   outline: none;
-  color: var(--footer-text-secondary);
+  color: var(--primary-color);
 
   font-family: "degular", sans-serif;
   font-size: 1.5rem;
@@ -122,11 +122,11 @@ textarea {
 
 .submit-btn {
   margin-top: 1rem;
-  border: 1px solid var(--secondary-color);
-  color: var(--secondary-color);
+  /* border: 1px solid var(--secondary-color); */
+  color: var(--footer-text);
   border-radius: 70px;
   cursor: pointer;
-  background: transparent;
+  background: var(--primary-color);
   transition: 0.3s;
   font-size: 16px;
   font-style: normal;
@@ -134,7 +134,7 @@ textarea {
   line-height: normal;
   letter-spacing: -0.64px;
   display: inline-flex;
-  height: 57px;
+  height: 56px;
   padding: 10px 20px;
   justify-content: center;
   align-items: center;
@@ -189,8 +189,10 @@ textarea {
     margin: 8rem auto 2rem;
   }
   .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    /* grid-template-columns: 1fr; */
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5rem;
   }
   .info-section {
     padding-right: 2.5rem;

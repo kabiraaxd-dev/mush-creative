@@ -71,8 +71,8 @@ window.addEventListener("load", () => {
     });
   }
 
-  console.log("Page fully loaded");
-  console.log("gsap.version:", gsap.version);
+  // console.log("Page fully loaded");
+  // console.log("gsap.version:", gsap.version);
   gsap.set(".navbar", { visibility: "visible" });
 
   const mm = gsap.matchMedia();
@@ -171,6 +171,11 @@ window.addEventListener("load", () => {
       y: 10,
       stagger: 0.1,
       delay: 0.4,
+    });
+    gsap.from(".book-appointment-btn", {
+      opacity: 0,
+      y: -10,
+      delay: 0.8,
     });
   });
 });

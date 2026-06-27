@@ -203,7 +203,7 @@ backdrop-filter: blur(6px);
 .book-appointment-btn {
   position: fixed;
   top: 30px;
-  right: 1rem;
+  right: 110px;
   z-index: 50;
 }
 .book-appointment-btn .btn {
@@ -267,6 +267,12 @@ footer {
 }
 
 /* media queries  */
+@media screen and (max-width: 1200px) {
+  .book-appointment-btn {
+    right: 1rem;
+    display: none;
+  }
+}
 @media screen and (max-width: 800px) {
   
   .mobile-menu {
@@ -347,6 +353,10 @@ footer {
   }
   .navbar .legal a {
     color: var(--footer-text-secondary);
+  }
+  .book-appointment-btn {
+    opacity: 0;
+    display: none;
   }
   footer {
     display: block;

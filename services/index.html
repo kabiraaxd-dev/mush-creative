@@ -53,6 +53,16 @@
   transition: transform 700ms ease;
   will-change: transform;
 }
+@media screen and (max-width: 800px) {
+  .marquee-container {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+  .marquee-column img {
+    width: 10vw;
+  }
+}
   </style>
 </head>
 

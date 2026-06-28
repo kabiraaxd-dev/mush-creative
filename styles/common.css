@@ -266,6 +266,13 @@ footer {
   display: none;
 }
 
+.mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+
 /* media queries  */
 @media screen and (max-width: 1200px) {
   .book-appointment-btn {
@@ -274,7 +281,12 @@ footer {
   }
 }
 @media screen and (max-width: 800px) {
-  
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
   .mobile-menu {
     display: flex;
     justify-content: space-between;

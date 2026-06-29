@@ -550,24 +550,26 @@ article.cta-section {
   /* padding-top: 1rem; */
 }
 
-.brand-content h4 {
+.brand-content h4,
+.brand-image h4 {
   font-weight: 700;
   font-size: 60px;
   line-height: 80px;
-  letter-spacing: -7%;
+  letter-spacing: -4%;
   margin: 0px;
 }
 
-.brand-content p {
-  font-weight: 400;
+.brand-content p,
+.brand-image p {
+  font-weight: 200;
   font-size: 20px;
-  line-height: 100%;
-  letter-spacing: -4%;
+  line-height: 1.2;
+  letter-spacing: -3%;
+  color: var(--footer-text-secondary);
 }
 
 .brand-image {
   width: 480px;
-  /* height: 600px; */
   flex-shrink: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -576,23 +578,48 @@ article.cta-section {
 .brand-image img {
   width: 100%;
   aspect-ratio: 0.8;
+  object-fit: cover;
   display: block;
+  border-radius: 10px;
 }
 .brand-image video {
   width: 100%;
   aspect-ratio: 0.8;
   object-fit: cover;
   display: block;
+  border-radius: 10px;
 }
 
 .service-table {
   margin-top: 40px;
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  /* overflow-x: auto; */
+  /* -webkit-overflow-scrolling: touch; */
+}
+.service-table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, max-content));
+  /* gap: 1rem; */
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -3%;
+}
+.service-table .col::before {
+  display: block;
+  content: attr(data-title);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  padding: 1rem 0;
 }
 
-.service-table table {
+.service-table .col div {
+  padding: 1rem 2rem 1rem 0;
+  border-top: 1px solid var(--footer-border);
+  min-height: 58px;
+}
+
+/* .service-table table {
   width: 100%;
   border-collapse: collapse;
 }
@@ -617,7 +644,7 @@ article.cta-section {
 
 .service-table tr:last-child td {
   border-bottom: none;
-}
+} */
 
 .globeheading {
   text-align: center;
@@ -700,14 +727,14 @@ article.glob-section {
     font-size: 50px;
     line-height: 60px;
   }
-  .service-table th {
+  /* .service-table th {
     font-size: 20px;
     padding-block: 12px;
   }
   .service-table td {
     font-size: 16px;
     padding-block: 12px;
-  }
+  } */
 }
 
 @media (max-width: 800px) {
@@ -726,10 +753,10 @@ article.glob-section {
     /* min-height: auto !important; */
   }
   article.wrapperarticle {
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
     min-height: 80dvh;
-    padding-top: 160px;
-    align-items: flex-start;
+    /* padding-top: 160px; */
+    /* align-items: flex-start; */
   }
   .btn.Gettouch {
     margin: 2rem auto 1rem;
@@ -841,7 +868,7 @@ article.glob-section {
     display: none;
   }
   article.cta-section {
-    padding: 2rem 20px;
+    padding: 2rem 1rem;
   }
   .cta-content {
     padding-top: 0px;
@@ -857,63 +884,77 @@ article.glob-section {
   .services-hd {
     padding: 0px 20px;
   }
-  .brand-content h4 {
+  .brand-content h4,
+  .brand-image h4 {
     font-size: 30px;
     line-height: normal;
   }
-  .brand-content p {
+  .brand-content p,
+  .brand-image p {
     font-size: 18px;
   }
-  .brand-content p br {
-    display: none;
-  }
   .branddlf {
-    /* display: block; */
-    flex-direction: column;
-    flex: 0 0 auto;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 1rem;
+    flex-basis: auto;
     margin: 0 auto;
   }
   article.brand-section {
-    padding: 2rem 20px;
+    padding: 1rem 1rem;
   }
   .brand-image {
     width: auto;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    /* margin-top: 20px; */
+    /* margin-bottom: 30px; */
+  }
+  .brand-image img,
+  .brand-image video {
+    aspect-ratio: 1.63;
   }
   article.glob-section {
-    padding: 0px 20px 50px 20px;
+    padding: 1rem 1rem;
   }
   .globeheading h3 {
     font-size: 30px;
     line-height: normal;
   }
+  .brandlogo {
+    overflow: auto;
+  }
   .brandlogo ul {
-    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px 20px;
   }
 
   .service-table {
     margin-top: 10px;
+    grid-template-columns: auto;
+    font-size: 16px;
   }
-  .service-table td {
-    font-size: 18px;
-    padding: 12px 10px 12px 0px;
+  .service-table .col::before {
+    font-size: 16px;
   }
-  .service-table th {
-    font-size: 18px;
-    padding: 12px 0px;
+  .service-table .col div {
+    padding-block: 0.5rem;
+    padding-right: 1rem;
+    min-height: auto;
+  }
+  .service-table .col div:empty {
+    display: none;
   }
 
-  .service-table th,
-  td {
-    white-space: nowrap;
+  .globeheading {
+    text-align: left;
   }
-
+  .globeheading h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
   .showcase article {
     position: relative;
   }
-
 
   @keyframes floatUp {
     from {

@@ -434,7 +434,7 @@ article.last a {
   }
   .gallery {
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     height: auto;
     padding-inline: 1rem;
   }
@@ -474,7 +474,7 @@ article.last a {
   
   .product-details span {
     bottom: calc(100% - 1.125rem);
-    left: calc(100% - 2.125rem);
+    left: calc(100% - 3rem);
   }
   .product-image.vertical {
     gap: 1rem;

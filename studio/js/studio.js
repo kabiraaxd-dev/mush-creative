@@ -6,7 +6,7 @@ if (gallery && wrapper) {
     current: 0,
     target: 0,
     max: 0,
-    ease: 0.125,
+    ease: 0.025,
     raf: null,
     isDesktop: window.matchMedia("(min-width: 801px)").matches,
   };
@@ -47,35 +47,6 @@ if (gallery && wrapper) {
     setTarget(motion.target);
     motion.current = clamp(motion.current, -motion.max, 0);
   }
-
-  /* function updateParallax() {
-    if (!parallaxItems.length) {
-      return;
-    }
-
-    const wrapperRect = wrapper.getBoundingClientRect();
-    const wrapperCenter = wrapperRect.left + wrapperRect.width / 2;
-
-    parallaxItems.forEach((item) => {
-      const speed = Number.parseFloat(item.dataset.parallaxSpeed) || 0;
-      const container = item.closest(".product-image") || item;
-      const rect = container.getBoundingClientRect();
-      const itemCenter = rect.left + rect.width / 2;
-      const progress = clamp(
-        (itemCenter - wrapperCenter) / wrapperRect.width,
-        -1,
-        1,
-      );
-      const maxOffset = item.getBoundingClientRect().width * 0.055;
-      const offset = clamp(
-        progress * wrapperRect.width * speed,
-        -maxOffset,
-        maxOffset,
-      );
-
-      gsap.set(item, { x: offset });
-    });
-  } */
 
   function revealVisibleArticles() {
     const wrapperRect = wrapper.getBoundingClientRect();
@@ -125,7 +96,6 @@ if (gallery && wrapper) {
     }
 
     gsap.set(gallery, { x: motion.current });
-    /* updateParallax(); */
     revealVisibleArticles();
 
     motion.raf = requestAnimationFrame(render);

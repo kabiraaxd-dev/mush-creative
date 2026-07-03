@@ -145,7 +145,7 @@ if (gallery && wrapper) {
     if (prefersReducedMotion.matches) {
       return;
     }
-    console.log('initRevealState');
+    // console.log('initRevealState');
     gsap.set(articles.flatMap((article) => Array.from(article.querySelectorAll(".small-image img, .image-card img, .team-card img"))), { x: -10, opacity: 0, skewX: 1.2 });
 
     /* articles.forEach((article) => {

@@ -36,21 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
   images.forEach((img) => observer.observe(img));
 
   // Preloader waits for all images (including those loaded via observer)
-  preloadImages().then(() => {
+  /* preloadImages().then(() => {
     const preloader = document.getElementById("preloader");
     if (preloader) {
       preloader.classList.add("hide");
     }
-  });
+  }); */
 });
 
 // Fallback: hide preloader after 5 seconds if images take too long or fail
-setTimeout(() => {
+/* setTimeout(() => {
   const preloader = document.getElementById("preloader");
   if (preloader && !preloader.classList.contains("hide")) {
     preloader.classList.add("hide");
   }
-}, 5000);
+}, 5000); */
 
 // Wait for FULL page load (not just DOM)
 window.addEventListener("load", () => {

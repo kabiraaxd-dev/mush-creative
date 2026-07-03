@@ -33,7 +33,7 @@ td {
 .title-hd h1 {
   font-family: "acumin-pro", sans-serif;
   font-weight: 700;
-  font-style: Bold;
+  font-style: normal;
   font-size: 250px;
   line-height: 200px;
   letter-spacing: -7%;
@@ -43,7 +43,7 @@ td {
 
 .title-hd h1 span {
   font-weight: 400;
-  font-style: Italic;
+  font-style: italic;
 }
 
 .title-hd p {
@@ -69,9 +69,9 @@ article.wrapperarticle {
   margin-inline: 0.5vw;
 }
 
-.dark-theme .btn.Gettouch img {
+/* .dark-theme .btn.Gettouch img {
   filter: inherit;
-}
+} */
 
 .btn.Gettouch {
   font-weight: 400;
@@ -85,9 +85,9 @@ article.wrapperarticle {
   cursor: pointer;
 }
 
-.btn.Gettouch img {
+/* .btn.Gettouch img {
   filter: invert(1);
-}
+} */
 .scroll-indicator {
   width: 36px;
   height: 36px;
@@ -651,7 +651,7 @@ article.cta-section {
 }
 .globeheading h3 {
   font-weight: 700;
-  font-size: 60px;
+  font-size: 50px;
   line-height: 70px;
   letter-spacing: -7%;
   margin-top: 0px;
@@ -660,7 +660,7 @@ article.cta-section {
 article.glob-section {
   position: relative;
   display: block;
-  padding: 160px 20px 40px;
+  padding: 7rem 2rem 2rem;
   text-align: center;
 }
 .brandlogo ul {
@@ -669,12 +669,18 @@ article.glob-section {
   margin: 0px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 80px 20px;
+  gap: 4rem 1rem;
 }
 .brandlogo ul li {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.brandlogo li img {
+  max-width: 188px;
+  max-height: 68px;
+  object-fit: contain;
+  display: block;
 }
 
 .dark-theme .brandlogo img {
@@ -702,8 +708,13 @@ article.glob-section {
     padding: 8rem 1rem 20px;
   }
   .brandlogo ul {
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px 20px;
     height: 50dvh;
+  }
+  .brandlogo li img {
+    max-width: 120px;
+    max-height: 44px;
   }
   .cta-content h2 {
     /* font-size: 140px; */
@@ -871,7 +882,7 @@ article.glob-section {
     padding: 2rem 1rem;
   }
   .cta-content {
-    padding-top: 0px;
+    padding-top: 2rem;
   }
 
   .brand-content {
@@ -926,6 +937,10 @@ article.glob-section {
     height: auto;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px 20px;
+  }
+  .brandlogo li img {
+    max-width: 100px;
+    max-height: 40px;
   }
 
   .service-table {

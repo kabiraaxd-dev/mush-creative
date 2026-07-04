@@ -74,6 +74,8 @@ article.wrapperarticle {
 } */
 
 .btn.Gettouch {
+  display: inline-flex;
+  align-items: center;
   font-weight: 400;
   font-size: 16px;
   padding: 8px 24px;
@@ -413,15 +415,17 @@ article.wall-of-fame {
   background: #0c0c0cf0;
   width: 35px;
   height: 35px;
-  line-height: 35px;
+  /* line-height: 35px; */
   border-radius: 10px;
-  text-align: center;
+  /* text-align: center; */
+  display: inline-flex;
 }
 
 .linkedin-icon img {
   width: auto;
-  border-radius: 0px;
-  display: inline;
+  /* border-radius: 0px; */
+  /* display: inline-block; */
+  object-fit: none;
 }
 
 /* cta-section */

@@ -28,6 +28,38 @@ window.addEventListener("load", function () {
   } */
 });
 
+function setupMediaLoaders() {
+  document.querySelectorAll(".media-loader").forEach((wrapper) => {
+    const media = wrapper.querySelector("img, video");
+    if (!media) return;
+
+    const markLoaded = () => {
+      wrapper.classList.add("loaded");
+    };
+
+    if (media.tagName === "IMG") {
+      if (media.complete) {
+        markLoaded();
+      } else {
+        media.addEventListener("load", markLoaded, { once: true });
+        media.addEventListener("error", markLoaded, { once: true });
+      }
+    }
+
+    if (media.tagName === "VIDEO") {
+      if (media.readyState >= 2) {
+        markLoaded();
+      } else {
+        media.addEventListener("loadeddata", markLoaded, { once: true });
+        media.addEventListener("canplay", markLoaded, { once: true });
+        media.addEventListener("error", markLoaded, { once: true });
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", setupMediaLoaders);
+
 function waitForWindowLoad() {
   return new Promise((resolve) => {
     if (document.readyState === "complete") {

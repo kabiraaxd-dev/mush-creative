@@ -153,41 +153,36 @@
     <div class="gallery-wrapper">
       <div class="gallery" id="gallery">
         <article data-category="branding web">
-          <!-- <figure>
-            <img data-src="images/Ashbee.jpg" alt="Ashbee Energy" />
-          </figure> -->
-          <video autoplay muted loop playsinline>
-           <source src="images/Ashbee.mp4" type="video/mp4" />
-         </video>
+          <div class="video-wrapper media-loader">
+            <video autoplay muted loop playsinline>
+              <source src="images/Ashbee.mp4" type="video/mp4" />
+            </video>
+          </div>
           <h4>Ashbee Energy</h4>
           <p>Brand Identity & Website</p>
           <a href="../projects/ashbee.html" class="cover-link">&nbsp;</a>
         </article>
         <article data-category="branding">
-          <!-- <figure>
-            <img
-              data-src="images/Oryggi.jpg"
-              alt="Oryggi Technologies"
-            />
-          </figure> -->
-          <video autoplay muted loop playsinline>
-            <source src="images/Oryggi.mp4" type="video/mp4" />
-          </video>
+          <div class="video-wrapper media-loader">
+            <video autoplay muted loop playsinline>
+              <source src="images/Oryggi.mp4" type="video/mp4" />
+            </video>
+          </div>
           <h4>Oryggi Technologies</h4>
           <p>Brand Identity & Website</p>
           <a href="../projects/oryggi.html" class="cover-link">&nbsp;</a>
         </article>
         <article data-category="web social">
-          <figure>
-            <img data-src="images/Gulfpack.jpg" alt="Gulf Pack" />
+          <figure class="media-loader">
+            <img src="images/Gulfpack.jpg" alt="Gulf Pack" />
           </figure>
           <h4>Gulf Pack</h4>
           <p>Brand Identity & Website</p>
           <a href="../projects/gulfpack.html" class="cover-link">&nbsp;</a>
         </article>
         <article data-category="branding">
-          <figure>
-            <img data-src="images/Soyi.jpg" alt="Soyi" />
+          <figure class="media-loader">
+            <img src="images/Soyi.jpg" alt="Soyi" />
           </figure>
           <h4>Soyi</h4>
           <p>Branding, Logo Design</p>
@@ -243,7 +238,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
     <script src="../js/menu.js"></script>
-    <!-- <script src="../js/main.js"></script> -->
+    <script src="../js/main.js"></script>
 
     <script>
       const mm = gsap.matchMedia();
@@ -253,7 +248,7 @@
         // Desktop-specific code here
         const gallery = document.querySelector(".gallery");
         const galleryItems = document.querySelectorAll(".gallery article");
-        const filterButtons = document.querySelectorAll(".filters button");
+        // const filterButtons = document.querySelectorAll(".filters button");
 
         let xPos = 0; // Current scroll position
         let maxScroll = 0;
@@ -296,7 +291,7 @@
         });
 
         // Filter with smooth transition
-        filterButtons.forEach((button) => {
+        /* filterButtons.forEach((button) => {
           button.addEventListener("click", () => {
             filterButtons.forEach((btn) => btn.classList.remove("active"));
             button.classList.add("active");
@@ -329,7 +324,7 @@
               gsap.set(gallery, { x: 0 });
             }, 500);
           });
-        });
+        }); */
 
         // Init
         updateMaxScroll();

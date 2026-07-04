@@ -1,4 +1,4 @@
-function preloadImages() {
+/* function preloadImages() {
   const images = document.querySelectorAll("img");
   const imagePromises = Array.from(images).map((img) => {
     return new Promise((resolve, reject) => {
@@ -11,11 +11,11 @@ function preloadImages() {
     });
   });
   return Promise.allSettled(imagePromises);
-}
+} */
 
 // Intersection Observer for lazy loading
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll("img[data-src]");
+  /* const images = document.querySelectorAll("img[data-src]");
   const options = {
     root: null,
     rootMargin: "200px", // preload before visible
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, options);
 
-  images.forEach((img) => observer.observe(img));
+  images.forEach((img) => observer.observe(img)); */
 
   // Preloader waits for all images (including those loaded via observer)
   /* preloadImages().then(() => {
@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
 
   // console.log("Page fully loaded");
   // console.log("gsap.version:", gsap.version);
-  gsap.set(".navbar", { visibility: "visible" });
+  gsap.set(".navbar, .book-appointment-btn", { visibility: "visible" });
 
   const mm = gsap.matchMedia();
 
@@ -174,8 +174,9 @@ window.addEventListener("load", () => {
     });
     gsap.from(".book-appointment-btn", {
       opacity: 0,
-      y: -10,
+      y: -100,
       delay: 0.8,
+      ease: "power2.out",
     });
   });
 });

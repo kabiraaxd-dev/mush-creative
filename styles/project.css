@@ -34,25 +34,32 @@
   overflow: hidden;
   transition: transform 0.3s;
 }
+/* .gallery article video { */
 .gallery article figure,
-.gallery article video {
+.gallery article .video-wrapper {
   margin: 0 0 0.5rem;
   padding: 0;
   height: 82%;
   aspect-ratio: 0.73;
+
+  /* margin: 0 0 0.5rem; */
+  /* height: 82%; */
+  /* aspect-ratio: 0.73; */
+  overflow: hidden;
+  border-radius: 10px;
 }
 .gallery article img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 .gallery article video {
   width: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 .gallery article h4 {
   /* font-family: "acumin-pro", sans-serif; */
@@ -73,6 +80,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  text-decoration: none;
 }
 
 .filters {

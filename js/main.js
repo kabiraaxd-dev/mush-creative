@@ -1,5 +1,5 @@
-window.addEventListener("load", function () {
-  console.log("Window loaded");
+// window.addEventListener("load", function () {
+  // console.log("Window loaded");
   // Preloader
   /* const preloader = document.getElementById("preloader");
   if (preloader) {
@@ -26,7 +26,7 @@ window.addEventListener("load", function () {
       });
     }
   } */
-});
+// });
 
 function setupMediaLoaders() {
   document.querySelectorAll(".media-loader").forEach((wrapper) => {

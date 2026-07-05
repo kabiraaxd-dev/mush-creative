@@ -10,12 +10,67 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/project.css" />
+  <!-- <link rel="stylesheet" href="../styles/project.css" /> -->
   <link rel="stylesheet" href="../styles/studio.css" />
   <style>
-    body,
-    html {
-      overflow: hidden;
+    html,
+    body {
+      height: 100%;
+      scrollbar-width: none;      /* Firefox */
+      -ms-overflow-style: none;   /* old Edge/IE */
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      display: none;              /* Chrome, Safari, Edge */
+    }
+
+    body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 1.3;
+        /* font-family: 'Bebas Neue', cursive; */
+        overflow-x: hidden;
+    }
+    
+    *, *::before , *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .showcase-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 700vw;
+      height: 100dvh;
+      /* overflow-x: hidden; */
+    }
+    .showcase-wrapper article {
+      /* flex: 0 0 100%; */
+      width: 100vw;
+      height: 100dvh;
+      position: relative;
+    }
+    @media (max-width: 800px) {
+      html,body {
+        width: 100vw;
+        height: 100dvh;
+      }
+      .showcase-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        height: auto;
+      }
+      .showcase-wrapper article {
+        /* width: 100%; */
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -98,7 +153,7 @@
   <div class="book-appointment-btn"><a href="../contact" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
 
   <div class="container showcase-wrapper">
-    <div id="showcase" class="showcase">
+    <!-- <div id="showcase" class="showcase"> -->
 
       <!-- <article class="wrapperarticle">
         <div class="title-hd">
@@ -347,7 +402,6 @@
           </div>
       </article>
 
-
       <article class="cta-section">
         <div class="cta-content">
             <h2>
@@ -366,8 +420,7 @@
           </div>
       </article>
 
-
-    </div>
+    <!-- </div> -->
   </div>
 
 
@@ -398,11 +451,39 @@
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
 
-  <script src="../studio/js/studio.js"></script>
+  <!-- <script src="../studio/js/studio.js"></script> -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      
-      gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const sections = gsap.utils.toArray('article');
+      const mm = gsap.matchMedia();
+      console.log(sections.length);
+
+      // Desktop
+      mm.add("(min-width: 801px)", () => {
+        console.log("desktop");
+        
+        let scrollTween = gsap.to(sections, {
+          xPercent: -100 * (sections.length - 1),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.showcase-wrapper',
+            pin: true,
+            // markers: true,
+            scrub: 0.25,
+            snap: 1 / (sections.length - 1),
+            start: 'top top',
+            end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth,
+            // onUpdate: self => console.log("progress", self.progress),
+            // onSnapComplete: ({progress, direction, isActive}) => console.log(progress, direction, isActive),
+          }
+        })
+      });
+    // })
+    // document.addEventListener("DOMContentLoaded", function () {
       
       SplitText.create(".title-hd h1", {
         type: "words",

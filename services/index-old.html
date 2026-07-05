@@ -13,51 +13,10 @@
   <link rel="stylesheet" href="../styles/project.css" />
   <link rel="stylesheet" href="../styles/studio.css" />
   <style>
-    
-    html,
-    body {
-      height: 100%;
-      scrollbar-width: none;      /* Firefox */
-      -ms-overflow-style: none;   /* old Edge/IE */
+    body,
+    html {
+      overflow: hidden;
     }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-      display: none;              /* Chrome, Safari, Edge */
-    }
-
-    body {
-        min-height: 100vh;
-        font-size: 16px;
-        line-height: 1.3;
-        /* font-family: 'Bebas Neue', cursive; */
-        overflow-x: hidden;
-    }
-    
-    *, *::before , *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    .showcase-wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      width: 700%;
-      height: 100vh;
-      /* overflow-x: hidden; */
-    }
-    .showcase-wrapper article {
-      /* flex: 0 0 100%; */
-      width: 100%;
-      height: 100vh;
-      position: relative;
-    }
-
     /* Container splits the screen: 35% left, 30% empty center, 35% right */
 .marquee-container {
   display: grid;
@@ -183,9 +142,9 @@
   </nav>
   <div class="book-appointment-btn"><a href="../contact" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
 
-  
   <div class="container showcase-wrapper">
-    
+    <div id="showcase" class="showcase">
+
       <article class="wrapperarticle">
         <div class="services-hd">
           <p>Our Services</p>
@@ -195,9 +154,9 @@
         </div>
 
         <div class="marquee-container">
-          
+          <!-- Left column of images -->
           <div class="marquee-column left" id="left-col"></div>
-          
+          <!-- Right column of images -->
           <div class="marquee-column right" id="right-col"></div>
         </div>
 
@@ -206,7 +165,7 @@
       <article class="wrapperarticle brand-section">
         <div class="branddlf">
 
-          
+          <!-- Left Content -->
           <div class="brand-content">
             <div class="desktop-only">
               <h4 >Brand Strategy and Identity</h4>
@@ -244,9 +203,9 @@
 
           </div>
 
-          
+          <!-- Right Image -->
           <div class="brand-image">
-            
+            <!-- <img src="../services/images/brand-guidelines.svg" alt="Brand Guidelines"> -->
              <div class="mobile-only">
                <h4>Brand Strategy and Identity</h4>
                <p>We work at the amalgamation of functionality and aesthetic. What you get is thoughtful design backed by research, logic, and your story.</p>
@@ -391,32 +350,47 @@
               </p>
             </div>
             <!-- <img src="images/user-interface.gif" alt="AI-Powered Creative Production"> -->
-            <video src="images/ai-generation.mp4" type="video/mp4" autoplay muted loop></video>
+            <video src="images/Ai-Generation.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
       </article>
 
       <article class="glob-section">
         <div class="globeheading">
-          <h3>We work with small and big <br> visionaries around the globe.</h3>
+          <h3>We work with small and big visionaries around the globe.</h3>
         </div>
         <div class="brandlogo">
           <ul>
-            <li><img src="images/logo1.svg" alt=""></li>
-            <li><img src="images/logo2.svg" alt=""></li>
-            <li><img src="images/logo3.svg" alt=""></li>
-            <li><img src="images/logo4.svg" alt=""></li>
-            <li><img src="images/logo5.svg" alt=""></li>
-            <li><img src="images/logo6.svg" alt=""></li>
-            <li><img src="images/logo7.svg" alt=""></li>
-            <li><img src="images/logo8.svg" alt=""></li>
-            <li><img src="images/logo9.svg" alt=""></li>
-            <li><img src="images/logo10.svg" alt=""></li>
-            <li><img src="images/logo11.svg" alt=""></li>
-            <li><img src="images/logo12.svg" alt=""></li>
-            <li><img src="images/logo13.svg" alt=""></li>
-            <li><img src="images/logo14.svg" alt=""></li>
-            <li><img src="images/logo15.svg" alt=""></li>
+            <li><img src="images/logo-1.svg" alt=""></li>
+            <li><img src="images/logo-2.svg" alt=""></li>
+            <li><img src="images/logo-3.svg" alt=""></li>
+            <li><img src="images/logo-4.svg" alt=""></li>
+            <li><img src="images/logo-5.svg" alt=""></li>
+            <li><img src="images/logo-6.svg" alt=""></li>
+            <li><img src="images/logo-7.svg" alt=""></li>
+            <li><img src="images/logo-8.svg" alt=""></li>
+            <li><img src="images/logo-9.svg" alt=""></li>
+            <li><img src="images/logo-10.svg" alt=""></li>
+            <li><img src="images/logo-11.svg" alt=""></li>
+            <li><img src="images/logo-12.svg" alt=""></li>
+            <li><img src="images/logo-13.svg" alt=""></li>
+            <li><img src="images/logo-14.svg" alt=""></li>
+            <li><img src="images/logo-15.svg" alt=""></li>
+            <li><img src="images/logo-16.svg" alt=""></li>
+            <li><img src="images/logo-17.svg" alt=""></li>
+            <li><img src="images/logo-18.svg" alt=""></li>
+            <li><img src="images/logo-19.svg" alt=""></li>
+            <li><img src="images/logo-20.svg" alt=""></li>
+            <li><img src="images/logo-21.svg" alt=""></li>
+            <li><img src="images/logo-22.svg" alt=""></li>
+            <li><img src="images/logo-23.svg" alt=""></li>
+            <li><img src="images/logo-24.svg" alt=""></li>
+            <li><img src="images/logo-25.svg" alt=""></li>
+            <li><img src="images/logo-26.svg" alt=""></li>
+            <li><img src="images/logo-27.svg" alt=""></li>
+            <li><img src="images/logo-28.svg" alt=""></li>
+            <li><img src="images/logo-29.svg" alt=""></li>
+            <li><img src="images/logo-30.svg" alt=""></li>
           </ul>
         </div>
 
@@ -428,7 +402,7 @@
             HAVE A <br>
             PROJECT
             <span class="cta-images">
-              
+              <!-- <img src="images/mush-cta.svg" alt=""> -->
                <video src="images/Mush-CTA-Loading.mp4" type="video/mp4" autoplay muted loop></video>
 
             </span>
@@ -436,11 +410,13 @@
             MIND?
           </h2>
 
-          <a href="../contact" class="btn Gettouch">Get in touch <img src="../images/arrow-right-black.svg" data-theme="../images/arrow-right-white.svg" alt=""></a>
+          <a href="../contact" class="btn Gettouch">Get in touch <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="16"  alt=""></a>
 
         </div>
       </article>
 
+
+    </div>
   </div>
 
   <footer>
@@ -462,37 +438,15 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
 
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
 
-  <!-- <script src="../studio/js/studio.js"></script> -->
-  <script >
-    gsap.registerPlugin(ScrollTrigger);
+  <script src="../studio/js/studio.js"></script>
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    const sections = gsap.utils.toArray('article');
-
-    let scrollTween = gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.showcase-wrapper',
-            pin: true,
-            scrub: 0.5,
-            snap: 1 / (sections.length - 1),
-            start: 'top top',
-            end: 3000,
-        }
-    })
-
-
-})
-  </script>
-<!-- <script>
+<script>
 window.addEventListener("load", () => {
 
   const mm = gsap.matchMedia();
@@ -612,27 +566,9 @@ window.addEventListener("load", () => {
       
       requestAnimationFrame(animate);
     });
-  })
-  // page scroll
-  gsap.registerPlugin(ScrollTrigger);
-  const sections = gsap.utils.toArray('article');
-  // console.log(sections)
-  let scrollTween = gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
-    ease: 'elastic.inOut(0.1)',
-    scrollTrigger: {
-        trigger: '.showcase-wrapper',
-        pin: true,
-        markers: true,
-        // scrub: 0.5,
-        snap: 1 / (sections.length - 1),
-        start: 'top top',
-        toggleClass: {targets: 'article', className: 'active'},
-        end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth
-    }
-  })
 })
-</script> -->
+})
+</script>
 
 </body>
 

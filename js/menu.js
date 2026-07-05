@@ -13,37 +13,6 @@
   return Promise.allSettled(imagePromises);
 } */
 
-// Intersection Observer for lazy loading
-document.addEventListener("DOMContentLoaded", () => {
-  /* const images = document.querySelectorAll("img[data-src]");
-  const options = {
-    root: null,
-    rootMargin: "200px", // preload before visible
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries, self) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-        self.unobserve(img);
-      }
-    });
-  }, options);
-
-  images.forEach((img) => observer.observe(img)); */
-
-  // Preloader waits for all images (including those loaded via observer)
-  /* preloadImages().then(() => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-      preloader.classList.add("hide");
-    }
-  }); */
-});
-
 // Fallback: hide preloader after 5 seconds if images take too long or fail
 /* setTimeout(() => {
   const preloader = document.getElementById("preloader");
@@ -55,18 +24,44 @@ document.addEventListener("DOMContentLoaded", () => {
 // Wait for FULL page load (not just DOM)
 window.addEventListener("load", () => {
   // theme toggle
+
   const toggles = document.querySelectorAll(".theme-toggle");
+  const savedTheme = localStorage.getItem("theme");
+
+  function swapThemeImages() {
+    const imgs = document.querySelectorAll("img[data-theme]");
+    imgs.forEach((img) => {
+      const temp = img.src;
+      img.src = img.dataset.theme;
+      img.dataset.theme = temp;
+    });
+  }
+
+  function setTheme(theme, save = false) {
+    const shouldUseDarkTheme = theme === "dark";
+    const isDarkTheme = document.body.classList.contains("dark-theme");
+
+    if (shouldUseDarkTheme !== isDarkTheme) {
+      document.body.classList.toggle("dark-theme", shouldUseDarkTheme);
+      swapThemeImages();
+    }
+
+    if (save) {
+      localStorage.setItem("theme", shouldUseDarkTheme ? "dark" : "light");
+    }
+  }
+
+  if (savedTheme) {
+    setTheme(savedTheme);
+  }
 
   if (toggles.length) {
     toggles.forEach((btn) => {
       btn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
-        const imgs = document.querySelectorAll("img[data-theme]");
-        imgs.forEach((img) => {
-          const temp = img.src;
-          img.src = img.dataset.theme;
-          img.dataset.theme = temp;
-        });
+        const nextTheme = document.body.classList.contains("dark-theme")
+          ? "light"
+          : "dark";
+        setTheme(nextTheme, true);
       });
     });
   }

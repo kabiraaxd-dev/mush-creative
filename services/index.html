@@ -10,13 +10,53 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/project.css" />
+  <!-- <link rel="stylesheet" href="../styles/project.css" /> -->
   <link rel="stylesheet" href="../styles/studio.css" />
   <style>
-    body,
-    html {
-      overflow: hidden;
+    
+    html,
+    body {
+      height: 100%;
+      scrollbar-width: none;      /* Firefox */
+      -ms-overflow-style: none;   /* old Edge/IE */
     }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      display: none;              /* Chrome, Safari, Edge */
+    }
+
+    body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 1.3;
+        /* font-family: 'Bebas Neue', cursive; */
+        overflow-x: hidden;
+    }
+    
+    *, *::before , *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .showcase-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 700vw;
+      height: 100dvh;
+      /* overflow-x: hidden; */
+    }
+    .showcase-wrapper article {
+      width: 100vw;
+      height: 100dvh;
+      position: relative;
+    }
+
     /* Container splits the screen: 35% left, 30% empty center, 35% right */
 .marquee-container {
   display: grid;
@@ -54,6 +94,21 @@
   will-change: transform;
 }
 @media screen and (max-width: 800px) {
+  html, body {
+    width: 100vw;
+    height: 100dvh;
+  }
+  .showcase-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100vw;
+    height: auto;
+  }
+  .showcase-wrapper article {
+    width: 100vw;
+    height: auto;
+    min-height: auto;
+  }
   .marquee-container {
     position: absolute;
     inset: 0;
@@ -142,15 +197,16 @@
   </nav>
   <div class="book-appointment-btn"><a href="../contact" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
 
+  
   <div class="container showcase-wrapper">
-    <div id="showcase" class="showcase">
+    <!-- <div id="showcase" class="showcase"> -->
 
       <article class="wrapperarticle">
         <div class="services-hd">
           <p>Our Services</p>
           <h2>Nearly a decade and 200+ projects shaped what we now call our
             expertise</h2>
-          <a href="../contact" class="btn Gettouch">Let’s Talk <img src="../images/arrow-right-black.svg" height="14" alt="arrow"></a>
+          <a href="../contact" class="btn Gettouch">Let’s Talk <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a>
         </div>
 
         <div class="marquee-container">
@@ -415,8 +471,6 @@
         </div>
       </article>
 
-
-    </div>
   </div>
 
   <footer>
@@ -438,15 +492,43 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
 
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
 
-  <script src="../studio/js/studio.js"></script>
+  <!-- <script src="../studio/js/studio.js"></script> -->
+  <script >
+    gsap.registerPlugin(ScrollTrigger);
 
-<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const sections = gsap.utils.toArray('article');
+      const mm = gsap.matchMedia();
+      console.log(sections.length)
+        // Desktop
+        mm.add("(min-width: 801px)", () => {
+          console.log("desktop");
+          let scrollTween = gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.showcase-wrapper',
+              pin: true,
+              // markers: true,
+              scrub: 0.25,
+              snap: 1 / (sections.length - 1),
+              start: 'top top',
+              end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth,
+              // onUpdate: self => console.log("progress", self.progress),
+              // onSnapComplete: ({progress, direction, isActive}) => console.log(progress, direction, isActive),
+            }
+          })
+        })
+    })
+  </script>
+<!-- <script>
 window.addEventListener("load", () => {
 
   const mm = gsap.matchMedia();
@@ -566,9 +648,27 @@ window.addEventListener("load", () => {
       
       requestAnimationFrame(animate);
     });
+  })
+  // page scroll
+  gsap.registerPlugin(ScrollTrigger);
+  const sections = gsap.utils.toArray('article');
+  // console.log(sections)
+  let scrollTween = gsap.to(sections, {
+    xPercent: -100 * (sections.length - 1),
+    ease: 'elastic.inOut(0.1)',
+    scrollTrigger: {
+        trigger: '.showcase-wrapper',
+        pin: true,
+        markers: true,
+        // scrub: 0.5,
+        snap: 1 / (sections.length - 1),
+        start: 'top top',
+        toggleClass: {targets: 'article', className: 'active'},
+        end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth
+    }
+  })
 })
-})
-</script>
+</script> -->
 
 </body>
 

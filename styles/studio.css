@@ -64,10 +64,10 @@ article.wrapperarticle {
   justify-content: center;
 }
 
-.showcase article {
+/* .showcase article {
   flex: 0 0 99vw;
   margin-inline: 0.5vw;
-}
+} */
 
 /* .dark-theme .btn.Gettouch img {
   filter: inherit;
@@ -614,11 +614,11 @@ article.cta-section {
   font-size: 24px;
   line-height: 28px;
   font-weight: 700;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
 }
 
 .service-table .col div {
-  padding: 1rem 2rem 1rem 0;
+  padding: 1rem 2rem 1rem 1rem;
   border-top: 1px solid var(--footer-border);
   min-height: 58px;
 }
@@ -764,14 +764,10 @@ article.glob-section {
   }
 
   .showcase article {
-    flex: 0 0 auto;
-    /* min-height: auto !important; */
+    
   }
   article.wrapperarticle {
-    /* padding-bottom: 60px; */
-    min-height: 80dvh;
-    /* padding-top: 160px; */
-    /* align-items: flex-start; */
+    /* min-height: auto; */
   }
   .btn.Gettouch {
     margin: 2rem auto 1rem;
@@ -802,10 +798,12 @@ article.glob-section {
   }
 
   article.build-section {
-    padding: 50px 20px;
+    padding: 0;
   }
   .build-section .heading {
     text-align: left;
+    padding: 1rem 20px;
+    margin-bottom: 1rem;
   }
   .heading h2 {
     font-size: 50px;
@@ -832,6 +830,7 @@ article.glob-section {
   .venn-wrapper {
     flex-direction: column;
     text-align: center;
+    padding: 0px 20px;
   }
   .venn-diagram {
     margin-top: 20px;
@@ -853,16 +852,20 @@ article.glob-section {
   }
 
   article.empathy-section {
-    padding: 50px 20px;
+    padding: 0;
   }
   .empathy-grid {
-    grid-template-columns: 380px 1fr;
+    /* grid-template-columns: 380px 1fr; */
+    padding: 2rem 20px;
   }
   .empathy-grid .content-box {
     flex-direction:column-reverse;
+    gap: 1rem;
   }
+  .empathy-grid .content-box .small-image,
   .empathy-grid .content-box .content {
     padding: 0;
+    margin: 0;
   }
 
   .wall-grid {
@@ -886,7 +889,7 @@ article.glob-section {
     padding: 2rem 1rem;
   }
   .cta-content {
-    padding-top: 2rem;
+    padding-top: 0;
   }
 
   .brand-content {
@@ -907,6 +910,7 @@ article.glob-section {
   .brand-content p,
   .brand-image p {
     font-size: 18px;
+    margin-bottom: 1rem;
   }
   .branddlf {
     flex-direction: column-reverse;
@@ -914,10 +918,11 @@ article.glob-section {
     gap: 1rem;
     flex-basis: auto;
     margin: 0 auto;
+    padding: 1rem 20px;
   }
-  article.brand-section {
+  /* article.brand-section {
     padding: 1rem 1rem;
-  }
+  } */
   .brand-image {
     width: auto;
     /* margin-top: 20px; */
@@ -928,7 +933,7 @@ article.glob-section {
     aspect-ratio: 1.63;
   }
   article.glob-section {
-    padding: 1rem 1rem;
+    padding: 0;
   }
   .globeheading h3 {
     font-size: 30px;
@@ -936,6 +941,7 @@ article.glob-section {
   }
   .brandlogo {
     overflow: auto;
+    padding: 1rem 20px;
   }
   .brandlogo ul {
     height: auto;
@@ -948,16 +954,17 @@ article.glob-section {
   }
 
   .service-table {
-    margin-top: 10px;
+    margin-top: 0;
     grid-template-columns: auto;
     font-size: 16px;
   }
   .service-table .col::before {
     font-size: 16px;
+    padding-left: 0;
   }
   .service-table .col div {
     padding-block: 0.5rem;
-    padding-right: 1rem;
+    padding-inline: 0 1rem;
     min-height: auto;
   }
   .service-table .col div:empty {
@@ -966,6 +973,8 @@ article.glob-section {
 
   .globeheading {
     text-align: left;
+    margin-bottom: 1rem;
+    padding: 1rem 20px;
   }
   .globeheading h3 {
     font-size: 24px;
@@ -1006,7 +1015,7 @@ article.glob-section {
   }
   .wall-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 20px;
   }
   .fame-content {
     padding: 0px;

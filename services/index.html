@@ -106,8 +106,7 @@
   }
   .showcase-wrapper article {
     width: 100vw;
-    height: auto;
-    min-height: auto;
+    height: auto;    
   }
   .marquee-container {
     position: absolute;
@@ -218,7 +217,7 @@
 
       </article>
 
-      <article class="wrapperarticle brand-section">
+      <article class=" brand-section">
         <div class="branddlf">
 
           <!-- Left Content -->
@@ -266,14 +265,17 @@
                <h4>Brand Strategy and Identity</h4>
                <p>We work at the amalgamation of functionality and aesthetic. What you get is thoughtful design backed by research, logic, and your story.</p>
               </div>
-             <video src="images/Branding.mp4" type="video/mp4" autoplay muted loop></video>
+              <div class="media-loader">
+                <video src="images/Branding.mp4" type="video/mp4" autoplay muted loop></video>
+              </div>
+
           </div>
 
         </div>
       </article>
 
 
-      <article class="wrapperarticle brand-section">
+      <article class=" brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -321,13 +323,16 @@
                 to experience.
               </p>
             </div>
-            <video src="images/User Experience-UI.mp4" type="video/mp4" autoplay muted loop></video>
+            <div class="media-loader">
+              <video src="images/User Experience-UI.mp4" type="video/mp4" autoplay muted loop></video>
+            </div>
+
           </div>
         </div>
       </article>
 
 
-      <article class="wrapperarticle brand-section">
+      <article class=" brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -363,12 +368,15 @@
                 engagement and audiences into communities.
               </p>
             </div>
-            <video src="images/Social-Media.mp4" type="video/mp4" autoplay muted loop></video>
+            <div class="media-loader">
+              <video src="images/Social-Media.mp4" type="video/mp4" autoplay muted loop></video>
+            </div>
+
           </div>
         </div>
       </article>
 
-      <article class="wrapperarticle brand-section">
+      <article class=" brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -406,7 +414,9 @@
               </p>
             </div>
             <!-- <img src="images/user-interface.gif" alt="AI-Powered Creative Production"> -->
-            <video src="images/Ai-Generation.mp4" type="video/mp4" autoplay muted loop></video>
+             <div class="media-loader">
+              <video src="images/Ai-Generation.mp4" type="video/mp4" autoplay muted loop></video>
+            </div>
           </div>
         </div>
       </article>
@@ -457,7 +467,7 @@
           <h2>
             HAVE A <br>
             PROJECT
-            <span class="cta-images">
+            <span class="cta-images media-loader">
               <!-- <img src="images/mush-cta.svg" alt=""> -->
                <video src="images/Mush-CTA-Loading.mp4" type="video/mp4" autoplay muted loop></video>
 
@@ -528,7 +538,7 @@
         })
     })
   </script>
-<!-- <script>
+<script>
 window.addEventListener("load", () => {
 
   const mm = gsap.matchMedia();
@@ -649,26 +659,9 @@ window.addEventListener("load", () => {
       requestAnimationFrame(animate);
     });
   })
-  // page scroll
-  gsap.registerPlugin(ScrollTrigger);
-  const sections = gsap.utils.toArray('article');
-  // console.log(sections)
-  let scrollTween = gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
-    ease: 'elastic.inOut(0.1)',
-    scrollTrigger: {
-        trigger: '.showcase-wrapper',
-        pin: true,
-        markers: true,
-        // scrub: 0.5,
-        snap: 1 / (sections.length - 1),
-        start: 'top top',
-        toggleClass: {targets: 'article', className: 'active'},
-        end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth
-    }
-  })
+  
 })
-</script> -->
+</script>
 
 </body>
 

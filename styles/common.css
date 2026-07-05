@@ -43,7 +43,7 @@ body {
   color: var(--text-color);
   transition:
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.35s ease;
   overflow-x: hidden;
 }
 
@@ -110,9 +110,9 @@ body {
   inset: 0;
   background: linear-gradient(
     90deg,
-    #e8e8e8 0%,
-    #f5f5f5 50%,
-    #e8e8e8 100%
+    var(--background-color) 0%,
+    var(--footer-border) 50%,
+    var(--background-color) 100%
   );
   animation: mediaShimmer 1.2s infinite;
   z-index: 1;

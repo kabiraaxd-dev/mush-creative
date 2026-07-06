@@ -4,65 +4,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mush Design Service</title>
+  <title>Branding, Website Design & UI/UX Services | Mush Design Studio</title>
+  <meta name="description" content="Discover branding, logo design, website development, UI/UX, packaging, and digital design services tailored to help businesses build memorable brands." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" /> -->
+   
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/project.css" />
+  <!-- <link rel="stylesheet" href="../styles/project.css" /> -->
+  <link rel="stylesheet" href="../styles/jquery.pagepiling.css" />
+
   <link rel="stylesheet" href="../styles/studio.css" />
   <style>
-    body,
-    html {
+    body {
+      
+    }
+    .preloader-content {
+      gap: 0;
+    }
+    .preloader-title {
+      font-size: 1.5rem;
+    }
+    .preloader-text {
+      font-size: 4.5rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+    .preloader-text em {
+      font-style: italic;
+      font-weight: 400;
+    }
+    
+    /* Container splits the screen: 35% left, 30% empty center, 35% right */
+    .marquee-container {
+      display: grid;
+      grid-template-columns: 35% 30% 35%; 
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
       overflow: hidden;
     }
-    /* Container splits the screen: 35% left, 30% empty center, 35% right */
-.marquee-container {
-  display: grid;
-  grid-template-columns: 35% 30% 35%; 
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-}
 
-/* Columns containing the images */
-.marquee-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Your requested vertical gap */
-  position: absolute;
-  top: 0;
-  width: 35%;
-  will-change: transform;
-}
+    /* Columns containing the images */
+    .marquee-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Your requested vertical gap */
+      position: absolute;
+      top: 0;
+      width: 35%;
+      will-change: transform;
+    }
 
-.left { /* grid-column: 1; */ left: 0; }
-.right { /* grid-column: 3; */ right: 0; }
+    .left { /* grid-column: 1; */ left: 0; }
+    .right { /* grid-column: 3; */ right: 0; }
 
-.marquee-column img {
-  width: auto;
-  height: auto;
-  display: inline-block;
-  border-radius: 8px;
-  object-fit: contain;
-  transform: translateX(var(--marquee-image-x, 0px));
-  transition: transform 700ms ease;
-  will-change: transform;
-}
-@media screen and (max-width: 800px) {
-  .marquee-container {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-  }
-  .marquee-column img {
-    width: 10vw;
-  }
-}
+    .marquee-column img {
+      width: auto;
+      height: auto;
+      display: inline-block;
+      border-radius: 8px;
+      object-fit: contain;
+      transform: translateX(var(--marquee-image-x, 0px));
+      transition: transform 700ms ease;
+      will-change: transform;
+    }
+    @media screen and (max-width: 800px) {
+      .marquee-container {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+      }
+      .marquee-column img {
+        width: 10vw;
+      }
+    }
   </style>
 </head>
 
@@ -71,8 +90,8 @@
   <!-- Preloader -->
   <div id="preloader">
     <div class="preloader-content">
-      <div class="preloader-spinner"></div>
-      <p>Loading</p>
+      <div class="preloader-title">We are</div>
+      <div class="preloader-text">M<em>OO</em>SH</div>
     </div>
   </div>
   <!-- Navigation for mobile-->
@@ -142,10 +161,10 @@
   </nav>
   <div class="book-appointment-btn"><a href="../contact" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
 
-  <div class="container showcase-wrapper">
-    <div id="showcase" class="showcase">
+  <div id="pagepiling" >
+    <!-- <div id="showcase" class="showcase"> -->
 
-      <article class="wrapperarticle">
+      <div class="wrapperarticle section">
         <div class="services-hd">
           <p>Our Services</p>
           <h2>Nearly a decade and 200+ projects shaped what we now call our
@@ -160,9 +179,9 @@
           <div class="marquee-column right" id="right-col"></div>
         </div>
 
-      </article>
+      </div>
 
-      <article class="wrapperarticle brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
 
           <!-- Left Content -->
@@ -214,10 +233,9 @@
           </div>
 
         </div>
-      </article>
+      </div>
 
-
-      <article class="wrapperarticle brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -268,10 +286,9 @@
             <video src="images/User Experience-UI.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
-      </article>
+      </div>
 
-
-      <article class="wrapperarticle brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -310,9 +327,9 @@
             <video src="images/Social-Media.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="wrapperarticle brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -353,9 +370,9 @@
             <video src="images/Ai-Generation.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="glob-section">
+      <div class="glob-section section">
         <div class="globeheading">
           <h3>We work with small and big visionaries around the globe.</h3>
         </div>
@@ -394,9 +411,9 @@
           </ul>
         </div>
 
-      </article>
+      </div>
 
-      <article class="cta-section">
+      <div class="cta-section section">
         <div class="cta-content">
           <h2>
             HAVE A <br>
@@ -413,10 +430,10 @@
           <a href="../contact" class="btn Gettouch">Get in touch <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="16"  alt=""></a>
 
         </div>
-      </article>
+      </div>
 
 
-    </div>
+    <!-- </div> -->
   </div>
 
   <footer>
@@ -434,19 +451,85 @@
     </div>
   </footer>
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script src="../js/jquery.pagepiling.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script>
 
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
 
-  <script src="../studio/js/studio.js"></script>
+  <!-- <script src="../studio/js/studio.js"></script> -->
 
 <script>
+  $(document).ready(function() {
+	  $('#pagepiling').pagepiling({
+      direction: 'horizontal',
+      menu: false,
+      navigation: false,
+      easing: 'linear',
+      scrollingSpeed: 1200,
+      afterRender: function(){
+        console.log("The resulting DOM structure is ready");
+      },
+      afterLoad: function(anchorLink, index){
+        console.log("Section " + index + " has been loaded");
+      }
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(TextPlugin) 
+
+    const preloader = document.getElementById("preloader");
+    const preloaderContent = preloader.querySelector(".preloader-content");
+    const preloaderTitle = preloader.querySelector(".preloader-title");
+    const preloaderText = preloader.querySelector(".preloader-text em");
+
+    // Animate the preloader content
+    gsap.fromTo(
+      preloaderContent,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+    );
+
+    // Animate the title and text
+    /* gsap.fromTo(
+      [preloaderTitle, preloaderText],
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.3,
+        delay: 0.5,
+      }
+    ); */
+
+    let pt = gsap.timeline({ repeat: -1, defaults: { duration: 4, ease: "sine.inOut" } })
+      .to(preloaderText, {
+        // duration: 1.2,
+        text: "OOOOOOOO",
+        // snap: "textContent",
+        ease: "sine.inOut",
+      })
+      .to(preloaderText, {
+        // duration: 1.2,
+        text: "OO",
+        // snap: "textContent",
+        ease: "sine.inOut",
+      });
+
+
+  });
+
 window.addEventListener("load", () => {
 
   const mm = gsap.matchMedia();

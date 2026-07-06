@@ -29,7 +29,25 @@
 // });
 
 function setupMediaLoaders() {
+  gsap.registerPlugin(TextPlugin);
+  const preloaderText = preloader.querySelector(".preloader-text em");
+
+  let pt = gsap
+    .timeline({ repeat: -1, defaults: { duration: 3, ease: "sine.inOut" } })
+    .to(preloaderText, {
+      // duration: 1.2,
+      text: "OOOOOOOO",
+      // snap: "textContent",
+      ease: "sine.inOut",
+    })
+    .to(preloaderText, {
+      // duration: 1.2,
+      text: "OO",
+      // snap: "textContent",
+      ease: "sine.inOut",
+    });
   document.querySelectorAll(".media-loader").forEach((wrapper) => {
+
     const media = wrapper.querySelector("img, video");
     if (!media) return;
 
@@ -60,11 +78,14 @@ function setupMediaLoaders() {
 
 document.addEventListener("DOMContentLoaded", setupMediaLoaders);
 
+const MIN_PRELOADER_VISIBLE_MS = 8000;
+const preloaderStartTime = Date.now();
+
 function waitForWindowLoad() {
   return new Promise((resolve) => {
     if (document.readyState === "complete") {
       console.log("Window already loaded");
-      resolve();
+      resolve("true");
     } else {
       window.addEventListener("load", resolve, { once: true });
     }
@@ -96,7 +117,7 @@ function waitForVideos() {
   );
 }
 
-function hidePreloader() {
+function doHidePreloader() {
   const preloader = document.getElementById("preloader");
 
   if (!preloader) return;
@@ -109,16 +130,30 @@ function hidePreloader() {
   }, 700);
 }
 
-/* Promise.all([waitForWindowLoad(), waitForFonts(), waitForVideos()]).then(
-  hidePreloader,
-); */
+function hidePreloader() {
+  const elapsed = Date.now() - preloaderStartTime;
+  const remaining = MIN_PRELOADER_VISIBLE_MS - elapsed;
+
+  if (remaining > 0) {
+    setTimeout(doHidePreloader, remaining);
+  } else {
+    doHidePreloader();
+  }
+}
 
 const fallback = new Promise((resolve) => {
-  setTimeout(resolve, 8000);
+  setTimeout(resolve, 12000);
 });
 
 Promise.race([
   Promise.all([waitForWindowLoad(), waitForFonts(), waitForVideos()]),
   fallback,
-  console.log("Preloader fallback triggered"),
-]).then(hidePreloader);
+])
+  .then((value) => {
+    console.log("preloader ready", value);
+    hidePreloader();
+  })
+  .catch((error) => {
+    console.error("Error during preloader wait:", error);
+    hidePreloader();
+  });

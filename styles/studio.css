@@ -57,11 +57,12 @@ td {
   margin: 0px;
 }
 
-article.wrapperarticle {
+.wrapperarticle {
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
+  background: var(--background-color);
 }
 
 /* .showcase article {
@@ -106,7 +107,7 @@ article.wrapperarticle {
   
 }
 
-article.gridarticle {
+.gridarticle {
   display: grid;
   grid-template-columns: 46% 1fr;
   min-height: 100vh;
@@ -145,7 +146,7 @@ article.gridarticle {
 
 /* build-section */
 
-article.build-section {
+.build-section {
   display: inline-block;
   padding: 8rem 0 2rem;
   position: relative;
@@ -253,7 +254,7 @@ article.build-section {
 
 /* build-section */
 
-article.empathy-section {
+.empathy-section {
   display: flex;
   /* align-items: center; */
   justify-content: center;
@@ -338,7 +339,7 @@ article.empathy-section {
 
 /* wall-of-fame */
 
-article.wall-of-fame {
+.wall-of-fame {
   position: relative;
   display: flex;
   padding: 120px 10px 60px 60px;
@@ -430,7 +431,7 @@ article.wall-of-fame {
 
 /* cta-section */
 
-article.cta-section {
+.cta-section {
   display: block;
   align-items: center;
   justify-content: center;
@@ -537,7 +538,7 @@ article.cta-section {
 }
 
 .brand-section {
-  position: relative;
+  /* position: relative; */
 }
 
 .branddlf {
@@ -622,34 +623,7 @@ article.cta-section {
   padding: 1rem 2rem 1rem 1rem;
   border-top: 1px solid var(--footer-border);
   min-height: 58px;
-}
-
-/* .service-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.service-table th {
-  text-align: left;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: -3%;
-  padding: 15px 0;
-}
-
-.service-table td {
-  padding: 15px 0;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: normal;
-  letter-spacing: -2%;
-  border-bottom: 1px solid var(--footer-border);
-}
-
-.service-table tr:last-child td {
-  border-bottom: none;
-} */
+} 
 
 .globeheading {
   text-align: center;
@@ -663,11 +637,12 @@ article.cta-section {
   margin-top: 0px;
 }
 
-article.glob-section {
-  position: relative;
+.glob-section {
+  /* position: relative; */
   display: block;
   padding: 7rem 2rem 2rem;
   text-align: center;
+  background: var(--background-color);
 }
 .brandlogo ul {
   list-style: none;
@@ -707,10 +682,10 @@ article.glob-section {
   .webp-image img {
     width: 100%;
   }
-  article.wall-of-fame {
+  .wall-of-fame {
     padding: 130px 1rem 60px;
   }
-  article.glob-section {
+  .glob-section {
     padding: 8rem 1rem 20px;
   }
   .brandlogo ul {
@@ -765,17 +740,14 @@ article.glob-section {
     justify-content: center;
   }
 
-  .showcase article {
-    
-  }
-  article.wrapperarticle {
+  .wrapperarticle {
     /* min-height: auto; */
   }
   .btn.Gettouch {
     margin: 2rem auto 1rem;
     padding: 1rem 2rem;
   }
-  article.gridarticle {
+  .gridarticle {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -799,7 +771,7 @@ article.glob-section {
     padding: 0px 20px;
   }
 
-  article.build-section {
+  .build-section {
     padding: 0;
   }
   .build-section .heading {
@@ -853,7 +825,7 @@ article.glob-section {
     height: auto;
   }
 
-  article.empathy-section {
+  .empathy-section {
     padding: 0;
   }
   .empathy-grid {
@@ -874,7 +846,7 @@ article.glob-section {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
-  article.wall-of-fame {
+  .wall-of-fame {
     padding: 0px 20px 50px 20px;
     display: block;
   }
@@ -887,7 +859,7 @@ article.glob-section {
   .cta-content h2 br {
     display: none;
   }
-  article.cta-section {
+  .cta-section {
     padding: 2rem 1rem;
   }
   .cta-content {
@@ -922,7 +894,7 @@ article.glob-section {
     margin: 0 auto;
     padding: 1rem 20px;
   }
-  /* article.brand-section {
+  /* .brand-section {
     padding: 1rem 1rem;
   } */
   .brand-image {
@@ -934,7 +906,7 @@ article.glob-section {
   .brand-image video {
     aspect-ratio: 1.63;
   }
-  article.glob-section {
+  .glob-section {
     padding: 0;
   }
   .globeheading h3 {
@@ -982,9 +954,6 @@ article.glob-section {
     font-size: 24px;
     line-height: 28px;
   }
-  .showcase article {
-    position: relative;
-  }
 
   @keyframes floatUp {
     from {
@@ -1011,7 +980,7 @@ article.glob-section {
     grid-template-columns: repeat(1, 1fr);
   }
   
-  article.wall-of-fame {
+  .wall-of-fame {
     padding: 1rem 20px 2rem;
     /* display: block; */
   }

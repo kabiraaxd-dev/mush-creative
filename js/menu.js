@@ -93,6 +93,7 @@ window.addEventListener("load", () => {
       zIndex: 49,
       duration: 0.6,
       ease: "power3.inOut",
+      delay: 7000,
     });
 
     tl.from(
@@ -150,6 +151,7 @@ window.addEventListener("load", () => {
       opacity: 0,
       duration: 0.8,
       ease: "power2.out",
+      delay: 0.2,
     });
 
     gsap.from(".navbar li", {

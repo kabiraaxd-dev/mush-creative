@@ -72,7 +72,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 
 .preloader-spinner {
@@ -96,6 +96,18 @@ body {
   font-weight: 300;
   margin: 0;
   letter-spacing: 1px;
+}
+.preloader-title {
+  font-size: 1.5rem;
+}
+.preloader-text {
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+}
+.preloader-text em {
+  font-style: italic;
+  font-weight: 400;
 }
 
 .media-loader {

@@ -199,6 +199,7 @@ textarea {
   }
   .container {
     margin: 8rem auto 2rem;
+    max-width: max-content;
   }
   .grid {
     /* grid-template-columns: 1fr; */

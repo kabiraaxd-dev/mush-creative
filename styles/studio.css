@@ -975,6 +975,7 @@ td {
   .wall-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0;
   }
   .fame-content {
     padding: 0px;

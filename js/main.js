@@ -36,21 +36,21 @@ window.addEventListener("load", function () {
     });
     
 function showPreloader() {
-  gsap.registerPlugin(TextPlugin);
-  gsap.set(".preloader-title, .preloader-text", { visibility: "visible" });
-  const preloaderText = preloader.querySelector(".preloader-text em");
+  // gsap.registerPlugin(TextPlugin);
+  // gsap.set(".preloader-title, .preloader-text", { visibility: "visible" });
+  // const preloaderText = preloader.querySelector(".preloader-text em");
 
-  let gt = gsap.timeline({ defaults: { duration: 1.2, ease: "power2.out" } })
+  /* let gt = gsap.timeline({ defaults: { duration: 1.2, ease: "power2.out" } })
   .from(".preloader-title", {
     opacity: 0, y: -20
   },
   ).from(
     ".preloader-text", { opacity: 0, y: 20 },
     "-=0.2",
-  )
+  ) */
 
   // Animate the preloader content
-  let pt = gsap
+  /* let pt = gsap
   .timeline({ repeat: -1, defaults: { duration: 1.8, delay: 0.6, ease: "sine.inOut" } })
     .to(preloaderText, {
       text: "OOOOOOOO",
@@ -59,13 +59,13 @@ function showPreloader() {
     .to(preloaderText, {
       text: "OO",
       ease: "sine.inOut",
-    });
+    }); */
   
 }
 
 function setupMediaLoaders() {
 
-  showPreloader();
+  // showPreloader();
 
   document.querySelectorAll(".media-loader").forEach((wrapper) => {
 
@@ -99,7 +99,7 @@ function setupMediaLoaders() {
 
 document.addEventListener("DOMContentLoaded", setupMediaLoaders);
 
-const MIN_PRELOADER_VISIBLE_MS = 8000;
+const MIN_PRELOADER_VISIBLE_MS = 6000;
 const preloaderStartTime = Date.now();
 
 function waitForWindowLoad() {

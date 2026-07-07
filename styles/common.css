@@ -76,12 +76,16 @@ body {
 }
 
 .preloader-spinner {
+  max-width: 50vw;
   /* width: 50px;
   height: 50px;
   border: 3px solid var(--footer-text-secondary);
   border-top-color: var(--text-color);
   border-radius: 50%;
   animation: spin 1s linear infinite; */
+}
+.preloader-spinner svg {
+  max-width: 100%;
 }
 
 @keyframes spin {

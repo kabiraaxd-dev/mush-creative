@@ -90,10 +90,9 @@ window.addEventListener("load", () => {
 
     tl.to(menu, {
       y: "0%",
-      zIndex: 49,
-      duration: 0.6,
+      zIndex: 99,
+      duration: 0.8,
       ease: "power3.inOut",
-      delay: 7000,
     });
 
     tl.from(
@@ -125,9 +124,10 @@ window.addEventListener("load", () => {
       "-=0.3",
     );
 
-    openBtn?.addEventListener("click", () => {
+    openBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
       document.body.classList.add("menu-open");
-      tl.play();
+      tl.restart();
     });
 
     function closeMenu() {

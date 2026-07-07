@@ -70,7 +70,7 @@ body, html {
   line-height: clamp(48px, 5vw, 65px);
   letter-spacing: -4.55px;
   text-wrap: pretty;
-  max-width: 24rem;
+  /* max-width: 24rem; */
   margin: 0;
 }
 
@@ -107,7 +107,7 @@ textarea:focus {
 
 .error {
   font-size: 12px;
-  color: red;
+  color: coral;
   position: absolute;
   bottom: -18px;
   left: 0;
@@ -144,6 +144,18 @@ textarea {
   background: var(--secondary-color);
 } */
 
+.form-status {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+.is-success {
+  color: forestgreen;
+}
+.is-error {
+  color: coral;
+}
+
 @media screen and (max-width: 1600px) {
   .container {
     max-width: 92%;
@@ -160,7 +172,7 @@ textarea {
     font-size: 42px;
     line-height: 90%;
     letter-spacing: -2.25px;
-    max-width: none;
+    /* max-width: none; */
   }
   .form .title {
     margin-bottom: 1rem;

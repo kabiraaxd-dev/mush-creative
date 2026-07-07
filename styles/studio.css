@@ -124,6 +124,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.75rem;
   position: relative;
 }
 
@@ -137,11 +138,9 @@ td {
 }
 
 .details-text p {
-  /* font-family: "degular", sans-serif; */
-  /* font-weight: 400; */
   font-size: 18px;
   line-height: 22px;
-  letter-spacing: -4%;
+  letter-spacing: -2%;
 }
 
 /* build-section */
@@ -195,11 +194,6 @@ td {
   margin: 0px;
 }
 
-.venn-diagram {
-  /* position: relative; */
-  /* display: flex; */
-  /* align-items: center; */
-}
 .venn-diagram img {
   height: 48dvh;
   display: block;
@@ -342,7 +336,6 @@ td {
 .wall-of-fame {
   position: relative;
   display: flex;
-  padding: 120px 10px 60px 60px;
   align-items: center;
   justify-content: center;
 }
@@ -350,15 +343,17 @@ td {
 .wall-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
+  gap: 1rem;
+  padding: 6.5rem 2.5rem 2.5rem;
 }
 
 .team-card {
   position: relative;
 }
 
-.team-card img {
+.team-card > img {
   width: 100%;
+  height: calc(50vh - 8rem);
   object-fit: cover;
   border-radius: 8px;
   display: block;
@@ -408,7 +403,7 @@ td {
   margin: 0px;
 }
 
-.linkedin-icon {
+.team-card .linkedin-icon {
   position: absolute;
   bottom: 60px;
   right: 15px;
@@ -422,7 +417,7 @@ td {
   display: inline-flex;
 }
 
-.linkedin-icon img {
+.team-card .linkedin-icon img {
   width: auto;
   /* border-radius: 0px; */
   /* display: inline-block; */
@@ -439,7 +434,7 @@ td {
 
 .cta-content {
   text-align: center;
-  padding-top: calc(12dvh + 2rem);
+  padding-top: calc(8dvh + 2rem);
 }
 
 .cta-content h2 {
@@ -535,10 +530,6 @@ td {
     transform: translateY(-150vh) translateX(-50%);
     /* opacity: 0; */
   }
-}
-
-.brand-section {
-  /* position: relative; */
 }
 
 .branddlf {
@@ -690,8 +681,8 @@ td {
   }
   .brandlogo ul {
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px 20px;
-    height: 50dvh;
+    gap: 4.25dvh 20px;
+    height: 70dvh;
   }
   .brandlogo li img {
     max-width: 120px;
@@ -740,9 +731,6 @@ td {
     justify-content: center;
   }
 
-  .wrapperarticle {
-    /* min-height: auto; */
-  }
   .btn.Gettouch {
     margin: 2rem auto 1rem;
     padding: 1rem 2rem;

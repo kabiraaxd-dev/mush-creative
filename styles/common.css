@@ -98,12 +98,18 @@ body {
   letter-spacing: 1px;
 }
 .preloader-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: var(--footer-text-secondary);
+  font-weight: 200;
+  font-style:italic;
+  text-transform: uppercase;
+  visibility: hidden;
 }
 .preloader-text {
   font-size: 4.5rem;
   line-height: 1;
   font-weight: 700;
+  visibility: hidden;
 }
 .preloader-text em {
   font-style: italic;

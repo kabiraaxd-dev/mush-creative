@@ -1,8 +1,9 @@
-// window.addEventListener("load", function () {
+window.addEventListener("load", function () {
   // console.log("Window loaded");
   // Preloader
-  /* const preloader = document.getElementById("preloader");
-  if (preloader) {
+  // const preloader = document.getElementById("preloader");
+
+  /*if (preloader) {
     // fade out using CSS transition, then remove from flow
     preloader.classList.add("hide");
     setTimeout(() => {
@@ -10,42 +11,62 @@
     }, 700);
   } */
 
-  /* gsap.registerPlugin(ScrollTrigger);
-
-  if (typeof ScrollSmoother !== "undefined") {
-    gsap.registerPlugin(ScrollSmoother);
-
-    if (document.querySelector("#smooth-wrapper") && document.querySelector("#smooth-content")) {
-      ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 2,
-        normalizeScroll: true,
-        ignoreMobileResize: true,
-        preventDefault: true,
+ // const preloader = document.getElementById("preloader");
+ // const preloaderContent = preloader.querySelector(".preloader-content");
+ // const preloaderTitle = preloader.querySelector(".preloader-title");
+ // const preloaderText = preloader.querySelector(".preloader-text em");
+ 
+ 
+ /* gsap.registerPlugin(ScrollTrigger);
+ 
+ if (typeof ScrollSmoother !== "undefined") {
+  gsap.registerPlugin(ScrollSmoother);
+  
+  if (document.querySelector("#smooth-wrapper") && document.querySelector("#smooth-content")) {
+    ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+      smooth: 2,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+      preventDefault: true,
       });
-    }
-  } */
-// });
-
-function setupMediaLoaders() {
+      }
+      } */
+    });
+    
+function showPreloader() {
   gsap.registerPlugin(TextPlugin);
+  gsap.set(".preloader-title, .preloader-text", { visibility: "visible" });
   const preloaderText = preloader.querySelector(".preloader-text em");
 
+  let gt = gsap.timeline({ defaults: { duration: 1.2, ease: "power2.out" } })
+  .from(".preloader-title", {
+    opacity: 0, y: -20
+  },
+  ).from(
+    ".preloader-text", { opacity: 0, y: 20 },
+    "-=0.2",
+  )
+
+  // Animate the preloader content
   let pt = gsap
-    .timeline({ repeat: -1, defaults: { duration: 3, ease: "sine.inOut" } })
+  .timeline({ repeat: -1, defaults: { duration: 1.8, delay: 0.6, ease: "sine.inOut" } })
     .to(preloaderText, {
-      // duration: 1.2,
       text: "OOOOOOOO",
-      // snap: "textContent",
       ease: "sine.inOut",
     })
     .to(preloaderText, {
-      // duration: 1.2,
       text: "OO",
-      // snap: "textContent",
       ease: "sine.inOut",
     });
+  
+}
+
+function setupMediaLoaders() {
+
+  showPreloader();
+
   document.querySelectorAll(".media-loader").forEach((wrapper) => {
 
     const media = wrapper.querySelector("img, video");

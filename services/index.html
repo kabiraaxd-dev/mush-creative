@@ -4,119 +4,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mush Design Service</title>
+  <title>Branding, Website Design & UI/UX Services | Mush Design Studio</title>
+  <meta name="description" content="Discover branding, logo design, website development, UI/UX, packaging, and digital design services tailored to help businesses build memorable brands." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" /> -->
+   
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/styles.css" />
   <!-- <link rel="stylesheet" href="../styles/project.css" /> -->
+  <link rel="stylesheet" href="../styles/jquery.pagepiling.css" />
+
   <link rel="stylesheet" href="../styles/studio.css" />
   <style>
     
-    html,
-    body {
-      height: 100%;
-      scrollbar-width: none;      /* Firefox */
-      -ms-overflow-style: none;   /* old Edge/IE */
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-      display: none;              /* Chrome, Safari, Edge */
-    }
-
-    body {
-        min-height: 100vh;
-        font-size: 16px;
-        line-height: 1.3;
-        /* font-family: 'Bebas Neue', cursive; */
-        overflow-x: hidden;
-    }
-    
-    *, *::before , *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    .showcase-wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      width: 700vw;
-      height: 100dvh;
-      /* overflow-x: hidden; */
-    }
-    .showcase-wrapper article {
-      width: 100vw;
-      height: 100dvh;
-      position: relative;
-    }
-
     /* Container splits the screen: 35% left, 30% empty center, 35% right */
-.marquee-container {
-  display: grid;
-  grid-template-columns: 35% 30% 35%; 
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-}
+    .marquee-container {
+      display: grid;
+      grid-template-columns: 35% 30% 35%; 
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
 
-/* Columns containing the images */
-.marquee-column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Your requested vertical gap */
-  position: absolute;
-  top: 0;
-  width: 35%;
-  will-change: transform;
-}
+    /* Columns containing the images */
+    .marquee-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Your requested vertical gap */
+      position: absolute;
+      top: 0;
+      width: 35%;
+      will-change: transform;
+    }
 
-.left { /* grid-column: 1; */ left: 0; }
-.right { /* grid-column: 3; */ right: 0; }
+    .left { /* grid-column: 1; */ left: 0; }
+    .right { /* grid-column: 3; */ right: 0; }
 
-.marquee-column img {
-  width: auto;
-  height: auto;
-  display: inline-block;
-  border-radius: 8px;
-  object-fit: contain;
-  transform: translateX(var(--marquee-image-x, 0px));
-  transition: transform 700ms ease;
-  will-change: transform;
-}
-@media screen and (max-width: 800px) {
-  html, body {
-    width: 100vw;
-    height: 100dvh;
-  }
-  .showcase-wrapper {
-    flex-direction: column;
-    gap: 2rem;
-    width: 100vw;
-    height: auto;
-  }
-  .showcase-wrapper article {
-    width: 100vw;
-    height: auto;    
-  }
-  .marquee-container {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-  }
-  .marquee-column img {
-    width: 10vw;
-  }
-}
+    .marquee-column img {
+      width: auto;
+      height: auto;
+      display: inline-block;
+      border-radius: 8px;
+      object-fit: contain;
+      transform: translateX(var(--marquee-image-x, 0px));
+      transition: transform 700ms ease;
+      will-change: transform;
+    }
+    @media screen and (max-width: 800px) {
+      .marquee-container {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+      }
+      .marquee-column img {
+        width: 10vw;
+      }
+    }
   </style>
 </head>
 
@@ -125,8 +72,8 @@
   <!-- Preloader -->
   <div id="preloader">
     <div class="preloader-content">
-      <div class="preloader-spinner"></div>
-      <p>Loading</p>
+      <div class="preloader-title">We are</div>
+      <div class="preloader-text">M<em>OO</em>SH</div>
     </div>
   </div>
   <!-- Navigation for mobile-->
@@ -196,16 +143,15 @@
   </nav>
   <div class="book-appointment-btn"><a href="../contact" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
 
-  
-  <div class="container showcase-wrapper">
+  <div id="pagepiling" >
     <!-- <div id="showcase" class="showcase"> -->
 
-      <article class="wrapperarticle">
+      <div class="wrapperarticle section">
         <div class="services-hd">
           <p>Our Services</p>
           <h2>Nearly a decade and 200+ projects shaped what we now call our
             expertise</h2>
-          <a href="../contact" class="btn Gettouch">Let’s Talk <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a>
+          <button id="nextSlide" class="btn Gettouch">Know more <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></button>
         </div>
 
         <div class="marquee-container">
@@ -215,19 +161,16 @@
           <div class="marquee-column right" id="right-col"></div>
         </div>
 
-      </article>
+      </div>
 
-      <article class=" brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
 
           <!-- Left Content -->
           <div class="brand-content">
             <div class="desktop-only">
               <h4 >Brand Strategy and Identity</h4>
-              
-              <p>
-                We work at the amalgamation of functionality and aesthetic. What you get is thoughtful design <br>backed by research, logic, and your story.
-              </p>
+              <p>We work at the amalgamation of functionality and aesthetics. What you get is thoughtful design backed by research, logic, and your story.</p>
             </div>
 
 
@@ -263,30 +206,20 @@
             <!-- <img src="../services/images/brand-guidelines.svg" alt="Brand Guidelines"> -->
              <div class="mobile-only">
                <h4>Brand Strategy and Identity</h4>
-               <p>We work at the amalgamation of functionality and aesthetic. What you get is thoughtful design backed by research, logic, and your story.</p>
+               <p>We work at the amalgamation of functionality and aesthetics. What you get is thoughtful design backed by research, logic, and your story.</p>
               </div>
-              <div class="media-loader">
-                <video src="images/Branding.mp4" type="video/mp4" autoplay muted loop></video>
-              </div>
-
+             <video src="images/Branding.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
 
         </div>
-      </article>
+      </div>
 
-
-      <article class=" brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
-
-              <h4>User Experience/ User Interface</h4>
-              
-              <p>
-                We create thoughtful interfaces and user journeys that simplify
-                interactions, improve <br> engagement, and make your brand feel effortless
-                to experience.
-              </p>
+              <h4>User Experience/User Interface</h4>
+              <p>Thoughtful interfaces and user journeys that simplify interactions, improve engagement, and make your brand feel effortless to experience.</p>
             </div>
 
             <div class="service-table">
@@ -316,31 +249,20 @@
 
           <div class="brand-image">
             <div class="mobile-only">
-              <h4>User Experience/ User Interface</h4>
-              <p>
-                We create thoughtful interfaces and user journeys that simplify
-                interactions, improve engagement, and make your brand feel effortless
-                to experience.
-              </p>
+              <h4>User Experience/User Interface</h4>
+              <p>Thoughtful interfaces and user journeys that simplify interactions, improve engagement, and make your brand feel effortless to experience.</p>
             </div>
-            <div class="media-loader">
-              <video src="images/User Experience-UI.mp4" type="video/mp4" autoplay muted loop></video>
-            </div>
-
+            <video src="images/User Experience-UI.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
-      </article>
+      </div>
 
-
-      <article class=" brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
               <h4>Social and Digital</h4>
-              <p>
-                We shape social and digital experiences that turn attention into
-                engagement and audiences <br> into communities.
-              </p>
+              <p>Crafting social and digital experiences that turn interactions into relationships and audiences into loyal advocates.</p>
             </div>
 
             <div class="service-table">
@@ -363,29 +285,19 @@
           <div class="brand-image">
             <div class="mobile-only">
               <h4>Social and Digital</h4>
-              <p>
-                We shape social and digital experiences that turn attention into
-                engagement and audiences into communities.
-              </p>
+              <p>Crafting social and digital experiences that turn interactions into relationships and audiences into loyal advocates.</p>
             </div>
-            <div class="media-loader">
-              <video src="images/Social-Media.mp4" type="video/mp4" autoplay muted loop></video>
-            </div>
-
+            <video src="images/Social-Media.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class=" brand-section">
+      <div class="wrapperarticle section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
               <h4>AI-Powered Creative Production</h4>
-              <p>
-                We create AI-powered visuals and storytelling experiences that help
-                brands move faster, <br> communicate better, and produce high-quality
-                creative at scale.
-              </p>
+              <p>From concept to execution, we combine AI with strategic thinking to create visuals and storytelling that help brands communicate clearly, adapt quickly, and grow efficiently.</p>
             </div>
 
             <div class="service-table">
@@ -408,20 +320,16 @@
             <div class="mobile-only">
               <h4>AI-Powered Creative Production</h4>
               <p>
-                We create AI-powered visuals and storytelling experiences that help
-                brands move faster, communicate better, and produce high-quality
-                creative at scale.
+                From concept to execution, we combine AI with strategic thinking to create visuals and storytelling that help brands communicate clearly, adapt quickly, and grow efficiently.
               </p>
             </div>
             <!-- <img src="images/user-interface.gif" alt="AI-Powered Creative Production"> -->
-             <div class="media-loader">
-              <video src="images/Ai-Generation.mp4" type="video/mp4" autoplay muted loop></video>
-            </div>
+            <video src="images/Ai-Generation.mp4" type="video/mp4" autoplay muted loop></video>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="glob-section">
+      <div class="glob-section section">
         <div class="globeheading">
           <h3>We work with small and big visionaries around the globe.</h3>
         </div>
@@ -460,14 +368,14 @@
           </ul>
         </div>
 
-      </article>
+      </div>
 
-      <article class="cta-section">
+      <div class="cta-section section">
         <div class="cta-content">
           <h2>
             HAVE A <br>
             PROJECT
-            <span class="cta-images media-loader">
+            <span class="cta-images">
               <!-- <img src="images/mush-cta.svg" alt=""> -->
                <video src="images/Mush-CTA-Loading.mp4" type="video/mp4" autoplay muted loop></video>
 
@@ -476,11 +384,13 @@
             MIND?
           </h2>
 
-          <a href="../contact" class="btn Gettouch">Get in touch <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="16"  alt=""></a>
+          <a href="../contact" class="btn Gettouch">GET IN TOUCH <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="16"  alt=""></a>
 
         </div>
-      </article>
+      </div>
 
+
+    <!-- </div> -->
   </div>
 
   <footer>
@@ -498,47 +408,76 @@
     </div>
   </footer>
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> -->
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="../js/jquery.pagepiling.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script>
 
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
 
   <!-- <script src="../studio/js/studio.js"></script> -->
-  <script >
-    gsap.registerPlugin(ScrollTrigger);
 
-    document.addEventListener('DOMContentLoaded', () => {
-
-      const sections = gsap.utils.toArray('article');
-      const mm = gsap.matchMedia();
-      console.log(sections.length)
-        // Desktop
-        mm.add("(min-width: 801px)", () => {
-          console.log("desktop");
-          let scrollTween = gsap.to(sections, {
-            xPercent: -100 * (sections.length - 1),
-            ease: 'none',
-            scrollTrigger: {
-              trigger: '.showcase-wrapper',
-              pin: true,
-              // markers: true,
-              scrub: 0.25,
-              snap: 1 / (sections.length - 1),
-              start: 'top top',
-              end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth,
-              // onUpdate: self => console.log("progress", self.progress),
-              // onSnapComplete: ({progress, direction, isActive}) => console.log(progress, direction, isActive),
-            }
-          })
-        })
-    })
-  </script>
 <script>
+  $(document).ready(function() {
+	  $('#pagepiling').pagepiling({
+      direction: 'horizontal',
+      menu: false,
+      navigation: false,
+      easing: 'linear',
+      scrollingSpeed: 1000,
+      /* afterRender: function(){
+        console.log("The resulting DOM structure is ready");
+      }, */
+      afterLoad: function(anchorLink, index){
+        console.log("Section " + index + " has been loaded");
+      }
+    });
+    $('#nextSlide').on('click', function() {
+      console.log("Next Slide button clicked");
+      $.fn.pagepiling.moveTo(2);
+      // $.fn.pagepiling.moveSectionUp();
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(TextPlugin) 
+
+    /* const preloader = document.getElementById("preloader");
+    const preloaderContent = preloader.querySelector(".preloader-content");
+    const preloaderTitle = preloader.querySelector(".preloader-title");
+    const preloaderText = preloader.querySelector(".preloader-text em");
+
+    // Animate the preloader content
+    gsap.fromTo(
+      preloaderContent,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+    ); */
+
+    // Animate the title and text
+    /* gsap.fromTo(
+      [preloaderTitle, preloaderText],
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.3,
+        delay: 0.5,
+      }
+    ); */
+
+  });
+
 window.addEventListener("load", () => {
 
   const mm = gsap.matchMedia();
@@ -658,8 +597,7 @@ window.addEventListener("load", () => {
       
       requestAnimationFrame(animate);
     });
-  })
-  
+})
 })
 </script>
 

@@ -8,12 +8,10 @@
   <meta name="description" content="Explore branding, visual identity, website design, packaging, and digital projects crafted by Mush for startups, enterprises, and global brands." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css" />
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/styles.css" />
-  
-  <link rel="stylesheet" href="../styles/jquery.pagepiling.css" />
-  
+  <!-- <link rel="stylesheet" href="../styles/project.css" /> -->
   <link rel="stylesheet" href="../styles/studio.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QP3K5103B"></script>
@@ -25,12 +23,62 @@
     gtag('config', 'G-8QP3K5103B');
   </script>
   <style>
-    @media screen and (max-width:800px) {
-      html, body {
-        overflow: auto !important;
-      }
+    html,
+    body {
+      height: 100%;
+      scrollbar-width: none;      /* Firefox */
+      -ms-overflow-style: none;   /* old Edge/IE */
     }
 
+    body {
+      overflow-x: hidden;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      display: none;              /* Chrome, Safari, Edge */
+    }
+
+    body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 1.3;
+        /* font-family: 'Bebas Neue', cursive; */
+        overflow-x: hidden;
+    }
+    
+    *, *::before , *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .showcase-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 700vw;
+      height: 100dvh;
+    }
+    .showcase-wrapper article {
+      width: 100vw;
+      height: 100dvh;
+      position: relative;
+    }
+    @media (max-width: 800px) {
+      html,body {
+        width: 100vw;
+        height: 100dvh;
+      }
+      .showcase-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        height: auto;
+      }
+      .showcase-wrapper article {
+        height: auto;
+      }
+    }
   </style>
 </head>
 
@@ -166,20 +214,26 @@
   
   <div class="book-appointment-btn"><a href="../contact" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
 
-  <div id="pagepiling" >
-    
-      
-      <div class="wrapperarticle section">
+  <div class="container showcase-wrapper">
+    <!-- <div id="showcase" class="showcase"> -->
+
+      <!-- <article class="wrapperarticle">
         <div class="title-hd">
           <h1><span>WE ARE</span> MUSH</h1>
-          <button id="nextSlide" class="btn Gettouch desktop-only">Know More <img src="../images/arrow-right-white.svg" height="14" alt="arrow"></button>
+        </div>
+      </article> -->
+      
+      <article class="wrapperarticle">
+        <div class="title-hd">
+          <h1><span>WE ARE</span> MUSH</h1>
+          <button onclick="nextSlide(2)" class="btn Gettouch desktop-only">Know More <img src="../images/arrow-right-white.svg" height="14" alt="arrow"></button>
           <div class="scroll-indicator">
             <img src="images/arrow.svg" alt="Scroll arrow" class="scroll-arrow">
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="wrapperarticle section">
+      <article class="wrapperarticle">
         <div class="title-hd">
           <p>Pronounced as</p>
           <h1>M<span>OOOOOOO</span>SH</h1>
@@ -187,29 +241,28 @@
             <img src="images/arrow.svg" alt="Scroll arrow" class="scroll-arrow">
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="story-section section">
-        <div class="gridarticle">
-
+      <article class="gridarticle">
           <h4 class="mobile-only">The Story of us</h4>
-          <div class="details-text">
-            <h4 class="desktop-only">The Story of us</h4>
-            <p>Great design has always fascinated us. Not because it looks beautiful, but because of what it can do for a business.</p>
-            <p>Long before Mush, we learned that building something people believe in takes more than a good idea. It takes clarity, consistency, and the courage to keep refining until every decision has a purpose. That experience shaped the way we think and eventually became the foundation of Mush.</p>
-            <p>Today, we partner with founders, growing businesses, global brands, and government institutions to create brands and digital experiences that are rooted in strategy and built for impact. We ask questions before we design, challenge assumptions before we create, and believe the strongest ideas are often the simplest ones.</p>
-            <p>As we've grown, one thing has never changed. We still care deeply about the craft, value long term partnerships over transactions, and measure our success by the impact our work creates.</p>
-            <p>Because in the end, great brands are not designed.</p>
-            <p>They're built with intention.</p>
-          </div>
+        <div class="details-text">
+          <h4 class="desktop-only">The Story of us</h4>
+          <p>Great design has always fascinated us. Not because it looks beautiful, but because of what it can do for a business.</p>
+          <p>Long before Mush, we learned that building something people believe in takes more than a good idea. It takes clarity, consistency, and the courage to keep refining until every decision has a purpose. That experience shaped the way we think and eventually became the foundation of Mush.</p>
+          <p>Today, we partner with founders, growing businesses, global brands, and government institutions to create brands and digital experiences that are rooted in strategy and built for impact. We ask questions before we design, challenge assumptions before we create, and believe the strongest ideas are often the simplest ones.</p>
+          <p>As we've grown, one thing has never changed. We still care deeply about the craft, value long term partnerships over transactions, and measure our success by the impact our work creates.</p>
+          <p>Because in the end, great brands are not designed.</p>
+          <p>They're built with intention.</p>
           
-          <div class="webp-image media-loader">
-            <img src="images/story-us.webp" alt="story" />
-          </div>
         </div>
-      </div>
 
-      <div class="build-section section">
+
+        <div class="webp-image media-loader">
+          <img src="images/story-us.webp" alt="story" />
+        </div>
+      </article>
+
+      <article class="build-section">
         <div class="heading">
           <h2>The way we build</h2>
           <p>
@@ -226,7 +279,17 @@
           </div>
 
           <div class="venn-diagram ">
-            
+            <!-- <div class="circle circle-left">
+              <p>Functionality</p>
+            </div>
+
+            <div class="circle circle-right">
+              <p>Aesthetics</p>
+            </div>
+
+            <div class="center-shape">
+              <span>mush</span>
+            </div> -->
             <img src="images/venn.svg" alt="Venn Diagram">
           </div>
 
@@ -238,10 +301,10 @@
 
         </div>
 
-      </div>
+      </article>
 
 
-      <div class="empathy-section section">
+      <article class="empathy-section">
         <div class="empathy-grid">
           <!-- Content -->
           <div class="content-box">
@@ -282,9 +345,10 @@
           </div>
 
         </div>
-      </div>
+      </article>
 
-      <div class="wall-of-fame section">
+
+      <article class="wall-of-fame">
         <div class="wall-grid">
 
             <!-- Card -->
@@ -387,9 +451,9 @@
             </div> -->
 
           </div>
-      </div>
+      </article>
 
-      <div class="cta-section section">
+      <article class="cta-section">
         <div class="cta-content">
             <h2>
               HAVE A <br>
@@ -405,8 +469,9 @@
             <a href="../contact" class="btn Gettouch">Get in touch <img src="../images/arrow-right-white.svg" height="14" alt=""></a>
 
           </div>
-      </div>
+      </article>
 
+    <!-- </div> -->
   </div>
 
 
@@ -424,9 +489,7 @@
       </figure>
     </div>
   </footer>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-  <script src="../js/jquery.pagepiling.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
@@ -440,90 +503,79 @@
 
   <!-- <script src="../studio/js/studio.js"></script> -->
   <script>
-    $(document).ready(function() {
-      
-      $('#nextSlide').on('click', function() {
-        console.log("Next Slide button clicked");
-        $.fn.pagepiling.moveTo(2);
-        // $.fn.pagepiling.moveSectionUp();
-      });
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
 
-      gsap.registerPlugin(SplitText);
-      function slide1anim(device = "desktop"){
-        SplitText.create(".title-hd h1", {
-          type: "words",
-          mask: "lines",
-          autoSplit: true,
-          onSplit(self) {
-            return gsap.from(self.words, {
-              duration: 1, 
-              y: 100, 
-              autoAlpha: 0,
-              delay: 2, 
-              stagger: 0.5
-            })
-          }
-        });
-        if (device == "desktop") { 
-          gsap.from(".title-hd button", {
-            y: 20,
-            opacity: 0,
-            delay: 4,
-          })
-        } else {
-          gsap.to(".title-hd button", {
-            display: 'none'
-          })
-          .from(".scroll-indicator", {
-            y: -20,
-            opacity: 0
-          })
+    document.addEventListener('DOMContentLoaded', () => {
 
-        }
-      }
-
+      const sections = gsap.utils.toArray('article');
       const mm = gsap.matchMedia();
-      // let reload = sessionStorage.getItem("reload")
-      
-      // Mobile
-      mm.add("(max-width: 800px)", () => {
-        // console.info("studio page mobile")
-        // slide1anim("mobile")
+      // console.log(sections.length);
+
+      mm.add("(max-width: 991px)", () => {
+        console.log("studio page mobile")
         gsap.to(".title-hd button", {
+          // y: '-100vh',
+          // opacity: 0,
           display: 'none'
         })
-        if (sessionStorage.getItem("reload") == "false") {
-          sessionStorage.setItem("reload", "true")
-          window.location.reload()
-        } 
-          
       })
-      
+
       // Desktop
-      mm.add("(min-width: 801px)", () => {
-        // console.info("studio page desktop")
-          sessionStorage.setItem("reload", "false")
-        $('#pagepiling').pagepiling({
-          direction: 'horizontal',
-          menu: false,
-          navigation: false,
-          easing: 'linear',
-          scrollingSpeed: 800,
-          /* afterRender: function(){
-            console.log("The resulting DOM structure is ready");
-          }, */
-          afterLoad: function(anchorLink, index){
-            console.log("Section " + index + " has been loaded");
-            /* if(index == 1){
-              slide1anim("desktop")
-            } */
+      mm.add("(min-width: 992px)", () => {
+        // console.log("studio page desktop");
+        
+        let scrollTween = gsap.to(sections, {
+          xPercent: -100 * (sections.length - 1),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.showcase-wrapper',
+            pin: true,
+            // markers: true,
+            scrub: 0.25,
+            snap: 1 / (sections.length - 1),
+            start: 'top top',
+            end: () => "+=" + document.querySelector('.showcase-wrapper').offsetWidth,
+            onUpdate: self => console.log("onupdate", self.progress),
+            onSnapComplete: ({progress, direction, isActive}) => {
+              console.log(progress, direction, isActive)
+              slide1anim('desktop')
+            },
           }
-        });
+        })
       });
+    // })
+    // document.addEventListener("DOMContentLoaded", function () {
+    function slide1anim(device = 'mobile'){
+      SplitText.create(".title-hd h1", {
+        type: "words",
+        mask: "lines",
+        autoSplit: true,
+        onSplit(self) {
+          return gsap.from(self.words, {
+            duration: 1, 
+            y: 100, 
+            autoAlpha: 0,
+            delay: 2, 
+            stagger: 0.5
+          })
+        }
+      });
+      if (device == 'mobile') {
+        gsap.to(".title-hd button", {
+          y: '-100vh',
+          opacity: 0,
+        })
+      } else { 
+        gsap.from(".title-hd button", {
+          duration: 1, 
+          y: 100, 
+          autoAlpha: 0,
+          delay: 3.5, 
+        });
+      }
+    }
     });
-
-    // gsap.registerPlugin(ScrollTrigger);
-
   </script>
 </body>
 

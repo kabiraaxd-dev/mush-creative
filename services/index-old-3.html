@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Branding, Website Design & UI/UX Services | Mush Design Studio</title>
   <meta name="description" content="Discover branding, logo design, website development, UI/UX, packaging, and digital design services tailored to help businesses build memorable brands." />
-  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://use.typekit.net/afr3ldv.css" />
-
+   
   <link rel="stylesheet" href="../styles/common.css" />
   <link rel="stylesheet" href="../styles/styles.css" />
   <!-- <link rel="stylesheet" href="../styles/project.css" /> -->
@@ -54,9 +54,6 @@
       will-change: transform;
     }
     @media screen and (max-width: 800px) {
-      html, body {
-        overflow: auto !important;
-      }
       .marquee-container {
         position: absolute;
         inset: 0;
@@ -481,10 +478,10 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script>
 
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
@@ -493,147 +490,176 @@
 
 <script>
   $(document).ready(function() {
-    
-    const mm = gsap.matchMedia();
-    // mobile
-    mm.add("(max-width: 800px)", () => {
-      // console.log("mobile")
-      const cols = Array.from(document.getElementsByClassName("marquee-column"));
-      cols.forEach(col => {
-        col.innerHTML = ''
-      })
-      if (sessionStorage.getItem("reload") == "false") {
-        sessionStorage.setItem("reload", "true")
-        window.location.reload()
-      } 
+	  $('#pagepiling').pagepiling({
+      direction: 'horizontal',
+      menu: false,
+      navigation: false,
+      easing: 'linear',
+      scrollingSpeed: 1000,
+      /* afterRender: function(){
+        console.log("The resulting DOM structure is ready");
+      }, */
+      afterLoad: function(anchorLink, index){
+        console.log("Section " + index + " has been loaded");
+      }
+    });
+    $('#nextSlide').on('click', function() {
+      console.log("Next Slide button clicked");
+      $.fn.pagepiling.moveTo(2);
+      // $.fn.pagepiling.moveSectionUp();
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(TextPlugin) 
+
+    /* const preloader = document.getElementById("preloader");
+    const preloaderContent = preloader.querySelector(".preloader-content");
+    const preloaderTitle = preloader.querySelector(".preloader-title");
+    const preloaderText = preloader.querySelector(".preloader-text em");
+
+    // Animate the preloader content
+    gsap.fromTo(
+      preloaderContent,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+    ); */
+
+    // Animate the title and text
+    /* gsap.fromTo(
+      [preloaderTitle, preloaderText],
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.3,
+        delay: 0.5,
+      }
+    ); */
+
+  });
+
+window.addEventListener("load", () => {
+
+  const mm = gsap.matchMedia();
+  // mobile
+  mm.add("(max-width: 800px)", () => {
+    console.log("mobile")
+    const cols = Array.from(document.getElementsByClassName("marquee-column"));
+    cols.forEach(col => {
+      col.innerHTML = ''
     })
-    // desktop
-    mm.add("(min-width: 801px)", () => {
-      // console.log("desktop")
-      sessionStorage.setItem("reload", "false")
-      
-      $('#pagepiling').pagepiling({
-        direction: 'horizontal',
-        menu: false,
-        navigation: false,
-        easing: 'linear',
-        scrollingSpeed: 800,
-        /* afterLoad: function(anchorLink, index){
-          console.log("Section " + index + " has been loaded");
-        } */
-      });
-  
-      $('#nextSlide').on('click', function() {
-        console.log("Next Slide button clicked");
-        $.fn.pagepiling.moveTo(2);
-      });
-
-      const imageUrls = [
-        ...Array.from({ length: 27 }, (_, i) => `images/elem-${i}.jpg`),
-        ...Array.from({ length: 4 }, (_, i) => `images/elem-${i + 27}.png`),
-      ];
-
-      const leftCol = document.getElementById('left-col');
-      const rightCol = document.getElementById('right-col');
-      const marqueeSpeed = 1;
-      const imageGap = 20;
-      
-      const leftImages = imageUrls.filter((_, index) => index % 2 === 0);
-      const rightImages = imageUrls.filter((_, index) => index % 2 === 1);
-      
-      function createImageSet(imageArray) {
-        const imageSet = document.createElement('div');
-        imageSet.className = 'image-set';
-        imageSet.style.display = 'flex';
-        imageSet.style.flexDirection = 'column';
-        imageSet.style.alignItems = 'flex-start';
-        imageSet.style.gap = `${imageGap}px`;
-        
-        imageArray.forEach((url) => {
-          const img = document.createElement('img');
-          
-          img.src = url;
-          img.alt = '';
-          imageSet.appendChild(img);
-        });
-        
-        return imageSet;
-      }
-
-      function randomBetween(min, max) {
-        return Math.round(Math.random() * (max - min) + min);
-      }
-
-      function populateColumn(columnElement, imageArray) {
-        const originalSet = createImageSet(imageArray);
-        const clonedSet = originalSet.cloneNode(true);
-        
-        columnElement.replaceChildren(originalSet, clonedSet);
-      }
-
-      function waitForColumnImages() {
-        const images = document.querySelectorAll('.marquee-column img');
-
-        return Promise.all([...images].map((img) => {
-          if (img.complete) return Promise.resolve();
-          
-          return new Promise((resolve) => {
-            img.addEventListener('load', resolve, { once: true });
-            img.addEventListener('error', resolve, { once: true });
-          });
-        }));
-      }
-
-      function randomizeImageXPositions(columnElement) {
-        const originalImages = columnElement.children[0].querySelectorAll('img');
-        const clonedImages = columnElement.children[1].querySelectorAll('img');
-        
-        originalImages.forEach((img, index) => {
-          const columnWidth = columnElement.getBoundingClientRect().width;
-          const imageWidth = img.getBoundingClientRect().width;
-          const minOffset = Math.min(0, columnWidth - imageWidth);
-          const maxOffset = Math.max(0, columnWidth - imageWidth);
-          const imageX = randomBetween(minOffset, maxOffset);
-          
-          img.style.setProperty('--marquee-image-x', `${imageX}px`);
-          clonedImages[index].style.setProperty('--marquee-image-x', `${imageX}px`);
-        });
-      }
-
-      function getLoopDistance(columnElement) {
-        return columnElement.children[1].offsetTop;
-      }
-
-      function animateColumn(columnElement, position, offset = 0) {
-        const distance = getLoopDistance(columnElement);
-        
-        if (!distance) return position;
-        
-        const nextPosition = (position - marqueeSpeed) % distance;
-        columnElement.style.transform = `translateY(${nextPosition + offset}px)`;
-        
-        return nextPosition;
-      }
-
-      populateColumn(leftCol, leftImages);
-      populateColumn(rightCol, rightImages);
-
-      waitForColumnImages().then(() => {
-        let leftY = 0;
-        let rightY = 0;
-        
-        randomizeImageXPositions(leftCol);
-        randomizeImageXPositions(rightCol);
-
-        function animate() {
-          leftY = animateColumn(leftCol, leftY);
-          rightY = animateColumn(rightCol, rightY, 50);
-          requestAnimationFrame(animate);
-        }
-        
-        requestAnimationFrame(animate);
-      });
   })
+  // desktop
+  mm.add("(min-width: 801px)", () => {
+    console.log("desktop")
+    const imageUrls = [
+      ...Array.from({ length: 27 }, (_, i) => `images/elem-${i}.jpg`),
+      ...Array.from({ length: 4 }, (_, i) => `images/elem-${i + 27}.png`),
+    ];
+
+    const leftCol = document.getElementById('left-col');
+    const rightCol = document.getElementById('right-col');
+    const marqueeSpeed = 1;
+    const imageGap = 20;
+    
+    const leftImages = imageUrls.filter((_, index) => index % 2 === 0);
+    const rightImages = imageUrls.filter((_, index) => index % 2 === 1);
+    
+    function createImageSet(imageArray) {
+      const imageSet = document.createElement('div');
+      imageSet.className = 'image-set';
+      imageSet.style.display = 'flex';
+      imageSet.style.flexDirection = 'column';
+      imageSet.style.alignItems = 'flex-start';
+      imageSet.style.gap = `${imageGap}px`;
+      
+      imageArray.forEach((url) => {
+        const img = document.createElement('img');
+        
+        img.src = url;
+        img.alt = '';
+        imageSet.appendChild(img);
+      });
+      
+      return imageSet;
+    }
+
+    function randomBetween(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
+
+    function populateColumn(columnElement, imageArray) {
+      const originalSet = createImageSet(imageArray);
+      const clonedSet = originalSet.cloneNode(true);
+      
+      columnElement.replaceChildren(originalSet, clonedSet);
+    }
+
+    function waitForColumnImages() {
+      const images = document.querySelectorAll('.marquee-column img');
+
+      return Promise.all([...images].map((img) => {
+        if (img.complete) return Promise.resolve();
+        
+        return new Promise((resolve) => {
+          img.addEventListener('load', resolve, { once: true });
+          img.addEventListener('error', resolve, { once: true });
+        });
+      }));
+    }
+
+    function randomizeImageXPositions(columnElement) {
+      const originalImages = columnElement.children[0].querySelectorAll('img');
+      const clonedImages = columnElement.children[1].querySelectorAll('img');
+      
+      originalImages.forEach((img, index) => {
+        const columnWidth = columnElement.getBoundingClientRect().width;
+        const imageWidth = img.getBoundingClientRect().width;
+        const minOffset = Math.min(0, columnWidth - imageWidth);
+        const maxOffset = Math.max(0, columnWidth - imageWidth);
+        const imageX = randomBetween(minOffset, maxOffset);
+        
+        img.style.setProperty('--marquee-image-x', `${imageX}px`);
+        clonedImages[index].style.setProperty('--marquee-image-x', `${imageX}px`);
+      });
+    }
+
+    function getLoopDistance(columnElement) {
+      return columnElement.children[1].offsetTop;
+    }
+
+    function animateColumn(columnElement, position, offset = 0) {
+      const distance = getLoopDistance(columnElement);
+      
+      if (!distance) return position;
+      
+      const nextPosition = (position - marqueeSpeed) % distance;
+      columnElement.style.transform = `translateY(${nextPosition + offset}px)`;
+      
+      return nextPosition;
+    }
+
+    populateColumn(leftCol, leftImages);
+    populateColumn(rightCol, rightImages);
+
+    waitForColumnImages().then(() => {
+      let leftY = 0;
+      let rightY = 0;
+      
+      randomizeImageXPositions(leftCol);
+      randomizeImageXPositions(rightCol);
+
+      function animate() {
+        leftY = animateColumn(leftCol, leftY);
+        rightY = animateColumn(rightCol, rightY, 50);
+        requestAnimationFrame(animate);
+      }
+      
+      requestAnimationFrame(animate);
+    });
+})
 })
 </script>
 

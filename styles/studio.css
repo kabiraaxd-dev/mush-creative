@@ -65,15 +65,6 @@ td {
   background: var(--background-color);
 }
 
-/* .showcase article {
-  flex: 0 0 99vw;
-  margin-inline: 0.5vw;
-} */
-
-/* .dark-theme .btn.Gettouch img {
-  filter: inherit;
-} */
-
 .btn.Gettouch {
   display: inline-flex;
   align-items: center;
@@ -106,13 +97,16 @@ td {
   transform: rotate(90deg);
   
 }
-
+.story-section {
+  background-color: var(--background-color);
+}
 .gridarticle {
   display: grid;
-  grid-template-columns: 46% 1fr;
-  min-height: 100vh;
+  grid-template-columns: 40% 1fr;
+  gap: 80px;
+  /* min-height: 100vh; */
   align-items: center;
-  align-items: center;
+  margin-inline: 4rem;
 }
 
 .webp-image img {
@@ -120,7 +114,7 @@ td {
 }
 
 .details-text {
-  padding: 0px 120px;
+  /* padding: 0px 120px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -141,14 +135,16 @@ td {
   font-size: 18px;
   line-height: 22px;
   letter-spacing: -2%;
+  margin: 0;
 }
 
 /* build-section */
 
 .build-section {
-  display: inline-block;
-  padding: 8rem 0 2rem;
-  position: relative;
+  background-color: var(--background-color);
+  /* display: inline-block; */
+  /* padding: 8rem 0 2rem; */
+  /* position: relative; */
 }
 
 .heading {
@@ -249,17 +245,20 @@ td {
 /* build-section */
 
 .empathy-section {
-  display: flex;
+  background-color: var(--background-color);
+  /* display: flex; */
   /* align-items: center; */
-  justify-content: center;
-  padding: 130px 60px 60px 100px;
+  /* justify-content: center; */
+  /* padding: 130px 60px 60px 100px; */
 }
 
 .empathy-grid {
   display: grid;
-  grid-template-columns: 380px 1fr 1fr 1fr;
+  grid-template-columns: 400px 1fr 1fr 1fr;
   gap: 18px;
   align-items: stretch;
+  height: 78dvh;
+  margin: 6rem 4rem 2rem;
 }
 
 /* Left Content */
@@ -318,7 +317,7 @@ td {
 }
 
 .large {
-  min-height: 560px;
+  /* min-height: 560px; */
 }
 
 .stacked-images {
@@ -334,17 +333,18 @@ td {
 /* wall-of-fame */
 
 .wall-of-fame {
-  position: relative;
-  display: flex;
+  background-color: var(--background-color);
+  /* position: relative; */
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .wall-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
-  padding: 6.5rem 2.5rem 2.5rem;
+  padding: 7rem 2rem 2rem;
 }
 
 .team-card {
@@ -668,13 +668,13 @@ td {
     font-size: 160px;
   }
   .details-text {
-    padding: 0px 60px;
+    /* padding: 0px 60px; */
   }
   .webp-image img {
     width: 100%;
   }
   .wall-of-fame {
-    padding: 130px 1rem 60px;
+    /* padding: 130px 1rem 60px; */
   }
   .glob-section {
     padding: 8rem 1rem 20px;
@@ -710,17 +710,16 @@ td {
     font-size: 50px;
     line-height: 60px;
   }
-  /* .service-table th {
-    font-size: 20px;
-    padding-block: 12px;
+  .empathy-grid {
+    grid-template-columns: repeat(4, 1fr);
+    margin-inline: 2rem;
   }
-  .service-table td {
-    font-size: 16px;
-    padding-block: 12px;
-  } */
 }
 
 @media (max-width: 800px) {
+  .wrapperarticle {
+    min-height: auto;
+  }
   .title-hd h1 {
     font-size: 50px;
     line-height: normal;
@@ -738,8 +737,10 @@ td {
   .gridarticle {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     align-items: flex-start;
     min-height: fit-content;
+    margin-inline: 0;
   }
   .details-text {
     padding: 0px 20px;
@@ -751,21 +752,16 @@ td {
     padding-inline: 20px;
   }
   .details-text p {
-    margin-bottom: 12px;
     font-size: 16px;
-    margin-top: 0px;
   }
   .webp-image {
     padding: 0px 20px;
   }
 
-  .build-section {
-    padding: 0;
-  }
   .build-section .heading {
     text-align: left;
-    padding: 1rem 20px;
-    margin-bottom: 1rem;
+    padding: 2rem 20px;
+    margin-bottom: 0;
   }
   .heading h2 {
     font-size: 50px;
@@ -814,7 +810,7 @@ td {
   }
 
   .empathy-section {
-    padding: 0;
+    /* padding: 0; */
   }
   .empathy-grid {
     /* grid-template-columns: 380px 1fr; */
@@ -848,10 +844,10 @@ td {
     display: none;
   }
   .cta-section {
-    padding: 2rem 1rem;
+    padding: 0;
   }
   .cta-content {
-    padding-top: 0;
+    padding: 2rem 1rem;
   }
 
   .brand-content {
@@ -862,7 +858,11 @@ td {
     line-height: normal;
   }
   .services-hd {
-    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 2rem 20px;
   }
   .brand-content h4,
   .brand-image h4 {
@@ -897,10 +897,7 @@ td {
   .glob-section {
     padding: 0;
   }
-  .globeheading h3 {
-    font-size: 30px;
-    line-height: normal;
-  }
+  
   .brandlogo {
     overflow: auto;
     padding: 1rem 20px;
@@ -935,12 +932,13 @@ td {
 
   .globeheading {
     text-align: left;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     padding: 1rem 20px;
   }
   .globeheading h3 {
     font-size: 24px;
     line-height: 28px;
+    margin: 0;
   }
 
   @keyframes floatUp {
@@ -966,6 +964,9 @@ td {
 
   .empathy-grid {
     grid-template-columns: repeat(1, 1fr);
+    height: auto;
+    margin: 2rem 20px;
+    padding: 0;
   }
   
   .wall-of-fame {

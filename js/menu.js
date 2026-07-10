@@ -24,7 +24,7 @@
 // Wait for FULL page load (not just DOM)
 window.addEventListener("load", () => {
   // theme toggle
-
+  setTheme("dark", true);
   const toggles = document.querySelectorAll(".theme-toggle");
   const savedTheme = localStorage.getItem("theme");
 
@@ -38,6 +38,7 @@ window.addEventListener("load", () => {
   }
 
   function setTheme(theme, save = false) {
+    console.info(...arguments)
     const shouldUseDarkTheme = theme === "dark";
     const isDarkTheme = document.body.classList.contains("dark-theme");
 

@@ -188,6 +188,7 @@
   justify-content: center;
   transition: opacity 0.2s ease;
   z-index: 10;
+  color: #0d0d0d;
   font-size: 1.5rem;
   font-style: normal;
   text-transform: uppercase;
@@ -364,6 +365,99 @@ article.last a {
   opacity: 0.9;
 }
 
+.video-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.video-actions .btn {
+  min-width: 12rem;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.video-actions .btn.secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(0, 0, 0, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.video-modal-frame {
+  position: relative;
+  width: min(100%, 1120px);
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+.video-modal.is-open .video-modal-frame {
+  transform: scale(1);
+}
+
+.video-modal-content {
+  width: 100%;
+  height: 100%;
+}
+
+.video-modal-content video,
+.video-modal-content iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0d0d0d;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .product-image .hover {
   position: absolute;
   inset: 0;
@@ -383,6 +477,14 @@ article.last a {
   line-height: 1.5625rem;
   letter-spacing: -0.06rem;
   text-transform: uppercase;
+}
+
+.product-image .video-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: none transparent;
+  border: 0 none;
 }
 
 .services-list {

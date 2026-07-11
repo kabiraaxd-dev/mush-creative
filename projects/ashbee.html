@@ -222,8 +222,9 @@
               Ashbee Energy marks Ashbee Systems' expansion into the future of energy storage. Built on decades of industrial expertise, the new brand establishes a clear identity for its next chapter in the BESS and lithium-ion battery space.
             </p>
             </div>
-          <div class="product-image">
+          <div class="product-image cursor-hover" data-cursor-text="View Reel">
             <img src="../images/ashbee/1.webp" alt="ashbee energy" />
+            <button type="button" class=" video-trigger" data-video-type="mp4" data-video-src="images/Ashbee.mp4">&nbsp;</button>
           </div>
           <div class="product-details">
             <div class="desktop-only">
@@ -231,6 +232,14 @@
               <p class="description">
                 Ashbee Energy marks Ashbee Systems' expansion into the future of energy storage. Built on decades of industrial expertise, the new brand establishes a clear identity for its next chapter in the BESS and lithium-ion battery space.
               </p>
+              <!-- <div class="video-actions">
+                <button type="button" class="btn pill video-trigger" data-video-type="mp4" data-video-src="images/Ashbee.mp4">
+                  Watch project reel
+                </button>
+                <button type="button" class="btn pill video-trigger secondary" data-video-type="external" data-video-src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1">
+                  Open external preview
+                </button>
+              </div> -->
             </div>
             <div class="specs">
               <h4>Challenge</h4>
@@ -365,6 +374,12 @@
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js"></script> -->
       <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
 
+      <div class="video-modal" role="dialog" aria-modal="true" aria-label="Video modal">
+        <div class="video-modal-frame">
+          <button class="video-modal-close" type="button" aria-label="Close video">×</button>
+          <div class="video-modal-content"></div>
+        </div>
+      </div>
       <script src="../js/menu.js"></script>
       <script src="../js/main.js"></script>
       <script src="../js/project.js"></script>

@@ -302,8 +302,9 @@ if (gallery && wrapper) {
 const productImages = document.querySelectorAll(".cursor-hover");
 
 productImages.forEach((container) => {
+  let textContent = container.dataset?.cursorText || "Discover";
   const cursor = document.createElement("figure");
-  cursor.textContent = "Discover";
+  cursor.textContent = textContent;
   cursor.className = "cursor-figure";
   container.appendChild(cursor);
 
@@ -342,4 +343,75 @@ productImages.forEach((container) => {
       ease: "power2.out",
     });
   });
+});
+
+const videoModal = document.querySelector(".video-modal");
+const videoModalContent = videoModal?.querySelector(".video-modal-content");
+const videoModalClose = videoModal?.querySelector(".video-modal-close");
+
+function closeVideoModal() {
+  if (!videoModal || !videoModalContent) {
+    return;
+  }
+
+  videoModal.classList.remove("is-open");
+  document.body.classList.remove("modal-open");
+  videoModalContent.innerHTML = "";
+}
+
+function openVideoModal({ src, type = "mp4" }) {
+  if (!videoModal || !videoModalContent) {
+    return;
+  }
+
+  if (type === "external") {
+    const iframe = document.createElement("iframe");
+    iframe.src = src;
+    iframe.title = "External video";
+    iframe.allow = "autoplay; fullscreen; picture-in-picture";
+    iframe.allowFullscreen = true;
+    videoModalContent.appendChild(iframe);
+  } else {
+    const video = document.createElement("video");
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+
+    const source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    videoModalContent.appendChild(video);
+  }
+
+  videoModal.classList.add("is-open");
+  document.body.classList.add("modal-open");
+}
+
+document.querySelectorAll(".video-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    const src = trigger.dataset.videoSrc;
+    const type = trigger.dataset.videoType || "mp4";
+
+    if (!src) {
+      return;
+    }
+
+    openVideoModal({ src, type });
+  });
+});
+
+[videoModalClose, videoModal].forEach((element) => {
+  element?.addEventListener("click", (event) => {
+    if (event.target === element) {
+      closeVideoModal();
+    }
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && videoModal?.classList.contains("is-open")) {
+    closeVideoModal();
+  }
 });

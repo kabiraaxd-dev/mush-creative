@@ -664,7 +664,7 @@ td {
 }
 
 .dark-theme .brandlogo img {
-  filter: grayscale(100%) brightness(0) invert(1);
+  filter: grayscale(98%) brightness(0.75) invert(1);
 }
 
 /* services page css */
@@ -817,7 +817,8 @@ td {
     text-align: right;
   }
 
-  .venn-diagram img {
+  .venn-diagram img,
+  .venn-diagram svg {
     width: 100%;
     height: auto;
   }

@@ -349,6 +349,17 @@ const videoModal = document.querySelector(".video-modal");
 const videoModalContent = videoModal?.querySelector(".video-modal-content");
 const videoModalClose = videoModal?.querySelector(".video-modal-close");
 
+function showVideoError(src) {
+  if (!videoModalContent) {
+    return;
+  }
+
+  const message = document.createElement("p");
+  message.className = "video-modal-error";
+  message.textContent = `Video source not found: ${src}`;
+  videoModalContent.appendChild(message);
+}
+
 function closeVideoModal() {
   if (!videoModal || !videoModalContent) {
     return;
@@ -376,12 +387,30 @@ function openVideoModal({ src, type = "mp4" }) {
     video.controls = true;
     video.autoplay = true;
     video.playsInline = true;
+    video.loop = true;
 
     const source = document.createElement("source");
     source.src = src;
     source.type = "video/mp4";
     video.appendChild(source);
     videoModalContent.appendChild(video);
+
+    video.addEventListener(
+      "error",
+      () => {
+        showVideoError(src)
+        videoModalContent.removeChild(video)
+      },
+      { once: true },
+    );
+    source.addEventListener(
+      "error",
+      () => {
+        showVideoError(src)
+        videoModalContent.removeChild(video)
+      },
+      { once: true },
+    );
   }
 
   videoModal.classList.add("is-open");

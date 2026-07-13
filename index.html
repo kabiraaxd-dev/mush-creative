@@ -24,11 +24,11 @@
     </script>
     <style>
       :root {
-      --size: clamp(10rem, 1rem + 40vmin, 30rem);
-  --gap: calc(var(--size) / 14);
-  --duration: 60s;
-  --scroll-start: 0;
-  --scroll-end: calc(-100% - var(--gap));
+        --size: clamp(10rem, 1rem + 40vmin, 30rem);
+        --gap: calc(var(--size) / 14);
+        --duration: 60s;
+        --scroll-start: 0;
+        --scroll-end: calc(-100% - var(--gap));
       }
       .mySwiper {
         width: 100%;
@@ -67,32 +67,32 @@
         border-radius: 2px;
         transition: width 0.3s ease;
       }
-@keyframes scroll-x {
-  from {
-    transform: translateX(var(--scroll-start));
-  }
-  to {
-    transform: translateX(var(--scroll-end));
-  }
-}
-      
-.marquee {
-  display: flex;
-  overflow: hidden;
-  user-select: none;
-  gap: var(--gap);
-}
+      @keyframes scroll-x {
+        from {
+          transform: translateX(var(--scroll-start));
+        }
+        to {
+          transform: translateX(var(--scroll-end));
+        }
+      }
+            
+      .marquee {
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: var(--gap);
+      }
 
-.marquee__group {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: var(--gap);
-  min-width: 100%;
-  padding-right: 2.5rem;
-  animation: scroll-x var(--duration) linear infinite;
-}
+      .marquee__group {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: var(--gap);
+        min-width: 100%;
+        padding-right: 2.5rem;
+        animation: scroll-x var(--duration) linear infinite;
+      }
 
       .marquee__group img {
         height: 32px;
@@ -103,6 +103,47 @@
       }
       .marquee__group img.small {
         max-width: 100px;
+      }
+      
+      .mag-zone {
+        width: 300px;
+        height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        /* border: 1px dashed var(--s25); */
+        position: fixed;
+        top: 0;
+        right: 50px;
+        cursor: pointer;
+      }
+      .mag-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 32px;
+        border-radius: 99px;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        overflow: hidden;
+        will-change: transform;
+      }
+      .mag-btn .bg {
+        position: absolute;
+        inset: 0;
+        border-radius: 99px;
+        z-index: 0;
+        background: var(--button-bg);
+      }
+      .mag-btn .label {
+        position: relative;
+        z-index: 1;
+        pointer-events: none;
+        font-size: 16px;
+        color: var(--footer-text);
       }
     </style>
   </head>
@@ -295,7 +336,16 @@
           </div>
         </nav>
         
-  <div class="book-appointment-btn"><a href="contact" class="btn pill">Book an Appointment <img src="images/arrow-right-white.svg" data-theme="images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
+      <!-- <div class="book-appointment-btn"><a href="contact" class="btn pill">Book an Appointment <img src="images/arrow-right-white.svg" data-theme="images/arrow-right-black.svg" height="14" alt="arrow"></a></div> -->
+
+      <div class="mag-zone" data-mode="true" data-wiggle="false">
+          <a href="contact" class="mag-btn btn" >
+            <div class="bg"></div>
+            <span class="label">Book an Appointment
+              <img src="images/arrow-right-white.svg" data-theme="images/arrow-right-black.svg" height="14" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+            </span>
+          </a>
+        </div>
 
         <!-- Main Sections -->
         <main>
@@ -543,6 +593,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/CustomWiggle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <!-- <script src="js/marquee6k.js"></script> -->
@@ -550,21 +602,89 @@
     <script src="js/main.js"></script>
     <script>
       // marquee6k.init();
+      gsap.registerPlugin(CustomEase, CustomWiggle);
 
       gsap.from("section", {
         y: -40,
         opacity: 0,
         duration: 1,
+        delay: 6,
         ease: "power2.out",
         stagger: 0.2,
       });
-      // logo marquee
-      /* gsap.to(".marquee-track", {
-        xPercent: -60,
-        ease: "linear",
-        duration: 10,
-        repeat: -1,
-      }); */
+
+      
+      /* ── magnetic buttons ── */
+      var zones = document.querySelectorAll(".mag-zone");
+      var strength = 0.4;
+      var labelStrength = 0.24;
+      
+      zones.forEach(function(zone) {
+        var btn = zone.querySelector(".mag-btn");
+        var label = btn.querySelector(".label");
+        var mode = zone.getAttribute("data-mode");
+        var overwrite = mode === "true" ? true : mode === "false" ? false : "auto";
+        var isFalse = mode === "false";
+        var hasWiggle = zone.getAttribute("data-wiggle") === "true";
+      
+        // attention-seeking wiggle (if enabled)
+        if (hasWiggle) {
+          gsap.to(btn, {
+            rotation: 12,
+            duration: 1.5,
+            repeat: -1,
+            ease: "wiggle({wiggles:8,type:easeOut})"
+          });
+        }
+        console.log(zone)
+        zone.addEventListener("mousemove", function(e) {
+          var rect = zone.getBoundingClientRect();
+          var mapX = gsap.utils.mapRange(rect.left, rect.right, -rect.width / 2, rect.width / 2, e.clientX);
+          var mapY = gsap.utils.mapRange(rect.top, rect.bottom, -rect.height / 2, rect.height / 2, e.clientY);
+      
+          gsap.to(btn, {
+            x: mapX * strength,
+            y: mapY * strength,
+            duration: isFalse ? 1.5 : 0.4,
+            ease: "power2.out",
+            overwrite: overwrite
+          });
+      
+          gsap.to(label, {
+            x: mapX * labelStrength,
+            y: mapY * labelStrength,
+            duration: isFalse ? 1.5 : 0.4,
+            ease: "power2.out",
+            overwrite: true
+          });
+        });
+      
+        zone.addEventListener("mouseleave", function() {
+          gsap.to(btn, {
+            x: 0, y: 0,
+            duration: isFalse ? 0.5 : 0.7,
+            ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
+            overwrite: overwrite
+          });
+      
+          gsap.to(label, {
+            x: 0, y: 0,
+            duration: isFalse ? 0.5 : 0.7,
+            ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
+            overwrite: true
+          });
+        });
+      });
+
+      zone.addEventListener("mouseleave", () => {
+        gsap.to(btn, { 
+          x: 0, 
+          y: 0,
+          duration: 0.7,
+          ease: "elastic.out(1, 0.4)",
+          overwrite: true
+        });
+      });
     </script>
     <script>
       const swiper = new Swiper(".mySwiper", {

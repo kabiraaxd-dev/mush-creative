@@ -212,7 +212,15 @@
           </div>
         </nav>
         
-        <div class="book-appointment-btn"><a href="#" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div>
+        <!-- <div class="book-appointment-btn"><a href="#" class="btn pill">Book an Appointment <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" alt="arrow"></a></div> -->
+        <div class="mag-zone book-appointment-btn" data-mode="true" data-wiggle="false">
+          <a href="#" class="mag-btn btn pill" >
+            <div class="bg"></div>
+            <span class="label">Book an Appointment
+              <img src="../images/arrow-right-white.svg" data-theme="../images/arrow-right-black.svg" height="14" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+            </span>
+          </a>
+        </div>
 
         <div class="container">
           <div class="grid">
@@ -307,18 +315,25 @@
                 </div>
 
                 <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-                <button
-                  class="submit-btn"
+
+                <div class="mag-zone " data-mode="true" data-wiggle="false">
+                  <button
+                  class="submit-btn mag-btn"
                   type="submit"
                   data-effects-padding="200"
-                >
-                  Submit Message
-                  <img
-                    src="../images/arrow-right-white.svg"
-                    data-theme="../images/arrow-right-black.svg"
-                    height="14"
-                  />
-                </button>
+                  >
+                    <div class="bg"></div>
+                    <span class="label">
+                      Submit Message
+                      <img
+                      src="../images/arrow-right-white.svg"
+                      data-theme="../images/arrow-right-black.svg"
+                      height="14"
+                      style="vertical-align: top; margin-left: 0.5rem;"
+                      />
+                    </span>
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -446,27 +461,26 @@
         delay: 0.3,
       });
 
-      gsap.from(
-      socials,
-      {
-        y: 20,
-        opacity: 0,
-        stagger: 0.1,
-      },
-      "-=0.3",
-    );
+      gsap.from(socials, {
+          y: 20,
+          opacity: 0,
+          stagger: 0.1,
+        },
+        "-=0.3",
+      );
 
       // SUBMIT BUTTON
       gsap.from(".submit-btn", {
         scrollTrigger: {
-          trigger: ".submit-btn",
+          trigger: "#contactForm",
           start: "top 90%",
         },
+        y: 20,
         scale: 0.8,
         opacity: 0,
         duration: 0.5,
         ease: "back.out(1.7)",
-      });
+      }, "+=0.2");
     </script>
   </body>
 </html>

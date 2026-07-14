@@ -121,7 +121,7 @@ textarea {
 }
 
 .submit-btn {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   /* border: 1px solid var(--secondary-color); */
   color: var(--footer-text);
   border-radius: 70px;
@@ -143,6 +143,14 @@ textarea {
 /* .submit-btn:hover {
   background: var(--secondary-color);
 } */
+
+form .mag-zone,
+.form .mag-zone {
+  /* width: auto; */
+  height: auto;
+  padding-block: 2rem;
+  left: -4rem;
+}
 
 .form-status {
   margin-top: 1rem;

@@ -16,7 +16,6 @@ window.addEventListener("load", function () {
  // const preloaderTitle = preloader.querySelector(".preloader-title");
  // const preloaderText = preloader.querySelector(".preloader-text em");
  
- 
  /* gsap.registerPlugin(ScrollTrigger);
  
  if (typeof ScrollSmoother !== "undefined") {
@@ -31,9 +30,81 @@ window.addEventListener("load", function () {
       ignoreMobileResize: true,
       preventDefault: true,
       });
-      }
-      } */
+    }
+  } */
+ 
+  /* ── magnetic buttons ── */
+  var zones = document.querySelectorAll(".mag-zone");
+  var strength = 0.4;
+  var labelStrength = 0.24;
+  
+  zones.forEach(function(zone) {
+    var btn = zone.querySelector(".mag-btn");
+    var label = btn.querySelector(".label");
+    var mode = zone.getAttribute("data-mode");
+    var overwrite = mode === "true" ? true : mode === "false" ? false : "auto";
+    var isFalse = mode === "false";
+    var hasWiggle = zone.getAttribute("data-wiggle") === "true";
+  
+    // attention-seeking wiggle (if enabled)
+    if (hasWiggle) {
+      gsap.to(btn, {
+        rotation: 12,
+        duration: 1.5,
+        repeat: -1,
+        ease: "wiggle({wiggles:8,type:easeOut})"
+      });
+    }
+    // console.log(zone)
+    zone.addEventListener("mousemove", function(e) {
+      var rect = zone.getBoundingClientRect();
+      var mapX = gsap.utils.mapRange(rect.left, rect.right, -rect.width / 2, rect.width / 2, e.clientX);
+      var mapY = gsap.utils.mapRange(rect.top, rect.bottom, -rect.height / 2, rect.height / 2, e.clientY);
+  
+      gsap.to(btn, {
+        x: mapX * strength,
+        y: mapY * strength,
+        duration: isFalse ? 1.5 : 0.4,
+        ease: "power2.out",
+        overwrite: overwrite
+      });
+  
+      gsap.to(label, {
+        x: mapX * labelStrength,
+        y: mapY * labelStrength,
+        duration: isFalse ? 1.5 : 0.4,
+        ease: "power2.out",
+        overwrite: true
+      });
     });
+  
+    zone.addEventListener("mouseleave", function() {
+      gsap.to(btn, {
+        x: 0, y: 0,
+        duration: isFalse ? 0.5 : 0.7,
+        ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
+        overwrite: overwrite
+      });
+  
+      gsap.to(label, {
+        x: 0, y: 0,
+        duration: isFalse ? 0.5 : 0.7,
+        ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
+        overwrite: true
+      });
+    });
+  });
+
+  zone.addEventListener("mouseleave", () => {
+    gsap.to(btn, { 
+      x: 0, 
+      y: 0,
+      duration: 0.7,
+      ease: "elastic.out(1, 0.4)",
+      overwrite: true
+    });
+  });
+});
     
 function showPreloader() {
   // gsap.registerPlugin(TextPlugin);

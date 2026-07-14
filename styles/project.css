@@ -275,7 +275,7 @@ article.last a {
   letter-spacing: -1px;
   margin: 0 0;
 }
-.product-details span {
+.product-details > span {
   color: var(--primary-color);
   font-size: 1.25rem;
   font-style: normal;
@@ -344,7 +344,13 @@ article.last a {
   line-height: normal;
   /* letter-spacing: -4%; */
 }
-
+.product-details .mag-zone {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  justify-self: flex-start;
+  left: -1rem;
+}
 .product-details .btn {
   padding: 1rem 1.5rem;
   justify-content: center;

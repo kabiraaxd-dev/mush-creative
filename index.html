@@ -105,46 +105,6 @@
         max-width: 100px;
       }
       
-      .mag-zone {
-        width: 300px;
-        height: 110px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        /* border: 1px dashed var(--s25); */
-        position: fixed;
-        top: 0;
-        right: 50px;
-        cursor: pointer;
-      }
-      .mag-btn {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px 32px;
-        border-radius: 99px;
-        border: none;
-        cursor: pointer;
-        text-transform: uppercase;
-        overflow: hidden;
-        will-change: transform;
-      }
-      .mag-btn .bg {
-        position: absolute;
-        inset: 0;
-        border-radius: 99px;
-        z-index: 0;
-        background: var(--button-bg);
-      }
-      .mag-btn .label {
-        position: relative;
-        z-index: 1;
-        pointer-events: none;
-        font-size: 16px;
-        color: var(--footer-text);
-      }
     </style>
   </head>
 
@@ -338,14 +298,14 @@
         
       <!-- <div class="book-appointment-btn"><a href="contact" class="btn pill">Book an Appointment <img src="images/arrow-right-white.svg" data-theme="images/arrow-right-black.svg" height="14" alt="arrow"></a></div> -->
 
-      <div class="mag-zone" data-mode="true" data-wiggle="false">
-          <a href="contact" class="mag-btn btn" >
-            <div class="bg"></div>
-            <span class="label">Book an Appointment
-              <img src="images/arrow-right-white.svg" data-theme="images/arrow-right-black.svg" height="14" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
-            </span>
-          </a>
-        </div>
+      <div class="mag-zone book-appointment-btn" data-mode="true" data-wiggle="false">
+        <a href="contact" class="mag-btn btn pill" >
+          <div class="bg"></div>
+          <span class="label">Book an Appointment
+            <img src="images/arrow-right-white.svg" data-theme="images/arrow-right-black.svg" height="14" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+          </span>
+        </a>
+      </div>
 
         <!-- Main Sections -->
         <main>
@@ -386,7 +346,15 @@
                         <p class="subtitle">
                           GulfPack- Transforming a <br>30-year-old legacy brand.
                         </p>
-                        <a href="projects/gulfpack.html" class="btn pill">VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a>
+                        <!-- <a href="projects/gulfpack.html" class="btn pill">VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a> -->
+                        <div class="mag-zone" data-mode="true" data-wiggle="false">
+                          <a href="projects/gulfpack.html" class="mag-btn btn pill" >
+                            <div class="bg"></div>
+                            <span class="label">VIEW CASE STUDY
+                              <img src="images/arrow-right-black.svg" height="12" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                     <div class="swiper-slide">
@@ -400,9 +368,17 @@
                           <source src="projects/images/Ashbee.mp4" type="video/mp4" />
                         </video>
                         <p class="subtitle">Ashbee Energy- A new standard for <br>energy brands.</p>
-                        <a href="projects/ashbee.html" class="btn pill"
+                        <!-- <a href="projects/ashbee.html" class="btn pill"
                           >VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a
-                        >
+                        > -->
+                        <div class="mag-zone" data-mode="true" data-wiggle="false">
+                          <a href="projects/ashbee.html" class="mag-btn btn pill" >
+                            <div class="bg"></div>
+                            <span class="label">VIEW CASE STUDY
+                              <img src="images/arrow-right-black.svg" height="12" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                     <div class="swiper-slide">
@@ -413,7 +389,15 @@
                           alt="Soyi project"
                         />
                         <p class="subtitle">Soyi- A brand experience, <br>from the ground up.</p>
-                        <a href="projects/soyi.html" class="btn pill">VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a>
+                        <!-- <a href="projects/soyi.html" class="btn pill">VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a> -->
+                         <div class="mag-zone" data-mode="true" data-wiggle="false">
+                          <a href="projects/soyi.html" class="mag-btn btn pill" >
+                            <div class="bg"></div>
+                            <span class="label">VIEW CASE STUDY
+                              <img src="images/arrow-right-black.svg" height="12" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                     <div class="swiper-slide">
@@ -427,7 +411,15 @@
                           <source src="projects/images/Oryggi.mp4" type="video/mp4" />
                         </video>
                         <p class="subtitle">Oryggi- Reimagining enterprise <br>security.</p>
-                        <a href="projects/oryggi.html" class="btn pill">VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a>
+                        <!-- <a href="projects/oryggi.html" class="btn pill">VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a> -->
+                         <div class="mag-zone" data-mode="true" data-wiggle="false">
+                          <a href="projects/oryggi.html" class="mag-btn btn pill" >
+                            <div class="bg"></div>
+                            <span class="label">VIEW CASE STUDY
+                              <img src="images/arrow-right-black.svg" height="12" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -444,9 +436,17 @@
                     alt="Founders photo"
                   />
                   <p>Founded out of passion, not entrepreneurship.</p>
-                  <a href="contact" class="btn pill"
+                  <!-- <a href="contact" class="btn pill"
                     >About Us <img src="images/arrow-right-black.svg" data-theme="images/arrow-right-white.svg" alt=""
-                  /></a>
+                  /></a> -->
+                  <div class="mag-zone" data-mode="true" data-wiggle="false">
+                    <a href="contact" class="mag-btn btn pill" >
+                      <div class="bg"></div>
+                      <span class="label">About Us
+                        <img src="images/arrow-right-black.svg" data-theme="images/arrow-right-white.svg" height="12" style="vertical-align: top; margin-left: 0.5rem;" alt="arrow">
+                      </span>
+                    </a>
+                  </div>
                 </div>
                 <div class="clients">
                   <p>Clients we've empowered.</p>
@@ -608,83 +608,11 @@
         y: -40,
         opacity: 0,
         duration: 1,
-        delay: 6,
+        delay: 4,
         ease: "power2.out",
         stagger: 0.2,
       });
 
-      
-      /* ── magnetic buttons ── */
-      var zones = document.querySelectorAll(".mag-zone");
-      var strength = 0.4;
-      var labelStrength = 0.24;
-      
-      zones.forEach(function(zone) {
-        var btn = zone.querySelector(".mag-btn");
-        var label = btn.querySelector(".label");
-        var mode = zone.getAttribute("data-mode");
-        var overwrite = mode === "true" ? true : mode === "false" ? false : "auto";
-        var isFalse = mode === "false";
-        var hasWiggle = zone.getAttribute("data-wiggle") === "true";
-      
-        // attention-seeking wiggle (if enabled)
-        if (hasWiggle) {
-          gsap.to(btn, {
-            rotation: 12,
-            duration: 1.5,
-            repeat: -1,
-            ease: "wiggle({wiggles:8,type:easeOut})"
-          });
-        }
-        console.log(zone)
-        zone.addEventListener("mousemove", function(e) {
-          var rect = zone.getBoundingClientRect();
-          var mapX = gsap.utils.mapRange(rect.left, rect.right, -rect.width / 2, rect.width / 2, e.clientX);
-          var mapY = gsap.utils.mapRange(rect.top, rect.bottom, -rect.height / 2, rect.height / 2, e.clientY);
-      
-          gsap.to(btn, {
-            x: mapX * strength,
-            y: mapY * strength,
-            duration: isFalse ? 1.5 : 0.4,
-            ease: "power2.out",
-            overwrite: overwrite
-          });
-      
-          gsap.to(label, {
-            x: mapX * labelStrength,
-            y: mapY * labelStrength,
-            duration: isFalse ? 1.5 : 0.4,
-            ease: "power2.out",
-            overwrite: true
-          });
-        });
-      
-        zone.addEventListener("mouseleave", function() {
-          gsap.to(btn, {
-            x: 0, y: 0,
-            duration: isFalse ? 0.5 : 0.7,
-            ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
-            overwrite: overwrite
-          });
-      
-          gsap.to(label, {
-            x: 0, y: 0,
-            duration: isFalse ? 0.5 : 0.7,
-            ease: isFalse ? "power2.out" : "elastic.out(1,0.4)",
-            overwrite: true
-          });
-        });
-      });
-
-      zone.addEventListener("mouseleave", () => {
-        gsap.to(btn, { 
-          x: 0, 
-          y: 0,
-          duration: 0.7,
-          ease: "elastic.out(1, 0.4)",
-          overwrite: true
-        });
-      });
     </script>
     <script>
       const swiper = new Swiper(".mySwiper", {

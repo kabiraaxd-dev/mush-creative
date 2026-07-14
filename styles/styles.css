@@ -89,6 +89,12 @@ main section.middle p {
   background-color: #f0f0f0;
   color: #0d0d0d;
 }
+.middle .mag-zone {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  left: -1rem;
+}
 main section.right {
   padding: 0;
   display: flex;
@@ -120,9 +126,16 @@ main section.right {
   background-color: var(--background-color);
   color: var(--btn-text);
 }
-.founders .btn img {
-  height: 14px;
+.founders .mag-zone {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  left: -1rem;
+  bottom: -1rem;
 }
+/* .founders .btn img {
+  height: 14px;
+} */
 .right .clients {
   display: flex;
   flex-direction: column;

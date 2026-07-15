@@ -1,5 +1,6 @@
 const gallery = document.querySelector(".showcase");
 const wrapper = document.querySelector(".showcase-wrapper");
+gsap.registerPlugin(ScrollTrigger); 
 
 if (gallery && wrapper) {
   const motion = {
@@ -77,9 +78,19 @@ if (gallery && wrapper) {
     });
   }
 
+  let preloaderHidden = false;
+  
+  window.addEventListener("preloaderHidden", (e) => {
+    preloaderHidden = true;
+    console.info(e.type)
+  });
+  
   function revealVisibleArticles() {
+    if (!preloaderHidden) {
+      return;
+    }
     const wrapperRect = wrapper.getBoundingClientRect();
-
+    
     articles.forEach((article) => {
       if (article.dataset.revealed === "true") {
         return;
@@ -95,14 +106,18 @@ if (gallery && wrapper) {
       }
 
       article.dataset.revealed = "true";
-      gsap.to(article.querySelectorAll(".product-image, .product-details"), {
-        x: 0,
-        opacity: 1,
-        skewX: 0,
-        duration: 0.9,
-        stagger: 0.08,
-        ease: "power3.out",
-      });
+      let ael = gsap.utils.toArray("p, h1, h2, h4, h3");
+      
+      const ptl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" } });
+      if (ael.length > 0) {
+        ptl.to(ael, {
+          y: 0,
+          opacity: 1,
+          stagger: 0.25,
+        });
+      }
+      
+      
     });
   }
 
@@ -153,11 +168,13 @@ if (gallery && wrapper) {
     motion.target = 0;
     gsap.set(gallery, { clearProps: "transform" });
     gsap.set(parallaxItems, { clearProps: "transform" });
-    gsap.set(gallery.querySelectorAll(".product-image, .product-details"), {
+    /* gsap.set(gallery.querySelectorAll(".product-image, .product-details"), {
       clearProps: "transform,opacity",
-    });
+    }); */
+    
     articles.forEach((article) => {
       article.dataset.revealed = "true";
+      gsap.set(article.querySelectorAll("p, h1, h3, h4, .services-list"), { clearProps: "transform opacity" });
     });
   }
 
@@ -166,13 +183,13 @@ if (gallery && wrapper) {
       return;
     }
 
-    articles.forEach((article) => {
+    /* articles.forEach((article) => {
       gsap.set(article.querySelectorAll(".product-image, .product-details"), {
         x: 42,
         opacity: 0,
         skewX: 1.2,
       });
-    });
+    }); */
   }
 
   async function waitForImages() {

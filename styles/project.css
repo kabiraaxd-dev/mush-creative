@@ -286,6 +286,15 @@ article.last a {
   left: 3rem;
 }
 
+.product-details h1,
+.product-details h2,
+.product-details h3,
+.product-details h4,
+.product-details p {
+  opacity: 0;
+  transform: translate(0, 20px);
+}
+
 .description {
   font-size: 1rem;
   font-style: normal;
@@ -508,6 +517,9 @@ body.modal-open {
   letter-spacing: -2%;
   margin: 6px 0;
 }
+.services-list p {
+  margin-block: 0 0;
+}
 .desktop-only {
   display: block;
 }
@@ -594,7 +606,7 @@ body.modal-open {
     padding: 1rem;
   }
   
-  .product-details span {
+  .product-details > span {
     bottom: calc(100% - 1.125rem);
     left: calc(100% - 3rem);
   }

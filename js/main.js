@@ -170,7 +170,7 @@ function setupMediaLoaders() {
 
 document.addEventListener("DOMContentLoaded", setupMediaLoaders);
 
-const MIN_PRELOADER_VISIBLE_MS = 6000;
+const MIN_PRELOADER_VISIBLE_MS = 4000;
 const preloaderStartTime = Date.now();
 
 function waitForWindowLoad() {
@@ -218,7 +218,8 @@ function doHidePreloader() {
 
   setTimeout(() => {
     preloader.style.display = "none";
-    console.log("Preloader hidden");
+    window.dispatchEvent(new CustomEvent("preloaderHidden"));
+    // console.log("Preloader hidden");
   }, 700);
 }
 

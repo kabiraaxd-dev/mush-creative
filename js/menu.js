@@ -24,10 +24,10 @@
 // Wait for FULL page load (not just DOM)
 window.addEventListener("load", () => {
   // theme toggle
-  setTheme("dark", true);
+  
   const toggles = document.querySelectorAll(".theme-toggle");
   const savedTheme = localStorage.getItem("theme");
-
+  
   function swapThemeImages() {
     const imgs = document.querySelectorAll("img[data-theme]");
     imgs.forEach((img) => {
@@ -36,24 +36,26 @@ window.addEventListener("load", () => {
       img.dataset.theme = temp;
     });
   }
-
+  
   function setTheme(theme, save = false) {
     console.info(...arguments)
     const shouldUseDarkTheme = theme === "dark";
     const isDarkTheme = document.body.classList.contains("dark-theme");
-
+    
     if (shouldUseDarkTheme !== isDarkTheme) {
       document.body.classList.toggle("dark-theme", shouldUseDarkTheme);
       swapThemeImages();
     }
-
+    
     if (save) {
       localStorage.setItem("theme", shouldUseDarkTheme ? "dark" : "light");
     }
   }
-
+  
   if (savedTheme) {
     setTheme(savedTheme);
+  } else {
+    setTheme("dark", true);
   }
 
   if (toggles.length) {

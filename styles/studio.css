@@ -193,7 +193,8 @@ td {
   margin: 0px;
 }
 
-.venn-diagram img {
+.venn-diagram img,
+.venn-diagram svg {
   height: 48dvh;
   display: block;
   object-fit: contain;
@@ -414,16 +415,17 @@ td {
   background: #0c0c0cf0;
   width: 35px;
   height: 35px;
-  /* line-height: 35px; */
   border-radius: 10px;
-  /* text-align: center; */
   display: inline-flex;
+  transition: background 300ms ease-out;
+  /* transform-origin: center; */
 }
-
+.team-card .linkedin-icon:hover {
+  background-color: rgba(10, 20, 18, 0.75);
+  /* transform: scale(1.05) skew(-2deg); */
+}
 .team-card .linkedin-icon img {
   width: auto;
-  /* border-radius: 0px; */
-  /* display: inline-block; */
   object-fit: none;
 }
 
@@ -691,10 +693,10 @@ td {
     /* padding: 130px 1rem 60px; */
   }
   .glob-section {
-    padding: 8rem 1rem 20px;
+    padding: calc(8vh + 1rem) 1rem 20px;
   }
   .brandlogo ul {
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
     gap: 4.25dvh 20px;
     height: 70dvh;
   }
@@ -732,6 +734,9 @@ td {
   .empathy-grid {
     grid-template-columns: repeat(4, 1fr);
     margin-inline: 2rem;
+  }
+  .build-section .heading {
+    margin-bottom: 0;
   }
 }
 

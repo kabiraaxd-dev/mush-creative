@@ -530,7 +530,6 @@ body.modal-open {
 @media screen and (max-width: 1600px) {
   .specs {
     margin-top: 2rem;
-    
   }
   
 }
@@ -621,5 +620,13 @@ body.modal-open {
   }
   article.outcome .product-details .discuss {
     margin-top: 3.75rem !important;
+  }
+  .product-details h1,
+  .product-details h2,
+  .product-details h3,
+  .product-details h4,
+  .product-details p {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -82,7 +82,7 @@ if (gallery && wrapper) {
   
   window.addEventListener("preloaderHidden", (e) => {
     preloaderHidden = true;
-    console.info(e.type)
+    // console.info(e.type)
   });
   
   function revealVisibleArticles() {
@@ -174,7 +174,7 @@ if (gallery && wrapper) {
     
     articles.forEach((article) => {
       article.dataset.revealed = "true";
-      gsap.set(article.querySelectorAll("p, h1, h3, h4, .services-list"), { clearProps: "transform opacity" });
+      // gsap.set(article.querySelectorAll("p, h1, h2, h3, h4"), { clearProps: "transform opacity" });
     });
   }
 

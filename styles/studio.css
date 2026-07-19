@@ -35,7 +35,7 @@ td {
   font-weight: 700;
   font-style: normal;
   font-size: 250px;
-  line-height: 200px;
+  line-height: 280px;
   letter-spacing: -7%;
   vertical-align: middle;
   margin: 0px;
@@ -399,7 +399,6 @@ td {
 }
 
 .fame-content p {
-  font-family: "degular", sans-serif;
   font-weight: 400;
   font-size: 24px;
   line-height: 26px;
@@ -548,8 +547,10 @@ td {
   justify-content: space-between;
   align-items: center;
   flex-basis: calc(100vw - 300px);
+  max-width: 1575px;
   gap: calc(3vw + 1rem);
   margin-top: 6.5rem;
+  margin-inline: auto;
   padding: 1rem 4rem;
 }
 
@@ -574,6 +575,7 @@ td {
   line-height: 1.2;
   letter-spacing: -3%;
   color: var(--footer-text-secondary);
+  text-wrap-style: balance;
 }
 
 .brand-image {
@@ -682,9 +684,18 @@ td {
 @media (max-width: 1600px) {
   .title-hd h1 {
     font-size: 160px;
+    line-height: 1;
   }
   .details-text {
     /* padding: 0px 60px; */
+  }
+  .fame-content h2 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .fame-content p {
+    font-size: 20px;
+    line-height: 1.24;
   }
   .webp-image img {
     width: 100%;

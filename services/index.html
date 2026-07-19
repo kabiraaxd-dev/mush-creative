@@ -523,13 +523,14 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script> -->
 
   <script src="../js/menu.js"></script>
   <script src="../js/main.js"></script>
 
-  <!-- <script src="../studio/js/studio.js"></script> -->
+  <script src="js/services.js"></script>
 
 <script>
   $(document).ready(function() {
@@ -546,6 +547,7 @@
         sessionStorage.setItem("reload", "true")
         window.location.reload()
       } 
+      slide1anim("mobile")
     })
     // desktop
     mm.add("(min-width: 801px)", () => {
@@ -558,15 +560,28 @@
         navigation: false,
         easing: 'linear',
         scrollingSpeed: 800,
-        /* afterLoad: function(anchorLink, index){
+        onLeave: function(index, nextIndex, direction){
+          //after leaving section 2
+          console.log(...arguments)
+          /* if(index == 2 && direction =='down'){
+            alert("Going to section 3!");
+          }
+
+          else if(index == 2 && direction == 'up'){
+            alert("Going to section 1!");
+          } */
+        },
+        afterLoad: function(anchorLink, index){
           console.log("Section " + index + " has been loaded");
-        } */
+          slide1anim("desktop")
+        },
       });
   
       $('#nextSlide').on('click', function() {
         console.log("Next Slide button clicked");
         $.fn.pagepiling.moveTo(2);
       });
+      
 
       const imageUrls = [
         ...Array.from({ length: 27 }, (_, i) => `images/elem-${i}.jpg`),

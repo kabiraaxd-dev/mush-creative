@@ -359,14 +359,14 @@
                     </div>
                     <div class="swiper-slide">
                       <div class="box">
-                        <!-- <img
+                        <img
                           class="cover-img"
                           src="projects/images/Ashbee.jpg"
                           alt="Ashbee project"
-                        /> -->
-                        <video class="cover-img" autoplay muted loop playsinline>
+                        />
+                        <!-- <video class="cover-img" autoplay muted loop playsinline>
                           <source src="projects/images/Ashbee.mp4" type="video/mp4" />
-                        </video>
+                        </video> -->
                         <p class="subtitle">Ashbee Energy- A new standard for <br>energy brands.</p>
                         <!-- <a href="projects/ashbee.html" class="btn pill"
                           >VIEW CASE STUDY <img src="images/arrow-right-black.svg" alt="" height="12" /></a
@@ -602,19 +602,38 @@
     <script src="js/main.js"></script>
     <script>
       // marquee6k.init();
-      // gsap.registerPlugin(CustomEase, CustomWiggle);
+      
+      // animation timeline
+      const tl = gsap.timeline({
+        paused: true,
+        defaults: {
+          ease: "power2.out",
+        }
+      })
 
-      gsap.from("section", {
+      tl.from("section", {
         y: -40,
         opacity: 0,
         duration: 1,
-        delay: 4,
-        ease: "power2.out",
-        stagger: 0.2,
+        delay: 0.4,
+        stagger: 0.25,
+      })
+      tl.from(".left h1, .left p", {
+        y: 20,
+        opacity: 0,
+        stagger: 0.1
+      }, "+=0.2")
+      tl.from(".founders p", {
+        y: 20,
+        opacity: 0
+      })
+      
+      window.addEventListener("preloaderHidden", (e) => {
+        console.info(e.type)
+        tl.play()
       });
 
-    </script>
-    <script>
+      // middle section swiper
       const swiper = new Swiper(".mySwiper", {
         slidesPerView: 1, // change to 2, 3, etc.
         spaceBetween: 10,

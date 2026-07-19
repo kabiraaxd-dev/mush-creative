@@ -219,6 +219,12 @@
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  aspect-ratio: 0.875;
+}
+
+.product-image.vertical > * {
+  flex-basis: 50dvh;
+  overflow: hidden;
 }
 
 .product-details {

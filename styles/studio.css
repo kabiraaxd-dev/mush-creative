@@ -805,6 +805,7 @@ td {
   .heading p {
     font-size: 18px;
     line-height: 22px;
+    margin-bottom: 0;
   }
   .heading p br {
     display: none;
@@ -823,11 +824,11 @@ td {
   .venn-wrapper {
     flex-direction: column;
     text-align: center;
-    padding: 0px 20px;
+    padding: 0px 20px 2rem;
   }
   .venn-diagram {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
     order: -1;
   }
   .venn-wrapper .side-text.left {

@@ -84,8 +84,34 @@ tl3.from(".gridarticle .webp-image", {
   opacity: 0,
 });
 
+// slide 4 Animation
+let tl4 = gsap.timeline({
+  paused: true,
+  defaults: {
+    ease: "power2.out"
+  }
+})
 
-// slide 3 Animation
+tl4.from("#section4 h2", {
+  y: 50,
+  opacity: 0
+})
+tl4.from("#section4 .heading p", {
+  y: 40,
+  opacity: 0,
+});
+tl4.from("#section4 .venn-diagram", {
+  y: 50,
+  opacity: 0,
+});
+tl4.from("#section4 .side-text", {
+  y: 50,
+  opacity: 0,
+  stagger: 0.1,
+});
+
+
+// slide 5 Animation
 let tl5 = gsap.timeline({
   paused: true,
   defaults: {

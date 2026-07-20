@@ -533,23 +533,27 @@
         gsap.utils.toArray(".section").forEach((ss, index) => {
           ScrollTrigger.create({
             trigger: ss,
-            start: "top 80%",
-            end: "top 20%",
-            markers: true,
+            start: "top 70%",
+            // end: "top 20%",
+            // markers: true,
             onEnter: ({progress, direction, isActive}) => {
-              console.info("enter"+ index, progress, isActive);
-              ss.classList.add("active")
-              if (index == 2) {
+              // console.info("enter"+ index, progress, isActive);
+              // ss.classList.add("active")
+              // index starts at 0
+              if (index == 1) {
                 tl2.from("#section2 .scroll-indicator", {y:20, opacity: 0, autoAlpha: 0})
                 tl2.play()
               }
-              if (index == 3) {
+              if (index == 2) {
                 tl3.play()
               }
-              if (index == 5) {
+              if (index == 3) {
+                tl4.play()
+              }
+              if (index == 4) {
                 tl5.play()
               }
-              if (index == 6) {
+              if (index == 5) {
                 tl6.play()
               }
             },
@@ -591,6 +595,9 @@
             }
             if (nextIndex == 3) {
               tl3.play()
+            }
+            if (nextIndex == 4) {
+              tl4.play()
             }
             if (nextIndex == 5) {
               tl5.play()

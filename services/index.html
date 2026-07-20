@@ -220,7 +220,7 @@
   <div id="pagepiling" >
     <!-- <div id="showcase" class="showcase"> -->
 
-      <div class="wrapperarticle section">
+      <div id="section1" class="wrapperarticle section">
         <div class="services-hd">
           <p>Our Services</p>
           <h2>Nearly a decade and 200+ projects shaped what we now call our
@@ -247,7 +247,7 @@
 
       </div>
 
-      <div class=" section brand-section">
+      <div id="section2" class=" section brand-section">
         <div class="branddlf">
 
           <!-- Left Content -->
@@ -301,7 +301,7 @@
         </div>
       </div>
 
-      <div class=" section brand-section">
+      <div id="section3" class=" section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -348,7 +348,7 @@
         </div>
       </div>
 
-      <div class=" section brand-section">
+      <div id="section4" class=" section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -387,7 +387,7 @@
         </div>
       </div>
 
-      <div class=" section brand-section">
+      <div id="section5" class=" section brand-section">
         <div class="branddlf">
           <div class="brand-content">
             <div class="desktop-only">
@@ -428,7 +428,7 @@
         </div>
       </div>
 
-      <div class="glob-section section">
+      <div id="section6" class="glob-section section">
         <div class="globeheading">
           <h3>We work with small and big visionaries around the globe.</h3>
         </div>
@@ -469,7 +469,7 @@
 
       </div>
 
-      <div class="cta-section section">
+      <div id="section7" class="cta-section section">
         <div class="cta-content">
           <h2>
             HAVE A <br>
@@ -536,6 +536,8 @@
   $(document).ready(function() {
     
     const mm = gsap.matchMedia();
+    gsap.registerPlugin(ScrollTrigger) 
+
     // mobile
     mm.add("(max-width: 800px)", () => {
       // console.log("mobile")
@@ -547,7 +549,40 @@
         sessionStorage.setItem("reload", "true")
         window.location.reload()
       } 
-      slide1anim("mobile")
+
+      window.addEventListener("preloaderHidden", () => {
+        // tl1.from(".scroll-indicator", {y:20, opacity: 0, autoAlpha: 0})
+        tl1.play()
+      })
+
+      gsap.utils.toArray(".section").forEach((ss, index) => {
+        ScrollTrigger.create({
+          trigger: ss,
+          start: "top 70%",
+          // end: "top 20%",
+          // markers: true,
+          onEnter: ({progress, direction, isActive}) => {
+            // console.info("enter"+ index, progress, isActive);
+            // ss.classList.add("active")
+            // index starts at 0
+            if (index == 1 || index == 2 || index == 3 || index == 4) {
+              // tl2.from("#section2 .scroll-indicator", {y:20, opacity: 0, autoAlpha: 0})
+              
+              brandAnim("section"+(index+1))
+            }
+            if (index == 5) {
+              logoTl.play()
+            }
+            if (index == 6) {
+              ctaTl.play()
+            }
+          },
+          /* onLeave: ({progress, direction, isActive}) => {
+            console.log("leave",  isActive)
+          }, */
+        });
+      });
+      
     })
     // desktop
     mm.add("(min-width: 801px)", () => {
@@ -560,20 +595,29 @@
         navigation: false,
         easing: 'linear',
         scrollingSpeed: 800,
-        onLeave: function(index, nextIndex, direction){
-          //after leaving section 2
-          console.log(...arguments)
-          /* if(index == 2 && direction =='down'){
-            alert("Going to section 3!");
-          }
-
-          else if(index == 2 && direction == 'up'){
-            alert("Going to section 1!");
-          } */
+        afterRender: function(){
+          // console.log("The resulting DOM structure is ready");
+          window.addEventListener("preloaderHidden", () => {
+            tl1.play()
+          })
         },
         afterLoad: function(anchorLink, index){
-          console.log("Section " + index + " has been loaded");
-          slide1anim("desktop")
+          // console.log("Section " + index + " loaded");
+          if (index == 6) {
+            logoTl.play()
+          }
+
+          if (index == 7) {
+            ctaTl.play()
+          }
+        },
+        onLeave: function(index, nextIndex, direction){
+          // console.log("on leave", index, nextIndex)
+          if(nextIndex == 2 || nextIndex == 3 || nextIndex == 4 || nextIndex == 5){
+            // console.info("Going to section " + nextIndex);
+            // btl.play()
+            brandAnim("section"+nextIndex)
+          }
         },
       });
   

@@ -108,7 +108,7 @@ if (gallery && wrapper) {
       article.dataset.revealed = "true";
       let ael = gsap.utils.toArray("p, h1, h2, h4, h3");
       
-      const ptl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" } });
+      const ptl = gsap.timeline({ defaults: { ease: "power2.out" } });
       if (ael.length > 0) {
         ptl.to(ael, {
           y: 0,
@@ -116,7 +116,6 @@ if (gallery && wrapper) {
           stagger: 0.25,
         });
       }
-      
       
     });
   }

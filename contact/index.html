@@ -278,7 +278,7 @@
 
             <div class="form">
               <div class="title">
-                <h1 class="animate">Have a project in mind? Let’s talk.</h1>
+                <h1 class="">Have a project in mind? Let’s talk.</h1>
               </div>
 
               <form id="contactForm">
@@ -342,9 +342,9 @@
       <!-- </div>
     </div> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 
     <script src="../js/menu.js"></script>
     <script src="../js/main.js"></script>
@@ -438,49 +438,59 @@
       });
 
       // ================= GSAP ANIMATIONS =================
-      /* gsap.from(".navbar", {
-        y: -60,
-        opacity: 0,
-        duration: 1,
-      }); */
+      
       const socials = document.querySelectorAll(".social-info span");
-
-
-      gsap.from(".info-section", {
-        x: -40,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
+  
+      let split1 = SplitText.create("h1", {
+        type: "words",
+        mask: "lines",
+        autoSplit: true,
       });
 
-      gsap.from(".animate", {
+      const tl = gsap.timeline({
+        paused: true,
+        defaults: {
+          ease: "power3.out",
+        }
+      })
+
+      tl.from(".info-section", {
+        x: 40,
+        opacity: 0,
+        skewX: 15,
+        stagger: 0.25,
+      });
+      
+      tl.from(split1.words, {
+        yPercent: 80,
+        autoAlpha: 0,
+        stagger: 0.1,
+        ease: "back.out",
+        onComplete: () => split1.revert(), // revert the element to its original (unsplit) state
+      });
+      
+      tl.from(".animate", {
         y: 30,
         opacity: 0,
-        stagger: 0.15,
-        duration: 1,
-        delay: 0.3,
-      });
-
-      gsap.from(socials, {
-          y: 20,
-          opacity: 0,
-          stagger: 0.1,
-        },
-        "-=0.3",
-      );
-
-      // SUBMIT BUTTON
-      gsap.from(".submit-btn", {
-        scrollTrigger: {
-          trigger: "#contactForm",
-          start: "top 90%",
-        },
+        stagger: 0.25,
+      }, "-=0.5");
+      
+      tl.from(socials, {
         y: 20,
+        opacity: 0,
+        stagger: 0.15,
+      }, "-=0.3");
+    
+      tl.from("#contactForm .mag-zone", {
+        y: 40,
         scale: 0.8,
         opacity: 0,
-        duration: 0.5,
-        ease: "back.out(1.7)",
-      }, "+=0.2");
+      }, "-=0.2");
+
+      window.addEventListener("preloaderHidden", () => {
+        // tl1.from(".scroll-indicator", {y:20, opacity: 0, autoAlpha: 0})
+        tl.play()
+      })
     </script>
   </body>
 </html>

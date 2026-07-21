@@ -225,7 +225,7 @@ form .mag-zone,
   }
   .form h1 {
     /* font-size: 32px; */
-    /* line-height: normal; */
+    line-height: normal;
     letter-spacing: -2.25px;
   }
 }

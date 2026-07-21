@@ -368,6 +368,7 @@ td {
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -2%;
+  position: relative;
 }
 
 .team-info h6 {
@@ -408,7 +409,7 @@ td {
 
 .team-card .linkedin-icon {
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;
   right: 15px;
   z-index: 2;
   background: #0c0c0cf0;
@@ -416,12 +417,16 @@ td {
   height: 35px;
   border-radius: 10px;
   display: inline-flex;
-  transition: background 300ms ease-out;
+  transition: all 300ms ease-out;
   /* transform-origin: center; */
+  opacity: 0;
 }
-.team-card .linkedin-icon:hover {
-  background-color: rgba(10, 20, 18, 0.75);
+.team-card:hover .linkedin-icon {
+  /* background-color: rgba(10, 20, 18, 0.75); */
   /* transform: scale(1.05) skew(-2deg); */
+  bottom: calc(100% + 15px);
+  right: 15px;
+  opacity: 1;
 }
 .team-card .linkedin-icon img {
   width: auto;
@@ -566,6 +571,7 @@ td {
   line-height: 80px;
   letter-spacing: -4%;
   margin: 0px;
+  transform-origin: center;
 }
 
 .brand-content p,
@@ -863,13 +869,14 @@ td {
     margin: 0;
   }
 
-  .wall-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
   .wall-of-fame {
     padding: 0px 20px 50px 20px;
     display: block;
+  }
+  .team-card .linkedin-icon {
+    opacity: 1;
+    bottom: 60px;
+    right: 15px;
   }
 
   .cta-content h2 {
@@ -1054,3 +1061,20 @@ td {
 
 }
 
+@media screen and (min-width: 640px) and (max-width: 800px){
+  .wall-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .fame-content {
+    order: initial;
+  }
+  .fame-content h2 {
+    font-size: 36px;
+    line-height: 54px;
+  }
+  .fame-content p {
+    font-size: 20px;
+    line-height: 1.24;
+  }
+}

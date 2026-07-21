@@ -243,7 +243,7 @@ Promise.race([
   fallback,
 ])
   .then((value) => {
-    console.log("preloader ready", value);
+    // console.log("preloader ready", value);
     hidePreloader();
   })
   .catch((error) => {

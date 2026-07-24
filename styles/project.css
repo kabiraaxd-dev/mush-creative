@@ -9,7 +9,7 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
-  padding-top: 8rem;
+  padding-top: 8.5rem;
   padding-bottom: 5rem;
 }
 
@@ -36,9 +36,9 @@
 /* .gallery article video { */
 .gallery article figure,
 .gallery article .video-wrapper {
-  margin: 0 0 0.5rem;
+  margin: 0.5rem 0 0.5rem;
   padding: 0;
-  height: 82%;
+  height: 88%;
   aspect-ratio: 0.73;
 
   /* margin: 0 0 0.5rem; */

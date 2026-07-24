@@ -372,7 +372,9 @@ td {
 }
 
 .team-info h6 {
+  font-family: "degular", sans-serif;
   font-size: 16px;
+  line-height: 18px;
   font-weight: 400;
   margin: 0px;
 }
@@ -946,7 +948,7 @@ td {
   }
   .brandlogo ul {
     height: auto;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px 20px;
   }
   .brandlogo li img {

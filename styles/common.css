@@ -15,6 +15,7 @@
     rgba(228, 228, 228, 0.9) 57%,
     rgba(244, 244, 244, 0.9) 100%
   );
+  
   --button-bg: linear-gradient(0deg, var(--primary-color), var(--secondary-color));
 }
 
@@ -29,7 +30,7 @@
   --footer-text: #000;
   --footer-text-secondary: #a2a2a2;
   --footer-border: #292929;
-  --mobile-menu-bg: linear-gradient(90deg, rgba(14, 15, 18, 0.9), rgba(18, 20, 19, 0.8) 57%, rgba(25,26,27,0.9));
+  --mobile-menu-bg: rgba(26,26,26,0.95);
   --button-bg: linear-gradient(180deg, var(--primary-color), var(--btn-text));
 }
 * {
@@ -405,6 +406,9 @@ footer {
     justify-content: space-between;
     padding: 12px 26px;
     background: var(--mobile-menu-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: 2px 2px 0.5px -2px #FFFFFF80 inset;
+
     position: fixed;
     top: 1rem;
     left: 1rem;

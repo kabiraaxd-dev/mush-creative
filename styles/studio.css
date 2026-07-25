@@ -875,6 +875,11 @@ td {
     padding: 0px 20px 50px 20px;
     display: block;
   }
+.team-card > img {
+  aspect-ratio: 255/322;
+  height: auto;
+  border-radius: 1rem;
+}
   .team-card .linkedin-icon {
     opacity: 1;
     bottom: 60px;

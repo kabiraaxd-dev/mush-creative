@@ -123,8 +123,8 @@ main section.right {
   max-width: 15rem;
 }
 .founders .btn {
-  background-color: var(--background-color);
-  color: var(--btn-text);
+  background-color:#f0f0f0;
+  color: #0d0d0d;
 }
 .founders .mag-zone {
   width: auto;

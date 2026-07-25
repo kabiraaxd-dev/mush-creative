@@ -36,7 +36,7 @@
 /* .gallery article video { */
 .gallery article figure,
 .gallery article .video-wrapper {
-  margin: 0.5rem 0 0.5rem;
+  margin: 1rem 0 0.5rem;
   padding: 0;
   height: 88%;
   aspect-ratio: 0.73;

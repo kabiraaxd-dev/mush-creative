@@ -314,52 +314,64 @@ if (gallery && wrapper) {
   });
 }
 
-// custom cursor figure inside product-image
+const mm = gsap.matchMedia();
 const productImages = document.querySelectorAll(".cursor-hover");
-
-productImages.forEach((container) => {
-  let textContent = container.dataset?.cursorText || "Discover";
-  const cursor = document.createElement("figure");
-  cursor.textContent = textContent;
-  cursor.className = "cursor-figure";
-  container.appendChild(cursor);
-
-  container.addEventListener("mouseenter", (event) => {
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    gsap.set(cursor, { x, y, scale: 1 });
-    gsap.to(cursor, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.3,
-      ease: "power3.out",
+mm.add("(max-width: 800px", () => {
+  console.log("mobile code here")
+  if (sessionStorage.getItem("reload") == "false") {
+    sessionStorage.setItem("reload", "true");
+    window.location.reload();
+  } 
+})
+mm.add("(min-width: 801px)", () => {
+  console.log("desktop code here")
+  // custom cursor figure inside product-image
+  sessionStorage.setItem("reload", "false");
+  
+  productImages.forEach((container) => {
+    let textContent = container.dataset?.cursorText || "Discover";
+    const cursor = document.createElement("figure");
+    cursor.textContent = textContent;
+    cursor.className = "cursor-figure";
+    container.appendChild(cursor);
+    
+    container.addEventListener("mouseenter", (event) => {
+      const rect = container.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      
+      gsap.set(cursor, { x, y, scale: 1 });
+      gsap.to(cursor, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    });
+    
+    container.addEventListener("mousemove", (event) => {
+      const rect = container.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      
+      gsap.to(cursor, {
+        x,
+        y,
+        duration: 1,
+        ease: "back.out(3)",
+      });
+    });
+    
+    container.addEventListener("mouseleave", () => {
+      gsap.to(cursor, {
+        opacity: 0,
+        scale: 0.85,
+        duration: 0.5,
+        ease: "power2.out",
+      });
     });
   });
-
-  container.addEventListener("mousemove", (event) => {
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    gsap.to(cursor, {
-      x,
-      y,
-      duration: 1,
-      ease: "back.out(3)",
-    });
-  });
-
-  container.addEventListener("mouseleave", () => {
-    gsap.to(cursor, {
-      opacity: 0,
-      scale: 0.85,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  });
-});
+})
 
 const videoModal = document.querySelector(".video-modal");
 const videoModalContent = videoModal?.querySelector(".video-modal-content");
@@ -402,14 +414,24 @@ function openVideoModal({ src, type = "mp4" }) {
     const video = document.createElement("video");
     video.controls = true;
     video.autoplay = true;
-    video.playsInline = true;
+    video.muted = true;
     video.loop = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("preload", "auto");
 
     const source = document.createElement("source");
     source.src = src;
     source.type = "video/mp4";
     video.appendChild(source);
     videoModalContent.appendChild(video);
+
+    video.play().catch(() => {
+      // iOS/Safari can still block autoplay in some cases; the muted inline setup
+      // above is the compatible path, and the fallback is to let the browser show controls.
+    });
 
     video.addEventListener(
       "error",

@@ -170,6 +170,39 @@ function setupMediaLoaders() {
 
 document.addEventListener("DOMContentLoaded", setupMediaLoaders);
 
+function setupInlineVideos() {
+  const videos = Array.from(document.querySelectorAll("video"));
+
+  videos.forEach((video) => {
+    if (!video.hasAttribute("autoplay")) {
+      return;
+    }
+
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("preload", "auto");
+
+    const startPlayback = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    };
+
+    if (video.readyState >= 2) {
+      startPlayback();
+    } else {
+      video.addEventListener("loadedmetadata", startPlayback, { once: true });
+      video.addEventListener("canplay", startPlayback, { once: true });
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", setupInlineVideos);
+
 const MIN_PRELOADER_VISIBLE_MS = 4000;
 const preloaderStartTime = Date.now();
 

@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
   }
   
   function setTheme(theme, save = false) {
-    console.info(...arguments)
+    // console.info(...arguments)
     const shouldUseDarkTheme = theme === "dark";
     const isDarkTheme = document.body.classList.contains("dark-theme");
     

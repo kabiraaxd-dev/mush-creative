@@ -363,7 +363,9 @@ article.last a {
   width: auto;
   height: auto;
   padding: 1rem;
-  justify-self: flex-start;
+  /* justify-self: flex-start; */
+  justify-content: start;
+  justify-content: flex-start;
   left: -1rem;
 }
 .product-details .btn {
